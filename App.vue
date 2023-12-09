@@ -114,4 +114,8 @@
 	page {
 		background-color: #16171D;
 	}
+	
+	uni-swiper.card-swiper .uni-swiper-wrapper{
+		overflow:  unset !important;
+	}
 </style>
