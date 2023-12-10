@@ -37,11 +37,30 @@ const timestampyue = (timestamp) => {
     return M + D 
 };
 
+
+const isNotBlank = (value) => {
+    if (value === undefined || value === null || value === '' || value === 'null') {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+const isBlank = (value) => {
+    if (value === undefined || value === null || value === '') {
+        return true;
+    } else {
+        return false;
+    }
+};
+
 /**
  * 导出 
  **/
 export {
     timestampToTimes,
 	timestampToTime,
-	timestampyue
+	timestampyue,
+    isNotBlank,
+    isBlank
 }

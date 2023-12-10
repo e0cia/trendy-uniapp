@@ -1,6 +1,6 @@
 // 请求接口
 // const commoneUrl = "https://gongshen.yuanmajie.top/";
-const commoneUrl = "http://127.0.0.1:8081";
+const commoneUrl = "http://112.124.38.175:8080";
 // new 域名
  
 //get请求封装
@@ -12,8 +12,7 @@ function getRequest(url, data) {
 			data: postData,
 			method: "GET",
 			header: {
-				//"Authorization": uni.getStorageSync('Authorization')
-				"Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImU1N2ViNWRjLTBmZjQtNGUzZS04ZjA4LTdhNTA4N2I2OGFlMSJ9.mZBIoIwcUYH21KFvv0uDVDt1d2naWr5HETYceg48k52YBzc96hs7ynIDH_Dw0yIR3KTohJENViEGokDt3FesiA"
+				"Authorization": uni.getStorageSync('Authorization')
 			},
 			success: function(res) {
 				if (res.statusCode === 200) {
@@ -39,8 +38,7 @@ function postRequest(url, data) {
 			data: postData,
 			method: 'POST',
 			header: {
-				//"Authorization": uni.getStorageSync('Authorization')
-				"Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImU1N2ViNWRjLTBmZjQtNGUzZS04ZjA4LTdhNTA4N2I2OGFlMSJ9.mZBIoIwcUYH21KFvv0uDVDt1d2naWr5HETYceg48k52YBzc96hs7ynIDH_Dw0yIR3KTohJENViEGokDt3FesiA"
+				"Authorization": uni.getStorageSync('Authorization')
 			},
 			success: function(res) {
 				

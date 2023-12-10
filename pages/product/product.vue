@@ -15,7 +15,7 @@
       <!--			<swiper-item v-for="(item,index) in swiperList" :key="index" :class="cardCur==index?'cur':''">-->
       <swiper-item class="cur">
         <view class="swiper-item image-banner">
-          <image src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/xcx/A001.png" mode="aspectFill"></image>
+          <image :src="mainImage" mode="aspectFill"></image>
         </view>
 
         <!--				<view class="swiper-item2 image-banner">-->
@@ -126,6 +126,7 @@ export default {
 
       cardCur: 0,
       swiperList: [],
+      mainImage: '',
       bydata: {},
       detialImageList:[]
     }
@@ -186,8 +187,10 @@ export default {
             console.log(res)
             this.swiperList = res.data.goodImageJson.split(",");
             this.detialImageList =  res.data.goodDesc.split(",");
+            this.mainImage =  res.data.goodImageJson.split(",")[1];
             this.bydata = res.data
-            // console.log(res)
+            console.log(this.mainImage)
+            console.log(res.data.goodImageJson)
           })
     },
     formatRichText(html) {

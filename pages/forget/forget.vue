@@ -10,13 +10,9 @@
     </tn-nav-bar>
     
     <view class="login">
-      <!-- 顶部背景图片-->
-      <!-- <view class="login__bg login__bg--top">
-        <image class="bg" src="https://tnuiimage.tnkjapp.com/login/2/login-top2.png" mode="widthFix"></image>
-      </view> -->
 
       <view class="login__wrapper">
-        <view class="" v-if="currentModeIndex === 1">
+        <view  >
           <view class="tn-margin-left tn-margin-right tn-text-bold tn-color-white" style="font-size: 40rpx;">
             重置密码
           </view>
@@ -24,58 +20,17 @@
             请输入账号以及验证码
           </view>
         </view>
-        
-        <view class="" v-if="currentModeIndex === 0">
-          <view class="tn-margin-left tn-margin-right tn-text-bold tn-color-white" style="font-size: 40rpx;">
-            设置新密码
-          </view>
-          <view class="tn-margin tn-color-gray--dark tn-text-lg">
-            请输入新的密码
-          </view>
-        </view>
-        
-        
-        <!-- 登录/注册切换 -->
-        <!-- <view class="login-sussuspension login__mode tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-center">
-          <view class="login__mode__item tn-flex-1" :class="[{'login__mode__item--active': currentModeIndex === 0}]" @tap.stop="modeSwitch(0)">
-            登录
-          </view>
-          <view class="login__mode__item tn-flex-1" :class="[{'login__mode__item--active': currentModeIndex === 1}]" @tap.stop="modeSwitch(1)">
-            注册
-          </view>
-          <view class="login__mode__slider tn-cool-bg-color-15--reverse" :style="[modeSliderStyle]"></view>
-        </view> -->
-        
         <!-- 输入框内容-->
         <view class="login__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
           <!-- 设置新密码 -->
-          <block v-if="currentModeIndex === 0">
-            <!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
-              <view class="login__info__item__input__left-icon">
-                <view class="tn-icon-email"></view>
-              </view>
-              <view class="login__info__item__input__content">
-                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入电子邮箱" />
-              </view>
-            </view> -->
-            
-            <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
-              <view class="login__info__item__input__left-icon">
-                <view class="tn-icon-lock"></view>
-              </view>
-              <view class="login__info__item__input__content">
-                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入新密码" />
-              </view>
-            </view>
-          </block>
           <!-- 验证 -->
-          <block v-if="currentModeIndex === 1">
+          <block >
             <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
                 <view class="tn-icon-email"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入手机/账号" />
+                <input v-model="form.userName" maxlength="20" placeholder-class="input-placeholder" placeholder="请输入手机/账号" />
               </view>
             </view>
             
@@ -84,84 +39,42 @@
                 <view class="tn-icon-safe"></view>
               </view>
               <view class="login__info__item__input__content login__info__item__input__content--verify-code">
-                <input placeholder-class="input-placeholder" placeholder="请输入验证码" />
+                <input  v-model="form.smsCode"  placeholder-class="input-placeholder" placeholder="请输入验证码" />
               </view>
               <view class="login__info__item__input__right-verify-code" @tap.stop="getCode">
                 <tn-button backgroundColor="#FFFFFF" fontColor="#000000" size="sm" padding="5rpx 10rpx" width="100%" shape="round">{{ tips }}</tn-button>
               </view>
             </view>
             
-            <!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+            <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
+                <input  v-model="form.passWord"  :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
               </view>
               <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
                 <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
               </view>
-            </view> -->
+            </view>
           </block>
-          
-          <!-- 悬浮按钮-->
-          <view class="tn-flex tn-footerfixed" v-if="currentModeIndex === 0">
-            <view class="tn-flex-1 justify-content-item tn-margin-right tn-margin-left-xs tn-text-center">
-              <tn-button backgroundColor="#FFFFFF " padding="40rpx 0" width="60%" :fontSize="28" fontColor="#000000" shape="round"  @click="tn('../login/login')">
-                <text class="">确认新密码</text>
-              </tn-button>
+          <uni-view class="tn-flex tn-flex-row-between tn-padding-xl"></uni-view>
+
+          <view style="width: 100%" >
+            <view class="kaka-custom-style">
+              <span class="kaka-custom-text">登录</span>
             </view>
           </view>
-          
-          <!-- 悬浮按钮-->
-          <view class="tn-flex tn-footerfixed" v-if="currentModeIndex === 1">
-            <view class="tn-flex-1 justify-content-item tn-margin-right tn-margin-left-xs tn-text-center">
-              <tn-button backgroundColor="#FFFFFF " padding="40rpx 0" width="60%" :fontSize="28" fontColor="#000000" shape="round"  @tap.stop="modeSwitch(0)">
-                <text class="">下一步</text>
-              </tn-button>
-            </view>
-          </view>
-          
-          <!-- <view v-if="currentModeIndex === 1" :class="[{'login__info__item__tips': currentModeIndex === 0}]">
+          <view >
             <view class="tn-flex tn-flex-row-between tn-padding-xl">
-              <view class="" style="color: #576B95;" @tap.stop="modeSwitch(0)">已有账号？前往登录</view>
+              <view class="" style="color: #FFFFFF80;"  @click="tn('/pages/login/login')">已有账号？前往登录</view>
             </view>
           </view>
-          <view v-if="currentModeIndex === 0" :class="[{'login__info__item__tips': currentModeIndex === 1}]">
-            <view class="tn-flex tn-flex-row-between tn-padding-xl">
-              <view class="tn-padding-right" style="color: #576B95;" @tap.stop="modeSwitch(1)">账号注册</view>
-              <view class="tn-padding-left" style="color: #576B95;" @click="tn('')">忘记密码？</view>
-            </view>
-          </view> -->
-          
         </view>
-        
-        <!-- 其他登录方式 -->
-        <!-- <view class="login__way tn-flex tn-flex-col-center tn-flex-row-center">
-          <view class="tn-padding-sm tn-margin-xs">
-            <view class="login__way__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-teal--dark">
-              <view class="tn-icon-wechat-fill"></view>
-            </view>
-          </view>
-          <view class="tn-padding-sm tn-margin-xs">
-            <view class="login__way__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-red">
-              <view class="tn-icon-sina"></view>
-            </view>
-          </view>
-          <view class="tn-padding-sm tn-margin-xs">
-            <view class="login__way__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-blue">
-              <view class="tn-icon-qq"></view>
-            </view>
-          </view>
-        </view> -->
+
         
         
       </view>
-      
-      <!-- 底部背景图片-->
-      <!-- <view class="login__bg login__bg--bottom">
-        <image src="https://tnuiimage.tnkjapp.com/login/2/login-bottom2.png" mode="widthFix"></image>
-      </view> -->
   
     </view>
     
@@ -191,7 +104,18 @@
         // 是否显示密码
         showPassword: false,
         // 倒计时提示文字
-        tips: '获取验证码'
+        tips: '获取验证码',
+        //邀请码
+        form: {
+          inviteCode: '',//验证码
+          jsCode: '',//发送验证码时候验证的
+          userName: '',//用户名
+          smsCode: '',//验证码
+          passWord: '',//密码
+          rePassWord: '',//确认密码
+          payPassword: '',//支付密码
+          rePayPassWord: ""//确认支付密码
+        }
       }
     },
     watch: {
@@ -473,5 +397,42 @@
     font-size: 24rpx;
     color: #838383;
   }
-  
+
+  .kaka-custom-style {
+    color: white;
+    border-width: 0px;
+    background-image: linear-gradient(90deg, #61309d, #f6b0e3);
+    height: 56px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 0px 0px #61309d;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+  }
+
+  .kaka-custom-text {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .login__info__item__input__right-verify-code uni-button {
+    background: unset !important;
+    color: #0670ec !important;
+  }
+  .template-forget{
+    height: 100vh;
+    position: relative;
+    background-size: 100%;
+    background: url(https://demoh5.sxqichuangkeji.com/static/login_bg.png) no-repeat;
+  }
+  .login__wrapper {
+    position: absolute;
+    top: 156px;
+    width: 100%;
+    margin-top: unset;
+  }
+
 </style>
