@@ -27,7 +27,7 @@
 								<view slot="addBtn" class="tn-image-upload__custom-btn" hover-class="tn-hover-class"
 									hover-stay-time="150">
 									<view class="tn-shadow-blur"
-										:style="'background-image:url('+userData.logo+')'"   style="width: 80rpx;height: 80rpx;background-size: cover;">
+										:style="'background-image:url('+userInfo.avatar+')'"   style="width: 80rpx;height: 80rpx;background-size: cover;">
 									</view>
 								</view>
 							</tn-image-upload>
@@ -42,68 +42,34 @@
 						姓名
 					</view>
 					<view class="tn-color-gray tn-padding-top-xs">
-						{{userData.nickname==undefined ? "未填写":userData.nickname}}
+						{{userInfo.extendUserInfo.name==undefined ? "未填写":userInfo.extendUserInfo.name}}
 					</view>
 				</view>
 				<view class="justify-content-item tn-text-lg tn-color-gray">
 					<view class="tn-icon-right tn-padding-top"></view>
 				</view>
 			</view>
-			<picker @change="bindPickerChange" :value="index" :range="array">
-				<view class="tn-flex tn-flex-row-between tn-strip-bottom-min tn-padding">
-					<view class="justify-content-item">
-						<view class="tn-text-bold tn-text-lg tn-color-white">
-							性别
-						</view>
-						<view class="tn-color-gray tn-padding-top-xs">
 
-							<view class="tn-color-gray">
-							{{userData.sex==undefined ? "未填写":userData.sex}}
-							</view>
-						</view>
-					</view>
-					<view class="justify-content-item tn-text-lg tn-color-grey">
-						<view class="tn-icon-right tn-padding-top"></view>
-					</view>
-				</view>
-			</picker>
-			<picker @change="bindDateChange" mode="date" :value="date" :start="startDate" :end="endDate">
-				<view class="tn-flex tn-flex-row-between tn-strip-bottom-min tn-padding">
-					<view class="justify-content-item">
-						<view class="tn-text-bold tn-text-lg tn-color-white">
-							生日
-						</view>
-						<view class="tn-color-gray tn-padding-top-xs">
-							{{userData.birthday==undefined ? "未填写":userData.birthday}}
-						</view>
-					</view>
-					<view class="justify-content-item tn-text-lg tn-color-grey">
-						<view class="tn-icon-right tn-padding-top"></view>
-					</view>
-				</view>
-			</picker>
-			<picker @change="bindPickerChange1" :value="index1" :range="array1">
-				<view class="tn-flex tn-flex-row-between tn-strip-bottom-min tn-padding">
-					<view class="justify-content-item">
-						<view class="tn-text-bold tn-text-lg tn-color-white">
-							职业
-						</view>
-						<view class="tn-color-gray tn-padding-top-xs">
-							{{userData.career==undefined ? "未填写":userData.career}}
-						</view>
-					</view>
-					<view class="justify-content-item tn-text-lg tn-color-grey">
-						<view class="tn-icon-right tn-padding-top"></view>
-					</view>
-				</view>
-			</picker>
+      <view class="tn-flex tn-flex-row-between tn-strip-bottom-min tn-padding" >
+        <view class="justify-content-item">
+          <view class="tn-text-bold tn-text-lg tn-color-white">
+            账号
+          </view>
+          <view class="tn-color-gray tn-padding-top-xs">
+            {{userInfo.userName==undefined ? "未填写":userInfo.userName}}
+          </view>
+        </view>
+        <view class="justify-content-item tn-text-lg tn-color-gray">
+          <view class="tn-icon-right tn-padding-top"></view>
+        </view>
+      </view>
 			<tn-modal v-model="show3" :custom="true" :showCloseBtn="true">
 				<view class="custom-modal-content">
 					<view class="">
-						<view class="tn-text-lg tn-text-bold tn-text-center tn-padding">请输入真实姓名</view>
+						<view class="tn-text-lg tn-text-bold tn-text-center tn-padding">请输入昵称</view>
 						<view class="tn-bg-gray--light"
 							style="border-radius: 10rpx;padding: 20rpx 30rpx;margin: 50rpx 20rpx 60rpx 20rpx;">
-							<input placeholder="请填写姓名" name="input" v-model="name" placeholder-style="color:#AAAAAA"
+							<input placeholder="请填写昵称" name="input" v-model="userInfo.extendUserInfo.name" placeholder-style="color:#AAAAAA"
 								maxlength="20"></input>
 						</view>
 					</view>
@@ -134,11 +100,7 @@
 
 <script>
 	import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
-	import WxUserInfoModal from '@/uni_modules/tuniaoui-wx-user-info/components/tuniaoui-wx-user-info/tuniaoui-wx-user-info.vue'
 	export default {
-		components: {
-			WxUserInfoModal
-		},
 		name: 'TemplateSet',
 		mixins: [template_page_mixin],
 		data() {
@@ -148,44 +110,26 @@
 				show2: false,
 				show3: false,
 				index: 0,
-				array: ['保密','女', '男' ],
-				date: '2000-01-29',
 				index1: 1,
-				array1: ['计算机/电子', '高级UI设计', '会计/金融','产品经理', '技术总监', '项目经理', '自由工作者', '学生', '政府/非盈利组织/其他'],
 				action:"",
 				header:{
 					"Authorization": uni.getStorageSync('Authorization')
 				},
 				name:"",
-				userData:{},
-				zhiye:"",
+        userInfo:{},
 			}
 		},
+    mounted() {
+      //初始化用户信息
+      this.userInfo = uni.getStorageSync("userInfo")
+    },
 		computed: {
-			startDate() {
-				return this.getDate('start');
-			},
-			endDate() {
-				return this.getDate('end');
-			},
 		},
 		onLoad() {
 			this.action=this.$http.commoneUrl+'file/imges'
 			// console.log(this.$http.commoneUrl)
-			this.getuser()
 		},
 		methods: {
-			getuser(){
-				// console.log(12)
-				this.$http.postRequest('User/getUserData', {})
-					.then(res => {
-						this.userData=res.data
-					})
-			},
-			success(data, index, lists, name){
-				this.userData.logo=data.data;
-				// console.log(data, index, lists, name)
-			},
 			// 跳转
 			tn(e) {
 				uni.navigateTo({
@@ -220,51 +164,21 @@
 				this.show3 = true
 			},
 
-			bindPickerChange: function(e) {
-				let index1 = e.detail.value
-				this.userData.sex=this.array[index1];
-			},
-
-			bindPickerChange1: function(e) {
-				let index1 = e.detail.value
-				this.userData.career=this.array1[index1];
-				
-			},
-
-			bindDateChange: function(e) {
-				this.userData.birthday = e.detail.value
-				console.log(this.userData)
-			},
-
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				let day = date.getDate();
-
-				if (type === 'start') {
-					year = year - 60;
-				} else if (type === 'end') {
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;
-				day = day > 9 ? day : '0' + day;
-				return `${year}-${month}-${day}`;
-			},
-
 			baocun(){
-				  this.userData.nickname=this.name;
 				  this.show3=false
 			},
 			update(){
-				this.$http.postRequest('User/updateUser', this.userData)
+        console.log(this.userInfo)
+        let param={
+          nickName:this.userInfo.extendUserInfo.name,
+          avatar:""
+        }
+				this.$http.postRequest('/kakabl/extenduser/center/updateUserInfo', param)
 					.then(res => {
-						uni.setStorageSync("nickname", this.userData.nickname)
-						uni.setStorageSync("logo", this.userData.logo)
 						uni.showToast({
 							title: '保存成功',
 							icon:'none',
-							duration: 2000 
+							duration: 2000
 						});
 						uni.navigateBack({
 							delta:1,//返回层数，2则上上页

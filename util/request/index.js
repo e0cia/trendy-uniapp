@@ -1,6 +1,6 @@
 // 请求接口
 // const commoneUrl = "https://gongshen.yuanmajie.top/";
-const commoneUrl = "http://112.124.38.175:8080";
+const commoneUrl = "http://127.0.0.1:8081";
 // new 域名
  
 //get请求封装
@@ -41,10 +41,14 @@ function postRequest(url, data) {
 				"Authorization": uni.getStorageSync('Authorization')
 			},
 			success: function(res) {
-				
-				if (res.statusCode === 200 && res.data.resultCode == 0) {
+				console.log(res.data.code)
+				if (res.statusCode === 200 && res.data.code == 200) {
 					resolve(res.data);
-				} else {
+				} else if (res.data.code == 401){
+					uni.navigateTo({
+						url: '/pages/login/login',
+					});
+				}else {
 					resolve(res.data)
 				}
 			},

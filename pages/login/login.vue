@@ -164,11 +164,24 @@
 
         </view>
 
-
       </view>
 
-    </view>
 
+    </view>
+    <view class="kk-register-xieyi">
+      <view class="agreen">
+        <view @click="isSure()" class="flex-center radio-box">
+          <view v-if="!isSureFlag" class="false"></view>
+          <image v-else class="sure" :src="'https://demoh5.sxqichuangkeji.com/static/public/i11.png'"></image>
+        </view>
+        <view class="desc">
+          <text class="text1">我已阅读并同意</text>
+          <text style="color: #0670ec" class="text1">用户协议</text>
+          <text class="text1">和</text>
+          <text style="color: #0670ec" class="text1">隐私协议</text>
+        </view>
+      </view>
+    </view>
     <!-- 验证码倒计时 -->
     <tn-verification-code
         ref="code"
@@ -208,7 +221,8 @@ export default {
         rePassWord: '',//确认密码
         payPassword: '',//支付密码
         rePayPassWord: ""//确认支付密码
-      }
+      },
+      isSureFlag: false
 
     }
   },
@@ -232,6 +246,9 @@ export default {
     },
     // 获取验证码
     getCode() {
+      if (this.currentModeIndex===2){
+
+      }
       if (this.$refs.code.canGetCode) {
         this.$t.message.loading('正在获取验证码')
         setTimeout(() => {
@@ -248,9 +265,22 @@ export default {
     codeChange(event) {
       this.tips = event
     },
+    isSure() {
+      this.isSureFlag = !this.isSureFlag;
+    },
+
     //登录
     login() {
+      //是否同意隐私
+      if (!this.isSureFlag){
+        this.$t.message.toast('请先阅读并同意《用户协议》与《隐私条款》')
+        return;
+      }
       //账号密码登录
+      this.passwordLogin()
+    },
+    //账号密码登录
+    passwordLogin() {
       if (this.currentModeIndex === 0) {
         if (util.isBlank(this.form.userName)) {
           this.$t.message.toast('账号不可为空')
@@ -260,20 +290,20 @@ export default {
           this.$t.message.toast('密码不可为空')
           return;
         }
-        let param = {"username":this.form.userName,"password":this.form.passWord}
+        let param = {"username": this.form.userName, "password": this.form.passWord}
+        this.$t.message.loading('正在登录')
         this.$http.postRequest('/login', param)
             .then(res => {
-              if (res.code === 500){
-                this.$t.message.toast(res.msg)
-              }else if (res.code === 200) {
+              if (res.code === 200) {
+                this.$t.message.closeLoading()
                 uni.setStorageSync("Authorization", res.data.token)
                 uni.setStorageSync("userInfo", res.data.userInfo)
-                console.log(uni.getStorageSync("Authorization"))
-                console.log(uni.getStorageSync("userInfo"))
+                this.tn('../index/index?index=3')
+              }else {
+                this.$t.message.toast(res.msg)
               }
 
             })
-
       }
     }
   }
@@ -308,7 +338,7 @@ export default {
 
 .login {
   position: relative;
-  height: 100%;
+  height: 90%;
   z-index: 1;
 
   /* 背景图片 start */
@@ -577,4 +607,76 @@ export default {
   background-size: 100%;
   background: url(https://demoh5.sxqichuangkeji.com/static/login_bg.png) no-repeat;
 }
+
+.kk-register-xieyi {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  height: 10%;
+}
+
+.kk-register-xieyi .agreen {
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.agreen .radio-box {
+  margin-top: 2px;
+  margin-right: 10px;
+  border-radius: 100%;
+
+  .false {
+    width: 14px;
+    height: 14px;
+    opacity: 1;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    border-radius: 100%;
+    margin-right: 2px;
+  }
+
+  .sure {
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    border-radius: 100%;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.kk-register-xieyi .agreen .desc {
+  white-space: pre;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+
+  .text1 {
+    text-align: justify;
+    font-size: 12px;
+    font-family: PingFang SC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #999;
+  }
+}
+
 </style>

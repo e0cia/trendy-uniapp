@@ -87,6 +87,11 @@
       "style": {
         "navigationBarTitleText": "忘记密码"
       }
+    },    {
+      "path": "pages/share/share",
+      "style": {
+        "navigationBarTitleText": "邀请好友"
+      }
     },
     {
       "path": "pages/pay/pay",

@@ -189,8 +189,6 @@ export default {
             this.detialImageList =  res.data.goodDesc.split(",");
             this.mainImage =  res.data.goodImageJson.split(",")[1];
             this.bydata = res.data
-            console.log(this.mainImage)
-            console.log(res.data.goodImageJson)
           })
     },
     formatRichText(html) {
