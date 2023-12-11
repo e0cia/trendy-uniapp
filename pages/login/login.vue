@@ -387,11 +387,11 @@ export default {
         this.$t.message.toast('验证码不可为空')
         return;
       }
-      if (util.isPhoneNumber(this.form.userName)) {
+      if (!util.isPhoneNumber(this.form.userName)) {
         this.$t.message.toast('请输入正确手机号')
         return;
       }
-      if (util.isSmsCode(this.form.smsCode)) {
+      if (!util.isSmsCode(this.form.smsCode)) {
         this.$t.message.toast('请输入6为验证码')
         return;
       }

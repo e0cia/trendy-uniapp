@@ -12,15 +12,15 @@
 			<view class="tn-padding-top-xl">
 				<view class="tn-flex adver-wrap ">
 					<view class="tn-text-center tn-flex-1">
-						<view class="tn-text-xxl tn-text-bold">{{userData.pay}}</view>
-						<view class="tn-text-lg  tn-padding-left-xs" style="">我的U币</view>
+						<view class="tn-text-xxl tn-text-bold">{{userInfo.pay}}</view>
+						<view class="tn-text-lg  tn-padding-left-xs" style="">我的海珠</view>
 					</view>
 					<view class="tn-text-center tn-flex-1">
-						<view class="tn-text-xxl tn-text-bold">{{userData.integral}}</view>
+						<view class="tn-text-xxl tn-text-bold">{{userInfo.integral}}</view>
 						<view class="tn-text-lg tn-padding-left-xs" style="">我的积分</view>
 					</view>
 					<view class="tn-text-center tn-flex-1">
-						<view class="tn-text-xxl tn-text-bold">{{userData.member==1?"至尊":"普通"}}</view>
+						<view class="tn-text-xxl tn-text-bold">{{userInfo.member==1?"至尊":"普通"}}</view>
 						<view class="tn-text-lg tn-padding-left-xs" style="">会员等级</view>
 					</view>
 				</view>
@@ -36,7 +36,7 @@
 						<text class="tn-text-bold tn-text-xl">潮玩银行</text>
 						<!-- <text class="tn-icon-vip-text tn-text-center" style="position: absolute;margin: -22rpx 0 0 0;font-size: 92rpx;"></text> -->
 					</view>
-					<view class='tn-color-white tn-padding-top-sm ' v-if="userData.id>0">5873 **** **** 230{{userData.id}}</view>
+					<view class='tn-color-white tn-padding-top-sm ' v-if="userInfo.id>0">5873 **** **** 230{{userInfo.id}}</view>
 				</view>
 
 
@@ -72,20 +72,25 @@
 		data() {
 			return {
 				pay: "",
-				userData: {}
+				userInfo: {}
 			}
 		},
 		onLoad() {
-			this.getuser()
+      //初始化是否实名
+      this.userInfo = uni.getStorageSync("userInfo")
 		},
 		methods: {
-			getuser() {
-				// console.log(12)
-				this.$http.postRequest('User/getUserData', {})
-					.then(res => {
-						this.userData = res.data
-					})
-			},
+      getuserInfo() {
+        this.$http.postRequest('/kakabl/extenduser/center/userInfo', {})
+            .then(res => {
+              if (res.code === 200) {
+                uni.setStorageSync("userInfo", res.data)
+                this.userInfo = res.data
+              } else {
+                this.$t.message.toast(res.msg)
+              }
+            })
+      },
 			chong(){
 				let than=this;
 				if(this.pay>0){

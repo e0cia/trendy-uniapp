@@ -23,10 +23,10 @@
                 <view class="tn-padding-right tn-padding-top-xs tn-padding-left-sm tn-text-ellipsis">
                   <text class="tn-color-gray">ID: {{ userInfo.userId }}</text>
 
-                   <text class="tn-color-gray--disabled tn-padding-left-xs tn-text-sm tn-icon-copy"></text>
+                  <text class="tn-color-gray--disabled tn-padding-left-xs tn-text-sm tn-icon-copy"></text>
                 </view>
                 <view class="tn-padding-right tn-padding-top-xs tn-padding-left-sm tn-text-ellipsis">
-                  <text  class="tn-color-gray">邀请码: {{ userInfo.extendUserInfo.inviteCode }}</text>
+                  <text class="tn-color-gray">邀请码: {{ userInfo.extendUserInfo.inviteCode }}</text>
                   <text class="tn-color-gray--disabled tn-padding-left-xs tn-text-sm tn-icon-copy"></text>
                 </view>
 
@@ -42,20 +42,22 @@
 
       </view>
 
-      <view class="tn-margin-top-xl tn-padding-top-lg">
-        <view class="button-number tn-flex tn-flex-row-between tn-flex-col-center tn-shadow-blur">
+      <view @click="tn('/pages/seabead/seabead')" class="tn-margin-top-xl tn-padding-top-lg">
+        <view class="button-number tn-flex  tn-flex-col-center tn-shadow-blur">
 
-          <view class="tn-margin-left" @click="tn('../member/member')">
-            <view class="tn-flex tn-flex-col-center" style="color: #F1C68E;margin-top: -20rpx;">
-              <text class="tn-text-bold tn-text-xl">{{ userInfo.extendUserInfo.isAvtive == 1 ? "部落群众" : "无业游民" }}</text>
-            </view>
-            <view style="margin-top: 5px"  class='tn-color-white tn-text-sm'>海底深渊，尽是宝藏</view>
+          <image
+              style="width: 50px;height: 50px;margin-left: 20px"
+              :src="'/static/image/userCenter/haizhu.png'"
+          ></image>
+
+          <view class="tn-margin-left">
+            <text style="color: #F1C68E;" class="tn-text-bold tn-text-xl">海珠</text>
           </view>
-          <view class="tn-margin-right">
-            <tn-button shape="round" backgroundColor="#F1C68E" fontColor="#634738" padding="10rpx 0"
-                       width="160rpx" shadow @click="tn('../member/member')">
-              <text class="tn-text-bold">权 益</text>
-            </tn-button>
+
+          <view class="tn-margin-right tn-margin-left">
+            <text class="tn-text-bold tn-text-xl" style="padding: 10rpx 0;color: #F1C68E;font-size: 20px">
+              {{ userInfo.extendUserInfo.remainingBalance }}
+            </text>
           </view>
 
           <view class="tnwave waveAnimation">
@@ -76,6 +78,16 @@
             </view>
           </view>
 
+        </view>
+      </view>
+
+
+      <view class="tn-flex tn-flex-wrap tn-padding-xs">
+        <view  style="width: 100%;">
+          <view  class="image-haibao tn-shadow-blur"
+                    style="background-image: url(https://resource.tuniaokj.com/images/capsule-banner/banner-tnui.png);">
+            <view  class="image-position"></view>
+          </view>
         </view>
       </view>
 
@@ -135,7 +147,8 @@
 
       <view class="box-shadow tn-margin-top tn-margin-bottom-lg tn-padding-top-sm tn-padding-bottom-sm">
 
-        <tn-list-cell  @click="tn('../share/share')" :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
+        <tn-list-cell @click="tn('../share/share')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                      backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-empty-address"></view>
@@ -146,7 +159,8 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell   @click="tn('../realName/realName')"  :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
+        <tn-list-cell @click="tn('../realName/realName')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                      backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="contact">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-safe"></view>
@@ -157,7 +171,8 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell  @click="tn('../address/address')" :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
+        <tn-list-cell @click="tn('../address/address')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                      backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-empty-address"></view>
@@ -168,6 +183,32 @@
             </view>
           </button>
         </tn-list-cell>
+
+        <tn-list-cell @click="noflished()" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                      backgroundColor="#FFFFFF00">
+          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
+              <view class="tn-icon-align-right"></view>
+            </view>
+            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
+              <view class="tn-margin-left-sm tn-color-white">战神计划</view>
+              <view class="tn-color-gray--dark tn-icon-right"></view>
+            </view>
+          </button>
+        </tn-list-cell>
+        <tn-list-cell @click="tn('../set/set')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                      backgroundColor="#FFFFFF00">
+          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
+              <view class="tn-icon-install"></view>
+            </view>
+            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
+              <view class="tn-margin-left-sm tn-color-white">设置</view>
+              <view class="tn-color-gray--dark tn-icon-right"></view>
+            </view>
+          </button>
+        </tn-list-cell>
+
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
@@ -179,30 +220,8 @@
             </view>
           </button>
         </tn-list-cell>
-
-        <tn-list-cell @click="noflished()" :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
-            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
-              <view class="tn-icon-align-right"></view>
-            </view>
-            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
-              <view class="tn-margin-left-sm tn-color-white">战神计划</view>
-              <view class="tn-color-gray--dark tn-icon-right"></view>
-            </view>
-          </button>
-        </tn-list-cell>
-        <tn-list-cell  @click="tn('../set/set')" :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
-            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
-              <view class="tn-icon-install"></view>
-            </view>
-            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
-              <view class="tn-margin-left-sm tn-color-white">设置</view>
-              <view class="tn-color-gray--dark tn-icon-right"></view>
-            </view>
-          </button>
-        </tn-list-cell>
-        <tn-list-cell @click="lougout()" :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
+        <tn-list-cell @click="lougout()" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                      backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-logout"></view>
@@ -213,6 +232,7 @@
             </view>
           </button>
         </tn-list-cell>
+
       </view>
 
     </view>
@@ -223,7 +243,6 @@
         <text class="tn-color-gray">提供技术支持</text>
       </view>
     </view>
-
     <wx-user-info-modal v-model="showAuthorizationModal" @updated="updatedUserInfoEvent"></wx-user-info-modal>
 
     <view class='tn-tabbar-height'></view>
@@ -249,8 +268,8 @@ export default {
       member: uni.getStorageSync('member'),
       logo: uni.getStorageSync('logo'),
       userInfo: {
-        extendUserInfo:{
-          name:''
+        extendUserInfo: {
+          name: ''
         }
       }
     }
@@ -259,12 +278,11 @@ export default {
     this.getuserInfo();
   },
   onLoad() {
-    uni.startPullDownRefresh(); // 开始下拉刷新动画
+    ///static/image/productList/sea-bg.jpg
 
-    this.loadData(); // 调用获取数据的方法
   },
   methods: {
-    loadData(){
+    loadData() {
       console.log("xiala ")
     },
     getuserInfo() {
@@ -326,7 +344,7 @@ export default {
     openAuthorizationModal() {
       this.showAuthorizationModal = true
     },
-    noflished(){
+    noflished() {
       this.$t.message.toast('请联系客服加入战神计划')
     },
     // 获取到的用户信息
@@ -334,20 +352,20 @@ export default {
       console.log('获取到的用户信息', info)
     },
     //退出登录
-    lougout(){
+    lougout() {
       this.$t.message.loading('正在退出')
       this.$http.postRequest('/logout', {})
           .then(res => {
-        if (res.code === 200) {
-          uni.removeStorageSync('Authorization')
-          uni.removeStorageSync('userInfo')
-          this.$t.message.closeLoading()
-          this.tn('../index/index?index=0')
-        }else {
-          this.$t.message.toast(res.msg)
-        }
+            if (res.code === 200) {
+              uni.removeStorageSync('Authorization')
+              uni.removeStorageSync('userInfo')
+              this.$t.message.closeLoading()
+              this.tn('../index/index?index=0')
+            } else {
+              this.$t.message.toast(res.msg)
+            }
 
-      })
+          })
     }
   }
 }
@@ -593,5 +611,18 @@ export default {
 
 .waveAnimation .waveBottom {
   animation: move_wave 2s linear infinite;
+}
+
+.image-haibao{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border-radius: 8px 8px 0 0;
+}
+.image-position{
+  padding: 54px 0px;
+  font-size: 16px;
+  font-weight: 300;
+  position: relative;
 }
 </style>

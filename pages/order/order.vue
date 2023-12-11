@@ -10,8 +10,10 @@
 			</view>
 		</tn-nav-bar>
 
-		<view class="top-fixed" :style="{paddingTop: vuex_custom_bar_height + 10 +'px;background-color:#16171D'}">
-			<tn-tabs :list="fixedList" :current="current" :isScroll="false" inactiveColor="#FFFFFF80"
+
+
+		<view class="top-fixed" :style="{paddingTop: vuex_custom_bar_height + 10 +'px'}">
+			<tn-tabs :list="fixedList" :current="current" :isScroll="true" inactiveColor="#FFFFFF80"
 				activeColor="#FFFFFF" bold="true" backgroundColor="#16171D" :fontSize="32" :badgeOffset="[20, 50]"
 				@change="tabChange"></tn-tabs>
 		</view>
@@ -21,7 +23,7 @@
 			<view v-for="(item,index) in content" :key="index" class="order__item" @click="tn('')">
 				<view class="order__item__head tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between">
 					<view class="order__item__head__title">
-						<text class="">订单编号：{{item.order_number}}</text>
+						<text class="">订单编号：{{item.id}}</text>
 						<!-- <text class="tn-icon-copy tn-text-sm tn-padding-left-sm" style="opacity: 0.5;"></text> -->
 					</view>
 				</view>
@@ -30,17 +32,17 @@
 					class="order__item__content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
 					<view class="tn-flex tn-flex-nowrap tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
 						<view class="order__item__content__image">
-							<image :src="item.coverimage" mode="aspectFill"></image>
+							<image :src="item.goodImageUrl" mode="aspectFill"></image>
 						</view>
 						<view class="order__item__content__title">
-							{{item.title}}
+							{{item.goodName}}
 						</view>
 					</view>
 					<view
 						class="order__item__content__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
 						<view class="order__item__content__info__price">
-							<text class="order__item__content__info__price--unit  tn-icon-alien"></text>
-							<text class="order__item__content__info__price__value--integer">{{item.pay}}</text>
+							￥
+							<text class="order__item__content__info__price__value--integer">{{item.orderPrice}}</text>
 						</view>
 
 					</view>
@@ -50,14 +52,14 @@
 					class="order__item__operation tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
 					<view class="order__item__operaation__left tn-text-sm" style="opacity: 0.5;">
 						<text class="tn-icon-time tn-padding-right-xs"></text>
-						<text class="">{{item.pay_time}}</text>
+						<text class="">{{item.createTime}}</text>
 					</view>
 					<view
 						class="order__item__operation__right tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-right">
 						<view class="order__item__operation__right__button">
 							<tn-button backgroundColor="#FFFFFF" padding="10rpx 18rpx" height="auto" width="100%"
 								:fontSize="22" :plain="true" fontColor="#FFFFFF" shape="round">
-								{{item.state==1?"待发货":item.state==2?"已发货":item.state==3?"已送达":"已签收"}}
+								{{item.orderStatus==1?"待发货":item.orderStatus==2?"已发货":item.orderStatus==3?"已送达":"已签收"}}
 							</tn-button>
 						</view>
 					</view>
@@ -74,14 +76,16 @@
 			</view>
 		</view>
 		<view class='tn-tabbar-height'></view>
-
 	</view>
+
 </template>
 
 <script>
 	import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import TnTabs from "../../tuniao-ui/components/tn-tabs/tn-tabs.vue";
 	export default {
 		name: 'TemplateOrder',
+    components: {TnTabs},
 		mixins: [template_page_mixin],
 		data() {
 			return {
@@ -119,6 +123,7 @@
 				this.content = [];
 				this.page = 1;
 				this.getlist();
+        console.log(this.current)
 			},
 			// 跳转
 			tn(e) {
@@ -126,24 +131,20 @@
 					url: e,
 				});
 			},
-
-
 			getlist() {
+        console.log("1111111")
 				let than = this;
-				this.$http.postRequest('GoodsOrder/PlaceOrderList', {
-						page: this.page,
-						current: this.current
-					})
+				this.$http.getRequest('/kakabl/orders/list?pageNum=1&pageSize=10', {})
 					.then(res => {
-						if (res.data.length > 0) {
+						if (res.rows.length > 0) {
 							than.page = than.page + 1;
-							let arr = res.data;
+							let arr = res.rows;
 							// console.log(arr)
 							arr.forEach(function(item, index, array) {
 								than.content.push(item)
 							})
 						}
-
+           console.log(than.content);
 					})
 			},
 			

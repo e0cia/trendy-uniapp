@@ -30,7 +30,7 @@
               </view>
               
               <view class="image-content__label__item tn-text-bold">
-                <text class="image-content__label__item--prefix tnloukong tn-icon-trophy"> {{item.zrate}}%</text>  
+                <text class="image-content__label__item--prefix tnloukong tn-icon-trophy"> {{item.zrate}}%</text>
               </view>
               
               

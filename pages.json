@@ -87,7 +87,8 @@
       "style": {
         "navigationBarTitleText": "忘记密码"
       }
-    },    {
+    },
+    {
       "path": "pages/share/share",
       "style": {
         "navigationBarTitleText": "邀请好友"
@@ -109,6 +110,12 @@
       "path": "pages/realName/realName",
       "style": {
         "navigationBarTitleText": "实名认证"
+      }
+    },
+    {
+      "path": "pages/seabead/seabead",
+      "style": {
+        "navigationBarTitleText": "我的海珠"
       }
     }
   ],
