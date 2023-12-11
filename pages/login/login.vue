@@ -3,15 +3,14 @@
     <!-- 顶部自定义导航 -->
     <tn-nav-bar fixed alpha customBack>
       <view slot="back" class='tn-custom-nav-bar__back'
-            @click="goBack">
+            @click="goToHome()">
         <text class='icon tn-icon-left'></text>
-        <text class='icon tn-icon-home-capsule-fill'></text>
       </view>
     </tn-nav-bar>
 
     <view class="login">
 
-      <view class="login__wrapper">
+      <view class="login__wrapper"  :style="{paddingTop: vuex_custom_bar_height  + 'px'}">
         <view class="tn-margin-left tn-margin-right tn-text-bold tn-color-white" style="font-size: 45rpx;">
           你好!
         </view>
@@ -118,6 +117,42 @@
                 <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
               </view>
             </view>
+            <view
+                class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+              <view class="login__info__item__input__left-icon">
+                <view class="tn-icon-lock"></view>
+              </view>
+              <view class="login__info__item__input__content">
+                <input v-model="form.rePassWord" :password="!showPassword" placeholder-class="input-placeholder"
+                       placeholder="请确认登录密码"/>
+              </view>
+              <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
+                <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
+              </view>
+            </view>
+            <view
+                class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+              <view class="login__info__item__input__left-icon">
+                <view class="tn-icon-lock"></view>
+              </view>
+              <view class="login__info__item__input__content">
+                <input v-model="form.payPassword" :password="!showPassword" placeholder-class="input-placeholder"
+                       placeholder="请输入支付密码"/>
+              </view>
+              <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
+                <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
+              </view>
+            </view>
+            <view
+                class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+              <view class="login__info__item__input__left-icon">
+                <view class="tn-icon-password"></view>
+              </view>
+              <view class="login__info__item__input__content">
+                <input v-model="form.inviteCode" placeholder-class="input-placeholder"
+                       placeholder="请输入邀请码"/>
+              </view>
+            </view>
           </block>
 
 
@@ -142,8 +177,7 @@
             </view>
           </view>
           <uni-view v-if="currentModeIndex === 1" class="tn-flex tn-flex-row-between tn-padding-xl"></uni-view>
-
-          <view style="width: 100%" v-if="currentModeIndex === 1">
+          <view @click="smsCodeRegister()" style="width: 100%" v-if="currentModeIndex === 1">
             <view class="kaka-custom-style ">
               <span class="kaka-custom-text">注册</span>
             </view>
@@ -157,36 +191,36 @@
 
 
           <view v-if="currentModeIndex === 1" :class="[{'login__info__item__tips': currentModeIndex === 0}]">
-            <view class="tn-flex tn-flex-row-between tn-padding-xl">
-              <view style="color: #FFFFFF80;" @tap.stop="modeSwitch(0)">已有账号？前往登录</view>
+            <view class="tn-flex tn-flex-row-between ">
+              <view  style="color: #FFFFFF80; margin-top: 10px" @tap.stop="modeSwitch(0)">已有账号？前往登录</view>
             </view>
           </view>
 
         </view>
-
+        <view class="kk-register-xieyi">
+          <view class="agreen">
+            <view @click="isSure()" class="flex-center radio-box">
+              <view v-if="!isSureFlag" class="false"></view>
+              <image v-else class="sure" :src="'https://demoh5.sxqichuangkeji.com/static/public/i11.png'"></image>
+            </view>
+            <view class="desc">
+              <text class="text1">我已阅读并同意</text>
+              <text style="color: #0670ec" class="text1">用户协议</text>
+              <text class="text1">和</text>
+              <text style="color: #0670ec" class="text1">隐私协议</text>
+            </view>
+          </view>
       </view>
 
 
-    </view>
-    <view class="kk-register-xieyi">
-      <view class="agreen">
-        <view @click="isSure()" class="flex-center radio-box">
-          <view v-if="!isSureFlag" class="false"></view>
-          <image v-else class="sure" :src="'https://demoh5.sxqichuangkeji.com/static/public/i11.png'"></image>
-        </view>
-        <view class="desc">
-          <text class="text1">我已阅读并同意</text>
-          <text style="color: #0670ec" class="text1">用户协议</text>
-          <text class="text1">和</text>
-          <text style="color: #0670ec" class="text1">隐私协议</text>
-        </view>
       </view>
     </view>
+
     <!-- 验证码倒计时 -->
     <tn-verification-code
         ref="code"
         uniqueKey="login-demo-4"
-        :seconds="60"
+        :seconds="120"
         @change="codeChange">
     </tn-verification-code>
   </view>
@@ -213,7 +247,7 @@ export default {
       tips: '获取验证码',
       //邀请码
       form: {
-        inviteCode: '',//验证码
+        inviteCode: '',//邀请码
         jsCode: '',//发送验证码时候验证的
         userName: '',//用户名
         smsCode: '',//验证码
@@ -246,20 +280,53 @@ export default {
     },
     // 获取验证码
     getCode() {
-      if (this.currentModeIndex===2){
-
+      // 当前选中的模式 （ 1、注册 2、登录）
+      if (util.isBlank(this.form.userName)) {
+        this.$t.message.toast('手机号不可为空');
+        return;
       }
-      if (this.$refs.code.canGetCode) {
+      if (!util.isPhoneNumber(this.form.userName)) {
+        this.$t.message.toast('请输入正确的手机号');
+        return;
+      }
+      let param = {
+        userName: this.form.userName
+      }
+      //2、登录
+      if (this.currentModeIndex === 2 && this.$refs.code.canGetCode) {
         this.$t.message.loading('正在获取验证码')
-        setTimeout(() => {
-          this.$t.message.closeLoading()
-          this.$t.message.toast('验证码已经发送')
-          // 通知组件开始计时
-          this.$refs.code.start()
-        }, 2000)
-      } else {
+        this.$http.postRequest('/open/api/login/sendCmsCode', param)
+            .then(res => {
+              this.$t.message.closeLoading()
+              if (res.code === 200) {
+                this.$t.message.toast(res.msg)
+                // 通知组件开始计时
+                this.$refs.code.start()
+              } else {
+                this.$t.message.toast(res.msg)
+                return;
+              }
+            })
+      } else if (this.currentModeIndex === 1 && this.$refs.code.canGetCode) {
+        this.$t.message.loading('正在获取验证码')
+        //1、注册
+        this.$http.postRequest('/open/api/register/sendCmsCode', param)
+            .then(res => {
+              this.$t.message.closeLoading()
+              if (res.code === 200) {
+                this.$t.message.toast(res.msg)
+                // 通知组件开始计时
+                this.$refs.code.start()
+              } else {
+                this.$t.message.toast(res.msg)
+                return;
+              }
+            })
+      }
+      if (!this.$refs.code.canGetCode) {
         this.$t.message.toast(this.$refs.code.secNum + '秒后再重试')
       }
+
     },
     // 获取验证码倒计时被修改
     codeChange(event) {
@@ -272,39 +339,159 @@ export default {
     //登录
     login() {
       //是否同意隐私
-      if (!this.isSureFlag){
+      if (!this.isSureFlag) {
         this.$t.message.toast('请先阅读并同意《用户协议》与《隐私条款》')
         return;
       }
       //账号密码登录
-      this.passwordLogin()
+      if (this.currentModeIndex === 0) {
+        this.passwordLogin()
+      } else if (this.currentModeIndex === 2) {
+        //2、验证码登录
+        this.smsCodeLogin()
+      }
     },
     //账号密码登录
     passwordLogin() {
-      if (this.currentModeIndex === 0) {
-        if (util.isBlank(this.form.userName)) {
-          this.$t.message.toast('账号不可为空')
-          return
-        }
-        if (util.isBlank(this.form.passWord)) {
-          this.$t.message.toast('密码不可为空')
-          return;
-        }
-        let param = {"username": this.form.userName, "password": this.form.passWord}
-        this.$t.message.loading('正在登录')
-        this.$http.postRequest('/login', param)
-            .then(res => {
-              if (res.code === 200) {
-                this.$t.message.closeLoading()
-                uni.setStorageSync("Authorization", res.data.token)
-                uni.setStorageSync("userInfo", res.data.userInfo)
-                this.tn('../index/index?index=3')
-              }else {
-                this.$t.message.toast(res.msg)
-              }
-
-            })
+      if (util.isBlank(this.form.userName)) {
+        this.$t.message.toast('账号不可为空')
+        return
       }
+      if (util.isBlank(this.form.passWord)) {
+        this.$t.message.toast('密码不可为空')
+        return;
+      }
+      let param = {"username": this.form.userName, "password": this.form.passWord}
+      this.$t.message.loading('正在登录')
+      this.$http.postRequest('/login', param)
+          .then(res => {
+            if (res.code === 200) {
+              this.$t.message.closeLoading()
+              uni.setStorageSync("Authorization", res.data.token)
+              uni.setStorageSync("userInfo", res.data.userInfo)
+              uni.reLaunch({
+                url: '../index/index',
+              });
+            } else {
+              this.$t.message.toast(res.msg)
+            }
+          })
+    },
+    //账号密码登录
+    smsCodeLogin() {
+      if (util.isBlank(this.form.userName)) {
+        this.$t.message.toast('手机号不可为空')
+        return
+      }
+      if (util.isBlank(this.form.smsCode)) {
+        this.$t.message.toast('验证码不可为空')
+        return;
+      }
+      if (util.isPhoneNumber(this.form.userName)) {
+        this.$t.message.toast('请输入正确手机号')
+        return;
+      }
+      if (util.isSmsCode(this.form.smsCode)) {
+        this.$t.message.toast('请输入6为验证码')
+        return;
+      }
+      let param = {"userName": this.form.userName, "smsCode": this.form.smsCode}
+      this.$t.message.loading('正在登录')
+      this.$http.postRequest('/open/api/login/checkCode', param)
+          .then(res => {
+            console.log(res);
+            if (res.code === 200) {
+              this.$t.message.closeLoading()
+              uni.setStorageSync("Authorization", res.data.token)
+              uni.setStorageSync("userInfo", res.data.userInfo)
+              uni.reLaunch({
+                url: '../index/index',
+              });
+            } else {
+              this.$t.message.toast(res.msg)
+            }
+          })
+    },
+    //验证码注册
+    smsCodeRegister() {
+      //是否同意隐私
+      if (!this.isSureFlag) {
+        this.$t.message.toast('请先阅读并同意《用户协议》与《隐私条款》')
+        return;
+      }
+      if (util.isBlank(this.form.userName)) {
+        this.$t.message.toast('手机号不可为空')
+        return
+      }
+      if (util.isBlank(this.form.smsCode)) {
+        this.$t.message.toast('验证码不可为空')
+        return;
+      }
+      if (util.isBlank(this.form.passWord)) {
+        this.$t.message.toast('密码不可为空')
+        return;
+      }
+      if (util.isBlank(this.form.rePassWord)) {
+        this.$t.message.toast('确认密码不可为空')
+        return;
+      }
+      if (util.isBlank(this.form.payPassword)) {
+        this.$t.message.toast('支付密码不可为空')
+        return;
+      }
+      if (util.isBlank(this.form.inviteCode)) {
+        this.$t.message.toast('邀请码不可为空')
+        return;
+      }
+
+      if (!util.isPhoneNumber(this.form.userName)) {
+        this.$t.message.toast('请输入正确手机号')
+        return;
+      }
+      if (!util.isSmsCode(this.form.smsCode)) {
+        this.$t.message.toast('请输入6为验证码')
+        return;
+      }
+      if (!util.isPassword(this.form.passWord)) {
+        this.$t.message.toast('密码需长度大于6，且由数字和英文字符')
+        return;
+      }
+      if (this.form.passWord !== this.form.rePassWord) {
+        this.$t.message.toast('两次密码不相同')
+        return;
+      }
+      if (!util.isPayWord(this.form.payPassword)) {
+        this.$t.message.toast('请输入6为支付密码')
+        return;
+      }
+
+      let param = {
+        "userName": this.form.userName,
+        "smsCode": this.form.smsCode,
+        "passWord": this.form.passWord,
+        "rePassWord": this.form.rePassWord,
+        "payPassword": this.form.payPassword,
+        "inviteCode": this.form.inviteCode
+      }
+      this.$t.message.loading('正在登录')
+      this.$http.postRequest('/open/api/register/checkCode', param)
+          .then(res => {
+            if (res.code === 200) {
+              this.$t.message.closeLoading()
+              uni.setStorageSync("Authorization", res.data.token)
+              uni.setStorageSync("userInfo", res.data.userInfo)
+              uni.reLaunch({
+                url: '../index/index',
+              });
+            } else {
+              this.$t.message.toast(res.msg)
+            }
+          })
+    },
+    goToHome() {
+      uni.reLaunch({
+        url: '/pages/index/index',
+      });
     }
   }
 }
@@ -337,8 +524,8 @@ export default {
 
 
 .login {
+  height: 100%;
   position: relative;
-  height: 90%;
   z-index: 1;
 
   /* 背景图片 start */
@@ -425,7 +612,7 @@ export default {
 
   /* 登录注册信息 start */
   &__info {
-    margin: 80rpx 30rpx 10rpx 30rpx;
+    margin: 40rpx 30rpx 10rpx 30rpx;
     padding-bottom: 0;
     border-radius: 20rpx;
 
@@ -549,7 +736,7 @@ export default {
 
 .login__wrapper {
   position: absolute;
-  top: 156px;
+  top: 80px;
   width: 100%;
   margin-top: unset;
 }
@@ -609,13 +796,13 @@ export default {
 }
 
 .kk-register-xieyi {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
   align-content: center;
   align-items: center;
-  height: 10%;
 }
 
 .kk-register-xieyi .agreen {

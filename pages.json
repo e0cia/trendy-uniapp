@@ -104,6 +104,12 @@
       "style": {
         "navigationBarTitleText": "卡卡精选"
       }
+    },
+    {
+      "path": "pages/realName/realName",
+      "style": {
+        "navigationBarTitleText": "实名认证"
+      }
     }
   ],
   "globalStyle": {

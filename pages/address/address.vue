@@ -10,24 +10,36 @@
 
 
 		<view class="" :style="{paddingTop: vuex_custom_bar_height + 20 + 'px'}">
-			<view v-for="(itme,index) in list" :key="index"
-				class="box-shadow tn-flex tn-flex-row-between tn-flex-col-center tn-strip-bottom-min tn-padding tn-margin">
-				<view class="justify-content-item tn-padding-right" @click="huancun(itme)">
-					<view class="tn-text-bold tn-text-lg tn-color-white">
-						<text class="">{{itme.name}}</text>
-						<text class="tn-padding-left-sm">{{itme.phone}}</text>
-					</view>
-					<view class="tn-color-gray tn-padding-top-xs">
-						{{itme.province}}{{itme.city}}{{itme.area}}{{itme.address}}
-					</view>
-				</view>
-				<view class="justify-content-item tn-text-xl tn-color-gray" @click="tn('../edit/edit?id='+itme.id)">
-					<view class="tn-icon-edit-write"></view>
-				</view>
-				<view class="justify-content-item tn-text-xl tn-color-gray" @click="del(itme.id)">
-					<view class="tn-icon-delete-fill"></view>
-				</view>
-			</view>
+
+      <view v-if="list.length>0">
+
+        <view v-for="(itme,index) in list" :key="index"
+              class="box-shadow tn-flex tn-flex-row-between tn-flex-col-center tn-strip-bottom-min tn-padding tn-margin">
+          <view class="justify-content-item tn-padding-right" @click="huancun(itme)">
+            <view class="tn-text-bold tn-text-lg tn-color-white">
+              <text class="">{{itme.contactName}}</text>
+              <text class="tn-padding-left-sm">{{itme.contactPhone}}</text>
+            </view>
+            <view class="tn-color-gray tn-padding-top-xs">
+              {{itme.contactProvince}}{{itme.contactCity}}{{itme.contactArea}}{{itme.contactAreaDetial}}
+            </view>
+          </view>
+          <view class="justify-content-item tn-text-xl tn-color-gray" @click="tn('../edit/edit?id='+itme.id)">
+            <view class="tn-icon-edit-write"></view>
+          </view>
+          <view class="justify-content-item tn-text-xl tn-color-gray" @click="del(itme.id)">
+            <view class="tn-icon-delete-fill"></view>
+          </view>
+        </view>
+      </view>
+
+      <view v-else>
+        <view style="margin-top: 20vh">
+          <tn-empty mode="data"></tn-empty>
+        </view>
+      </view>
+
+
 			<!-- 悬浮按钮-->
 			<view class="tn-flex tn-footerfixed">
 				<view class="tn-flex-1 justify-content-item tn-margin-left tn-margin-right tn-text-center">
@@ -45,8 +57,10 @@
 
 <script>
 	import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import TnEmpty from "../../tuniao-ui/components/tn-empty/tn-empty.vue";
 	export default {
 		name: 'TemplateAddress',
+    components: {TnEmpty},
 		mixins: [template_page_mixin],
 		data() {
 			return {
@@ -65,10 +79,10 @@
 		},
 		methods: {
 			getlist() {
-				this.$http.postRequest('Address/List', {})
+				this.$http.postRequest('/kakabl/address/query', {})
 					.then(res => {
 						this.list = res.data
-						// console.log(res)
+            console.log(this.list)
 					})
 			},
 			// 跳转
@@ -78,19 +92,24 @@
 				});
 			},
 			del(id) {
-				let than=this;
+				let that=this;
 				uni.showModal({
 					title: '删除提示',
 					content: '是否删除此地址信息？',
 					success: function(res) {
 						if (res.confirm) {
 							console.log('确认')
-							than.$http.postRequest('Address/del', {id:id})
+              that.$http.postRequest('/kakabl/address/detele', {id:id,userId:uni.getStorageSync("userInfo").userId})
 								.then(res => {
-									than.getlist()
+                  if (res.code===200){
+                    that.getlist()
+                    that.$t.message.toast('删除成功')
+                  }else {
+                    that.$t.message.toast('删除失败')
+                  }
 								})
 						} else if (res.cancel) {
-							console.log('取消');
+
 						}
 					}
 				});

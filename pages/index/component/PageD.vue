@@ -146,7 +146,7 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
+        <tn-list-cell   @click="tn('../realName/realName')"  :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="contact">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-safe"></view>
@@ -191,7 +191,7 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
+        <tn-list-cell  @click="tn('../set/set')" :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
           <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-install"></view>
@@ -248,20 +248,31 @@ export default {
       id: uni.getStorageSync('id'),
       member: uni.getStorageSync('member'),
       logo: uni.getStorageSync('logo'),
-      userInfo: {}
+      userInfo: {
+        extendUserInfo:{
+          name:''
+        }
+      }
     }
   },
   mounted() {
     this.getuserInfo();
   },
+  onLoad() {
+    uni.startPullDownRefresh(); // 开始下拉刷新动画
+
+    this.loadData(); // 调用获取数据的方法
+  },
   methods: {
+    loadData(){
+      console.log("xiala ")
+    },
     getuserInfo() {
       this.$http.postRequest('/kakabl/extenduser/center/userInfo', {})
           .then(res => {
             if (res.code === 200) {
               uni.setStorageSync("userInfo", res.data)
               this.userInfo = res.data
-
             } else {
               this.$t.message.toast(res.msg)
             }
