@@ -132,9 +132,8 @@
 				});
 			},
 			getlist() {
-        console.log("1111111")
 				let than = this;
-				this.$http.getRequest('/kakabl/orders/list?pageNum=1&pageSize=10', {})
+				this.$http.getRequest('/kakabl/orders/query/list?pageNum='+this.pageNum+'&pageSize='+tis.pageSize, {})
 					.then(res => {
 						if (res.rows.length > 0) {
 							than.page = than.page + 1;

@@ -24,11 +24,11 @@
         <!--  第二行    -->
         <view class="bead-detial tn-flex tn-flex-col-center  tn-flex-row-between" style="margin-top: 20px;width: 100%">
           <view class="tn-margin-left">
-            <text style="color: #FFFFFF;font-size: 30px" class="tn-text-bold ">0</text>
+            <text style="color: #FFFFFF;font-size: 30px" class="tn-text-bold ">{{ userInfo.extendUserInfo.remainingBalance }}</text>
           </view>
 
           <view style="margin-right: 20px" class="tn-margin-left">
-            <tn-button backgroundColor="#31cfe0" fontColor="tn-color-white" size="sm">海珠转增</tn-button>
+            <tn-button @click="tn('../pay/pay')"  backgroundColor="#31cfe0" fontColor="tn-color-white" size="sm">海珠转增</tn-button>
           </view>
         </view>
 
@@ -48,13 +48,66 @@
             <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
               <view class="all" style="height:calc(100vh - 330px) ">
 
-                <view class="item">
+                <view v-if="dataList.length>0" v-for="(item,index) in dataList" :key="index" class="item">
                   <view class="zz-left">
-                    <view class="name">来自A的转增</view>
-                    <view class="desc">2022-12-23 19:00:00</view>
+                    <view class="name">{{ item.description }}</view>
+                    <view class="desc">{{ item.createTime }}</view>
                   </view>
                   <view class="zz-right">
-                    <view style="font-size: 20px;color: #008000;margin-right: 5px">+20.88</view>
+                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
+                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
+                    </view>
+                    <image
+                        style="width: 16px;height: 16px;"
+                        :src="'/static/image/userCenter/haizhu.png'"
+                    ></image>
+                  </view>
+                </view>
+                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
+              </view>
+
+            </scroll-view>
+          </swiper-item>
+
+
+          <swiper-item class="swiper__item">
+            <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
+              <view class="all" style="height:calc(100vh - 330px) ">
+
+                <view v-for="(item,index) in dataList" :key="index" class="item">
+                  <view class="zz-left">
+                    <view class="name">{{ item.description }}</view>
+                    <view class="desc">{{ item.createTime }}</view>
+                  </view>
+                  <view class="zz-right">
+                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
+                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
+                    </view>
+                    <image
+                        style="width: 16px;height: 16px;"
+                        :src="'/static/image/userCenter/haizhu.png'"
+                    ></image>
+                  </view>
+                </view>
+                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
+              </view>
+            </scroll-view>
+          </swiper-item>
+
+
+          <swiper-item class="swiper__item">
+            <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
+              <view class="all" style="height:calc(100vh - 330px) ">
+
+                <view v-for="(item,index) in dataList" :key="index" class="item">
+                  <view class="zz-left">
+                    <view class="name">{{ item.description }}</view>
+                    <view class="desc">{{ item.createTime }}</view>
+                  </view>
+                  <view class="zz-right">
+                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
+                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
+                    </view>
                     <image
                         style="width: 16px;height: 16px;"
                         :src="'/static/image/userCenter/haizhu.png'"
@@ -62,24 +115,14 @@
                   </view>
                 </view>
 
+                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
               </view>
+
             </scroll-view>
 
-          </swiper-item>
-
-
-          <swiper-item class="swiper__item">
-            <view class="kk-empty">
-              <tn-empty mode="data"></tn-empty>
-            </view>
 
           </swiper-item>
 
-          <swiper-item class="swiper__item">
-            <view class="kk-empty">
-              <tn-empty mode="data"></tn-empty>
-            </view>
-          </swiper-item>
         </swiper>
       </view>
 
@@ -105,10 +148,41 @@ export default {
         name: '支付'
       }],
       tabsIndex: 0,
-      swiperIndex: 0
+      swiperIndex: 0,
+      operationType: '',
+
+      dataList: [],
+      pageNum: 1,
+      pageSize: 10,
+      isRefresh: true,
+      isLoadding: false,
+      userInfo:{}
     }
   },
+  mounted() {
+    this.getDataList()
+  },
+  onShow() {
+    this.getuserInfo()
+  },
   methods: {
+    getuserInfo() {
+      this.$http.postRequest('/kakabl/extenduser/center/userInfo', {})
+          .then(res => {
+            if (res.code === 200) {
+              uni.setStorageSync("userInfo", res.data)
+              this.userInfo = res.data
+            } else {
+              this.$t.message.toast(res.msg)
+            }
+          })
+    },
+  // 跳转
+  tn(e) {
+    uni.navigateTo({
+      url: e,
+    });
+  },
     // 标签栏值发生改变
     tabsChange(index) {
       this.swiperIndex = index
@@ -122,12 +196,69 @@ export default {
       const current = event.detail.current
       this.$refs.tabs.setFinishCurrent(current)
       this.swiperIndex = current
+
+
+      console.log(this.tabsIndex + "================" + event.detail.current)
+
+
+      //如果改变的不等于当前的才改变
+      if (this.tabsIndex !== event.detail.current) {
+        this.switchClear(current)
+        this.getDataList()
+      }
+
+
       this.tabsIndex = current
-      console.log(this.tabsIndex)
+
+
+    },
+    switchClear(e) {
+      if (e === 0) {
+        this.operationType = '';
+      } else if (e === 1) {
+        this.operationType = 1;
+      } else if (e === 2) {
+        this.operationType = 2;
+      }
+      this.dataList = []
+      this.pageNum = 1
+      this.isRefresh = true
     },
     scrollToLower() {
-      console.log("到底了")
-    }
+      console.log("daodile:", this.isRefresh)
+      if (this.isRefresh) {
+        this.getDataList();
+      }
+    },
+
+    //定义一个获取数据的方法
+    getDataList() {
+      let that = this;
+      let param = {
+        pageNum: this.pageNum,
+        pageSize: this.pageSize,
+        operationType: this.operationType
+      }
+      this.isLoadding = true;
+      this.$http.getRequest('/kakabl/tradelog/query/list', param)
+          .then(res => {
+            if (res.code === 200) {
+              that.isLoadding = false
+              //如果结果大于0
+              if (res.rows.length > 0) {
+                //pageSize的值加大一个
+                that.pageNum = that.pageNum + 1;
+                that.dataList = [...that.dataList, ...res.rows]
+              }
+              console.log(that.dataList)
+              if (res.total <= that.dataList.length) {
+                this.isRefresh = false;
+              }
+            } else {
+              that.$t.message.toast(res.msg)
+            }
+          })
+    },
   }
 }
 
@@ -216,14 +347,14 @@ export default {
         align-items: flex-start;
 
         .name {
-          font-size: 16px;
+          font-size: 14px;
           font-family: PingFang SC-Semibold, PingFang SC;
           font-weight: 600;
           color: #222;
           margin-bottom: 4px;
           line-height: 18px;
           width: 100px;
-          overflow: hidden;
+          //overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
@@ -248,6 +379,6 @@ export default {
 }
 
 .kk-empty {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 </style>

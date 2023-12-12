@@ -11,6 +11,24 @@
       }
     },
     {
+      "path": "pages/index/sea",
+      "style": {
+        "navigationBarTitleText": "海底世界"
+      }
+    },
+    {
+      "path": "pages/index/tribe",
+      "style": {
+        "navigationBarTitleText": "部落世界"
+      }
+    },
+    {
+      "path": "pages/index/my",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
       "path": "pages/product/product",
       "style": {
         "navigationBarTitleText": "产品详情"

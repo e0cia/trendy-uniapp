@@ -163,9 +163,6 @@ export default {
     color: #020202;
     padding: 0px 20px;
 
-    .title {
-
-    }
 
     .text1 {
       color: #a3a3a3;

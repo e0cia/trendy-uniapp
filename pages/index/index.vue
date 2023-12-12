@@ -9,7 +9,7 @@
       <view class="particle particle-4"></view>
     </view>
 
-  
+
     <!-- 二级页面 -->
     <view v-if="tabberPageLoadFlag[0]" :style="{display: currentTabbarIndex === 0 ? '' : 'none'}">
       <scroll-view class="custom-tabbar-page" scroll-y enable-back-to-top @scrolltolower="tabbarPageScrollLower">

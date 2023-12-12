@@ -99,44 +99,44 @@
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../order/order')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
-                <view class="tn-icon-order-fill  kk-my-order-icon"></view>
+                    style="background-color: #1DC06933;">
+                <view class="tn-icon-order-fill tn-color-teal"></view>
               </view>
               <view class="tn-text-center">
-                <text class="tn-text-ellipsis  kk-my-order-text">待付款</text>
+                <text class="tn-text-ellipsis tn-color-white">全部订单</text>
               </view>
             </view>
           </view>
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../pay/pay')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
-                <view class="tn-icon-server-fill  kk-my-order-icon" ></view>
+                    style="background-color: #CC5A3633;">
+                <view class="tn-icon-alien tn-color-orangered"></view>
               </view>
               <view class="tn-text-center">
-                <text class="tn-text-ellipsis  kk-my-order-text">待发货</text>
+                <text class="tn-text-ellipsis tn-color-white">我的海币</text>
               </view>
             </view>
           </view>
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
-                <view class="tn-icon-cube  kk-my-order-icon"></view>
+                    style="background-color: #CCA22033;">
+                <view class="tn-icon-cube tn-color-orangeyellow"></view>
               </view>
               <view class="tn-text-center">
-                <text class="tn-text-ellipsis  kk-my-order-text">待收货</text>
+                <text class="tn-text-ellipsis tn-color-white">我的盲盒</text>
               </view>
             </view>
           </view>
           <view class="tn-padding-sm tn-margin-xs tn-radius">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
-                <view class="tn-icon-location-fill  kk-my-order-icon"></view>
+                    style="background-color: #24BA9733;">
+                <view class="tn-icon-location-fill tn-color-cyan"></view>
               </view>
               <view class="tn-text-center">
-                <text class="tn-text-ellipsis  kk-my-order-text">已完成</text>
+                <text class="tn-text-ellipsis tn-color-white">地址管理</text>
               </view>
             </view>
           </view>
@@ -151,31 +151,33 @@
 
         <view class="tn-margin-top-sm tn-padding-left-lg intive-team tn-text-bold tn-text-lg tn-color-white">我的服务</view>
         <view  class=" tn-margin-top-sm tn-flex tn-flex-wrap tn-flex-col-center tn-flex-row-between tn-margin-left tn-margin-right">
-          <view  class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between kk-my-cen-bg">
+          <view  class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between tn-color-white tn-bg-red">
             <view class=" tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
               <view class="intive-item-left-content">
-                <view  class=" tn-text-xxl">我的团队</view>
-                <view  class="intive-item-bottom-text tn-padding-top-xs kk-my-cen-desc" >MY TEAM
+                <view  class=" tn-text-xxl">UI设计</view>
+                <view  class="intive-item-bottom-text tn-padding-top-xs">前往咨询
+                  <text  class="tn-icon-right tn-padding-left-xs"><span></span></text>
                 </view>
               </view>
             </view>
             <view class="intive-item-content-right">
               <view  class="intive-item-content-right--icon">
-                <view  class="tn-icon-team-fill"></view>
+                <view  class="tn-icon-image-text-fill"></view>
               </view>
             </view>
           </view>
-          <view  class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between kk-my-cen-bg" >
+          <view  class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between tn-color-white tn-bg-orange">
             <view class=" tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
               <view class="intive-item-left-content">
-                <view class=" tn-text-xxl">我的邀请</view>
-                <view class="intive-item-bottom-text tn-padding-top-xs kk-my-cen-desc" >INTIVE FRIENDS
+                <view class=" tn-text-xxl">小程序</view>
+                <view class="intive-item-bottom-text tn-padding-top-xs">前往咨询
+                  <text class="tn-icon-right tn-padding-left-xs"><span></span></text>
                 </view>
               </view>
             </view>
             <view  class="intive-item-content-right">
               <view  class="intive-item-content-right--icon">
-                <view class="tn-icon-vip-fill"></view>
+                <view class="tn-icon-data-fill"></view>
               </view>
             </view>
           </view>
@@ -292,10 +294,11 @@
 <script>
 import WxUserInfoModal
   from '@/uni_modules/tuniaoui-wx-user-info/components/tuniaoui-wx-user-info/tuniaoui-wx-user-info.vue'
-
+import TabBarBottom from "./component/TabBar.vue";
 
 export default {
   components: {
+    TabBarBottom,
     WxUserInfoModal
   },
   name: 'pagesD',
@@ -669,13 +672,13 @@ export default {
 
 .intive-item-content-right--icon {
   position: absolute;
-  right: 18px;
-  top: 34px;
-  font-size: 50px;
+  right: 0px;
+  top: 17px;
+  font-size: 34px;
   width: 37px;
   height: 37px;
   line-height: 20px;
-  color: #7444f8;
+  opacity: .15;
 }
 
 .intive-item-content {
@@ -710,24 +713,5 @@ export default {
   transform: scale(1);
   background-size: 100% 100%;
   background-image: url(https://resource.tuniaokj.com/images/cool_bg_image/3.png);
-}
-.kk-my-cen-desc{
-  color: rgba(255,255,255,0.9)
-}
-.kk-my-cen-bg{
-  background: linear-gradient(to right,#f9c7d2, #9e99eb);  color: #7444f8;
-}
-
-
-.kk-my-order-icon{
-  font-size: 40px;
-  color: #c3aff9
-}
-.kk-my-order-text{
-  color: rgba(255,255,255,0.9)
-}
-
-.icon12__item--icon{
-  margin-bottom: 5px!important;
 }
 </style>

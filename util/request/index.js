@@ -7,10 +7,14 @@ const commoneUrl = "http://127.0.0.1:8081";
 //get请求封装
 function getRequest(url, data) {
 	var promise = new Promise((resolve, reject) => {
-		var postData = data;
+
+		const params = Object.entries(data)
+			.filter(([key, value]) => value !== '')
+			.map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+			.join('&');
+		const queryString = `?${params}`;
 		uni.request({
-			url: commoneUrl + url,
-			data: postData,
+			url: commoneUrl + url+queryString,
 			method: "GET",
 			header: {
 				"Authorization": uni.getStorageSync('Authorization')
