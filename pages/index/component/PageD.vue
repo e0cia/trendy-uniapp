@@ -1,9 +1,7 @@
 <template>
   <view class="pagesD tn-safe-area-inset-bottom">
-
     <view class="tn-margin-left tn-margin-right" :style="{paddingTop: vuex_custom_bar_height + 5 + 'px'}">
-      <view class="">
-
+      <view >
         <!-- 图标logo/头像 -->
         <view class="tn-flex tn-flex-row-between tn-flex-col-center tn-margin-bottom">
           <view class="justify-content-item">
@@ -186,9 +184,9 @@
 
       <view class="box-shadow tn-margin-top tn-margin-bottom-lg tn-padding-top-sm tn-padding-bottom-sm">
 
-        <tn-list-cell @click="tn('../share/share')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+          <button @click="tn('/pages/share/share')" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-empty-address"></view>
             </view>
@@ -198,9 +196,9 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell @click="tn('../realName/realName')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="contact">
+          <button @click="tn('/pages/realName/realName')" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-safe"></view>
             </view>
@@ -210,9 +208,9 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell @click="tn('../address/address')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+          <button  @click="tn('/pages/address/address')" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-empty-address"></view>
             </view>
@@ -223,9 +221,9 @@
           </button>
         </tn-list-cell>
 
-        <tn-list-cell @click="noflished()" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+          <button  @click="noflished()" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-align-right"></view>
             </view>
@@ -235,9 +233,9 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell @click="tn('../set/set')" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+          <button  @click="tn('/pages/set/set')"  class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-install"></view>
             </view>
@@ -249,7 +247,7 @@
         </tn-list-cell>
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+          <button class="tn-flex tn-flex-col-center tn-button--clear-style" >
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-tip"></view>
             </view>
@@ -259,9 +257,9 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell @click="lougout()" :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" open-type="feedback">
+          <button  @click="lougout()"  class="tn-flex tn-flex-col-center tn-button--clear-style" >
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-logout"></view>
             </view>

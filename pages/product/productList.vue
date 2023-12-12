@@ -1,26 +1,13 @@
 <template>
   <view class="pagesC tn-safe-area-inset-bottom">
-
-    <!-- 顶部自定义导航 -->
-    <!--    <tn-nav-bar :isBack="false" :bottomShadow="false" backgroundColor="#16171D00">-->
-    <!--      <view class="" style="width: 70vw;overflow: hidden;margin-top: 6rpx;">-->
-    <!--        <tn-tabs :list="scrollList" :current="current" @change="tabChange" activeColor="#FFF"-->
-    <!--                 inactiveColor="#FFFFFF80" :bold="true" :fontSize="36"></tn-tabs>-->
-    <!--      </view>-->
-    <!--    </tn-nav-bar>-->
-
-
     <!-- 顶部自定义导航 -->
     <view class="kk-jx-top">
-      <tn-nav-bar :isBack="true" fixed alpha customBack>
+      <tn-nav-bar   :isBack="true" fixed alpha customBack>
         <view slot="back" class='tn-custom-nav-bar__back' @click="tn('../index/index')">
           <text class='icon tn-icon-left-arrow'></text>
         </view>
-        <!-- <view class="tn-flex tn-flex-col-center tn-flex-row-center">
-          <text class="tn-text-xl tn-color-black">产品详情</text>
-        </view> -->
       </tn-nav-bar>
-      <view :style="{paddingTop: vuex_custom_bar_height +20 + 'px'}" class="top-title">
+      <view :style="{paddingTop: vuex_custom_bar_height  + 'px'}" class="top-title">
         <span class="text-left">卡卡精选</span>
         <span class="text-right">全新正品 质量保证 急速发货</span>
 
@@ -236,7 +223,7 @@ export default {
 
 .kk-jx-top {
   width: 100%;
-  height: 140px;
+  height: 160px;
   box-sizing: border-box;
   border-radius: 6px;
   padding: 16px;

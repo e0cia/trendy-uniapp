@@ -1,15 +1,16 @@
 <template>
-  <view class="seabead">
-    <!-- 顶部自定义导航 -->
-    <tn-nav-bar fixed alpha customBack>
-      <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
-        <text class='icon tn-icon-left'></text>
-      </view>
-      <span class="tn-text-xl" style="color: #FFFFFF">我的海珠</span>
-    </tn-nav-bar>
-
+  <view class="seabead  tn-safe-area-inset-bottom">
 
     <view class="bead-top">
+      <!-- 顶部自定义导航 -->
+      <tn-nav-bar class='back-go' :isBack="true" fixed alpha customBack>
+        <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
+          <text class='icon tn-icon-left-arrow'></text>
+        </view>
+        <view class="tn-flex tn-flex-col-center tn-flex-row-center">
+          <text class="tn-text-xl tn-color-white">我的海珠</text>
+        </view>
+      </tn-nav-bar>
       <view style="width: 100%" :style="{paddingTop: vuex_custom_bar_height + 20+'px'}">
         <!--      第一行-->
         <view class="bead-title tn-flex tn-flex-col-center">
@@ -22,125 +23,76 @@
           </view>
         </view>
         <!--  第二行    -->
-        <view class="bead-detial tn-flex tn-flex-col-center  tn-flex-row-between" style="margin-top: 20px;width: 100%">
+        <view class="bead-detial tn-flex tn-flex-col-center  tn-flex-row-between tn-margin-top-xl" style="width: 100%">
           <view class="tn-margin-left">
-            <text style="color: #FFFFFF;font-size: 30px" class="tn-text-bold ">{{ userInfo.extendUserInfo.remainingBalance }}</text>
+            <text style="color: #FFFFFF;font-size: 30px" class="tn-text-bold ">
+              {{ seabedNumber }}
+            </text>
           </view>
 
           <view style="margin-right: 20px" class="tn-margin-left">
-            <tn-button @click="tn('../pay/pay')"  backgroundColor="#31cfe0" fontColor="tn-color-white" size="sm">海珠转增</tn-button>
+            <view @click="tn('/pages/pay/pay')" class="kk-zz-button">海珠转增</view>
           </view>
         </view>
 
       </view>
     </view>
 
-    <view class="bead-content">
-      <view class="bead-three">
-        <!-- 顶部标签 -->
-        <tn-tabs-swiper ref="tabs" :list="list" :current="tabsIndex" :isScroll="false"
-                        @change="tabsChange"></tn-tabs-swiper>
-        <!-- 标签内容 -->
-        <swiper class="swiper__box" :current="swiperIndex" @transition="swiperTransition"
-                @animationfinish="swiperAnimationFinish">
-          <swiper-item class="swiper__item">
 
-            <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
-              <view class="all" style="height:calc(100vh - 330px) ">
+        <view class="bead-content">
+          <view class="bead-three">
 
-                <view v-if="dataList.length>0" v-for="(item,index) in dataList" :key="index" class="item">
-                  <view class="zz-left">
-                    <view class="name">{{ item.description }}</view>
-                    <view class="desc">{{ item.createTime }}</view>
-                  </view>
-                  <view class="zz-right">
-                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
-                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
+            <tn-tabs :list="fixedList" :current="tabsIndex" :isScroll="false"
+                     activeColor="#000000" :bold="true" backgroundColor="#FFFFFF" :fontSize="32" :badgeOffset="[20, 50]"
+                     @change="tabChange"></tn-tabs>
+            <!-- 标签内容 -->
+            <view class="swiper__box" :current="swiperIndex" @transition="swiperTransition"
+                  @animationfinish="swiperAnimationFinish">
+              <view class="swiper__item">
+
+                <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
+                  <view class="all" style="height:calc(100vh - 330px) ">
+
+                    <view v-if="dataList.length>0" v-for="(item,index) in dataList" :key="index" class="item">
+                      <view class="zz-left">
+                        <view class="name">{{ item.description }}</view>
+                        <view class="desc">{{ item.createTime }}</view>
+                      </view>
+                      <view class="zz-right">
+                        <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
+                              style="font-size: 20px;margin-right: 5px">{{ item.remark }}
+                        </view>
+                        <image
+                            style="width: 16px;height: 16px;"
+                            :src="'/static/image/userCenter/haizhu.png'"
+                        ></image>
+                      </view>
                     </view>
-                    <image
-                        style="width: 16px;height: 16px;"
-                        :src="'/static/image/userCenter/haizhu.png'"
-                    ></image>
+                    <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
                   </view>
-                </view>
-                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
+                </scroll-view>
               </view>
-
-            </scroll-view>
-          </swiper-item>
-
-
-          <swiper-item class="swiper__item">
-            <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
-              <view class="all" style="height:calc(100vh - 330px) ">
-
-                <view v-for="(item,index) in dataList" :key="index" class="item">
-                  <view class="zz-left">
-                    <view class="name">{{ item.description }}</view>
-                    <view class="desc">{{ item.createTime }}</view>
-                  </view>
-                  <view class="zz-right">
-                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
-                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
-                    </view>
-                    <image
-                        style="width: 16px;height: 16px;"
-                        :src="'/static/image/userCenter/haizhu.png'"
-                    ></image>
-                  </view>
-                </view>
-                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
-              </view>
-            </scroll-view>
-          </swiper-item>
+            </view>
+          </view>
 
 
-          <swiper-item class="swiper__item">
-            <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
-              <view class="all" style="height:calc(100vh - 330px) ">
-
-                <view v-for="(item,index) in dataList" :key="index" class="item">
-                  <view class="zz-left">
-                    <view class="name">{{ item.description }}</view>
-                    <view class="desc">{{ item.createTime }}</view>
-                  </view>
-                  <view class="zz-right">
-                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
-                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
-                    </view>
-                    <image
-                        style="width: 16px;height: 16px;"
-                        :src="'/static/image/userCenter/haizhu.png'"
-                    ></image>
-                  </view>
-                </view>
-
-                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
-              </view>
-
-            </scroll-view>
-
-
-          </swiper-item>
-
-        </swiper>
-      </view>
-
-
-    </view>
+        </view>
   </view>
 </template>
 <script>
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
 import TnEmpty from "../../tuniao-ui/components/tn-empty/tn-empty.vue";
+import TnTabsSwiper from "../../tuniao-ui/components/tn-tabs-swiper/tn-tabs-swiper.vue";
+import TnButton from "../../tuniao-ui/components/tn-button/tn-button.vue";
+import TnTabs from "../../tuniao-ui/components/tn-tabs/tn-tabs.vue";
 
 export default {
   name: 'seabead',
-  components: {TnEmpty},
+  components: {TnTabs, TnButton, TnTabsSwiper, TnEmpty},
   mixins: [template_page_mixin],
   data() {
     return {
-      list: [{
+      fixedList: [{
         name: '全部'
       }, {
         name: '收入'
@@ -156,7 +108,9 @@ export default {
       pageSize: 10,
       isRefresh: true,
       isLoadding: false,
-      userInfo:{}
+      userInfo: {},
+      seabedNumber: 0
+
     }
   },
   mounted() {
@@ -172,45 +126,25 @@ export default {
             if (res.code === 200) {
               uni.setStorageSync("userInfo", res.data)
               this.userInfo = res.data
+              this.seabedNumber = res.data.extendUserInfo.remainingBalance
             } else {
               this.$t.message.toast(res.msg)
             }
           })
     },
-  // 跳转
-  tn(e) {
-    uni.navigateTo({
-      url: e,
-    });
-  },
-    // 标签栏值发生改变
-    tabsChange(index) {
-      this.swiperIndex = index
+    // 跳转
+    tn(e) {
+      uni.navigateTo({
+        url: e,
+      });
     },
-    // swiper-item位置发生改变
-    swiperTransition(event) {
-      this.$refs.tabs.setDx(event.detail.dx)
-    },
-    // swiper动画结束
-    swiperAnimationFinish(event) {
-      const current = event.detail.current
-      this.$refs.tabs.setFinishCurrent(current)
-      this.swiperIndex = current
-
-
-      console.log(this.tabsIndex + "================" + event.detail.current)
-
-
+    tabChange(e) {
       //如果改变的不等于当前的才改变
-      if (this.tabsIndex !== event.detail.current) {
-        this.switchClear(current)
+      if (this.tabsIndex !== e) {
+        this.switchClear(e)
         this.getDataList()
       }
-
-
-      this.tabsIndex = current
-
-
+      this.tabsIndex = e
     },
     switchClear(e) {
       if (e === 0) {
@@ -264,6 +198,13 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+/* 底部安全边距 start*/
+.tn-tabbar-height {
+  min-height: 40rpx;
+  height: calc(60rpx + env(safe-area-inset-bottom) / 2);
+  height: calc(60rpx + constant(safe-area-inset-bottom));
+}
+
 /* 胶囊*/
 .tn-custom-nav-bar__back {
   width: 100%;
@@ -287,7 +228,7 @@ export default {
   }
 }
 
-.seabead .bead-top {
+.bead-top {
   color: #FFFFFF;
   width: 100%;
   height: 240px;
@@ -305,10 +246,12 @@ export default {
 
 .seabead .bead-content {
   padding: 20px;
+  background: #FFFFFF;
+  border-radius: 13px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 
   .bead-three {
-    background: #FFFFFF;
-    border-radius: 13px;
     height: 100%;
 
     display: flex;
@@ -368,6 +311,7 @@ export default {
       }
 
       .zz-right {
+
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -380,5 +324,29 @@ export default {
 
 .kk-empty {
   margin-top: 100px;
+}
+
+.kk-zz-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  overflow: visible;
+  transform: translate(0px, 0px);
+  border-radius: 6px;
+  margin: 0;
+  padding: 0px 16px;
+  font-size: 12px;
+  height: 26px;
+  width: auto;
+  background-color: rgb(49, 207, 224);
+}
+
+.kk-jx-top .tn-custom-nav-bar__bar {
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 </style>

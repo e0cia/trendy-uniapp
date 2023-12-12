@@ -4,8 +4,8 @@
     <tn-nav-bar fixed alpha customBack>
       <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
         <text class='icon tn-icon-left'></text>
-        <text class='icon tn-icon-home-capsule-fill'></text>
       </view>
+      <text style="color: #FFFFFF">信息修改</text>
     </tn-nav-bar>
 
     <view class="tn-margin-top" :style="{paddingTop: vuex_custom_bar_height + 'px'}">
@@ -15,7 +15,7 @@
             用户头像
           </view>
           <view class="tn-color-gray tn-padding-top-xs">
-            穷在闹市无人问,富在深山有远亲
+            海珠海珠、快快长齐
           </view>
         </view>
         <view class="justify-content-item tn-text-lg tn-color-gray">

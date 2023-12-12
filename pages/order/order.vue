@@ -10,14 +10,11 @@
 			</view>
 		</tn-nav-bar>
 
-
-
 		<view class="top-fixed" :style="{paddingTop: vuex_custom_bar_height + 10 +'px'}">
 			<tn-tabs :list="fixedList" :current="current" :isScroll="true" inactiveColor="#FFFFFF80"
 				activeColor="#FFFFFF" bold="true" backgroundColor="#16171D" :fontSize="32" :badgeOffset="[20, 50]"
 				@change="tabChange"></tn-tabs>
 		</view>
-
 
 		<view class="" v-if="content.length>0" :style="{paddingTop: vuex_custom_bar_height + 60 +'px'}">
 			<view v-for="(item,index) in content" :key="index" class="order__item" @click="tn('')">

@@ -492,7 +492,10 @@ export default {
      background: #892eaa;
      transform: rotate(45deg);
 }
-uni-page-body {
-  background-color: #fff;
+//uni-page-body {
+//  background-color: #fff;
+//}
+.template-product{
+  background: #FFFFFF!important;
 }
 </style>

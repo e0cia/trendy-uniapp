@@ -2,7 +2,7 @@
   <view class="real-name">
     <!-- 顶部自定义导航 -->
     <tn-nav-bar fixed alpha customBack>
-      <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
+      <view slot="back" class='tn-custom-nav-bar__back' @click="goBack" >
         <text class='icon tn-icon-left'></text>
       </view>
       实名认证
@@ -141,10 +141,10 @@ export default {
   justify-content: space-evenly;
   align-items: center;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 1000rpx;
-  border: 1rpx solid rgba(255, 255, 255, 0.5);
-  color: #FFFFFF;
+  border: 1rpx solid rgba(0, 0, 0, .1);
+  color: #000000;
   font-size: 18px;
 
   .icon {
