@@ -1,7 +1,7 @@
 <template>
   <view class="pagesD tn-safe-area-inset-bottom">
     <view class="tn-margin-left tn-margin-right" :style="{paddingTop: vuex_custom_bar_height + 5 + 'px'}">
-      <view >
+      <view>
         <!-- 图标logo/头像 -->
         <view class="tn-flex tn-flex-row-between tn-flex-col-center tn-margin-bottom">
           <view class="justify-content-item">
@@ -39,8 +39,6 @@
         </view>
 
       </view>
-
-
 
 
       <view @click="tn('/pages/seabead/seabead')" class="tn-margin-top-xl tn-padding-top-lg">
@@ -83,16 +81,11 @@
       </view>
 
 
-
-
-
-
-
       <view class="tn-flex tn-flex-wrap tn-padding-xs">
-        <view  style="width: 100%;">
-          <view  class="image-haibao tn-shadow-blur"
-                 style="background-image: url(https://resource.tuniaokj.com/images/capsule-banner/banner-tnui.png);">
-            <view  class="image-position"></view>
+        <view style="width: 100%;">
+          <view class="image-haibao tn-shadow-blur"
+                style="background-image: url(https://resource.tuniaokj.com/images/capsule-banner/banner-tnui.png);">
+            <view class="image-position"></view>
           </view>
         </view>
       </view>
@@ -105,7 +98,7 @@
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../order/order')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
+              >
                 <view class="tn-icon-order-fill  kk-my-order-icon"></view>
               </view>
               <view class="tn-text-center">
@@ -116,8 +109,8 @@
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../pay/pay')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
-                <view class="tn-icon-server-fill  kk-my-order-icon" ></view>
+              >
+                <view class="tn-icon-server-fill  kk-my-order-icon"></view>
               </view>
               <view class="tn-text-center">
                 <text class="tn-text-ellipsis  kk-my-order-text">待发货</text>
@@ -127,7 +120,7 @@
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
+              >
                 <view class="tn-icon-cube  kk-my-order-icon"></view>
               </view>
               <view class="tn-text-center">
@@ -138,7 +131,7 @@
           <view class="tn-padding-sm tn-margin-xs tn-radius">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
-                   >
+              >
                 <view class="tn-icon-location-fill  kk-my-order-icon"></view>
               </view>
               <view class="tn-text-center">
@@ -152,40 +145,42 @@
       </view>
 
 
-
       <view class="box-shadow tn-margin-top-lg tn-padding-bottom-sm">
 
-        <view class="tn-margin-top-sm tn-padding-left-lg intive-team tn-text-bold tn-text-lg tn-color-white">我的服务</view>
-        <view  class=" tn-margin-top-sm tn-flex tn-flex-wrap tn-flex-col-center tn-flex-row-between tn-margin-left tn-margin-right">
-          <view @click="tn('/pages/team/team')"  class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between kk-my-cen-bg">
+        <view class="tn-margin-top-sm tn-padding-left-lg intive-team tn-text-bold tn-text-lg tn-color-white">我的服务
+        </view>
+        <view
+            class=" tn-margin-top-sm tn-flex tn-flex-wrap tn-flex-col-center tn-flex-row-between tn-margin-left tn-margin-right">
+          <view @click="tn('/pages/team/team')"
+                class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between kk-my-cen-bg">
             <view class=" tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
               <view class="intive-item-left-content">
-                <view  class=" tn-text-xxl">我的团队</view>
-                <view  class="intive-item-bottom-text tn-padding-top-xs kk-my-cen-desc" >MY TEAM
+                <view class=" tn-text-xxl">我的团队</view>
+                <view class="intive-item-bottom-text tn-padding-top-xs kk-my-cen-desc">MY TEAM
                 </view>
               </view>
             </view>
             <view class="intive-item-content-right">
-              <view  class="tn-icon-team-fill"></view>
+              <view class="tn-icon-team-fill"></view>
             </view>
           </view>
-          <view  @click="tn('/pages/share/share')"   class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between kk-my-cen-bg" >
+          <view @click="tn('/pages/share/share')"
+                class="intive-item-content tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between kk-my-cen-bg">
             <view class=" tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
               <view class="intive-item-left-content">
                 <view class=" tn-text-xxl">我的邀请</view>
-                <view class="intive-item-bottom-text tn-padding-top-xs kk-my-cen-desc" >INTIVE FRIENDS
+                <view class="intive-item-bottom-text tn-padding-top-xs kk-my-cen-desc">INTIVE FRIENDS
                 </view>
               </view>
             </view>
-            <view  class="intive-item-content-right">
-              <view  class="intive-item-content-right--icon">
+            <view class="intive-item-content-right">
+              <view class="intive-item-content-right--icon">
                 <view class="tn-icon-vip-fill"></view>
               </view>
             </view>
           </view>
         </view>
       </view>
-
 
 
       <view class="box-shadow tn-margin-top tn-margin-bottom-lg tn-padding-top-sm tn-padding-bottom-sm">
@@ -216,7 +211,7 @@
         </tn-list-cell>
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button  @click="tn('/pages/address/address')" class="tn-flex tn-flex-col-center tn-button--clear-style">
+          <button @click="tn('/pages/address/address')" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-empty-address"></view>
             </view>
@@ -229,7 +224,7 @@
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button  @click="noflished()" class="tn-flex tn-flex-col-center tn-button--clear-style">
+          <button @click="noflished()" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-align-right"></view>
             </view>
@@ -241,7 +236,7 @@
         </tn-list-cell>
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button  @click="tn('/pages/set/set')"  class="tn-flex tn-flex-col-center tn-button--clear-style">
+          <button @click="tn('/pages/set/set')" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-install"></view>
             </view>
@@ -253,7 +248,7 @@
         </tn-list-cell>
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" >
+          <button class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-tip"></view>
             </view>
@@ -265,7 +260,7 @@
         </tn-list-cell>
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button  @click="lougout()"  class="tn-flex tn-flex-col-center tn-button--clear-style" >
+          <button @click="lougout()" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-logout"></view>
             </view>
@@ -289,7 +284,7 @@
     <wx-user-info-modal v-model="showAuthorizationModal" @updated="updatedUserInfoEvent"></wx-user-info-modal>
 
     <view class='tn-tabbar-height'></view>
-<!--    <view class="bg-tabbar-shadow"></view>-->
+    <!--    <view class="bg-tabbar-shadow"></view>-->
   </view>
 </template>
 
@@ -384,7 +379,11 @@ export default {
       this.showAuthorizationModal = true
     },
     noflished() {
-      this.$t.message.toast('请联系客服加入战神计划')
+      if (this.userInfo.extendUserInfo.isCardVendor === 1) {
+        this.tn('/pages/cardvendor/giveuser')
+      } else {
+        this.$t.message.toast('请联系客服加入战神计划')
+      }
     },
     // 获取到的用户信息
     updatedUserInfoEvent(info) {
@@ -401,7 +400,7 @@ export default {
               this.$t.message.closeLoading()
               // this.tn('../index/index?index=0')
               uni.switchTab({
-                url:'/pages/index/index'
+                url: '/pages/index/index'
               })
             } else {
               this.$t.message.toast(res.msg)
@@ -417,6 +416,7 @@ export default {
 .pagesD {
   max-height: 100vh;
 }
+
 //
 ///* 底部tabbar假阴影 start*/
 //.bg-tabbar-shadow {
@@ -655,19 +655,19 @@ export default {
   animation: move_wave 2s linear infinite;
 }
 
-.image-haibao{
+.image-haibao {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   border-radius: 8px 8px 0 0;
 }
-.image-position{
+
+.image-position {
   padding: 54px 0px;
   font-size: 16px;
   font-weight: 300;
   position: relative;
 }
-
 
 
 .intive-item-content-right--icon {
@@ -714,23 +714,27 @@ export default {
   background-size: 100% 100%;
   background-image: url(https://resource.tuniaokj.com/images/cool_bg_image/3.png);
 }
-.kk-my-cen-desc{
-  color: rgba(255,255,255,0.9)
+
+.kk-my-cen-desc {
+  color: rgba(255, 255, 255, 0.9)
 }
-.kk-my-cen-bg{
-  background: linear-gradient(to right,#f9c7d2, #9e99eb);  color: #7444f8;
+
+.kk-my-cen-bg {
+  background: linear-gradient(to right, #f9c7d2, #9e99eb);
+  color: #7444f8;
 }
 
 
-.kk-my-order-icon{
+.kk-my-order-icon {
   font-size: 40px;
   color: #c3aff9
 }
-.kk-my-order-text{
-  color: rgba(255,255,255,0.9)
+
+.kk-my-order-text {
+  color: rgba(255, 255, 255, 0.9)
 }
 
-.icon12__item--icon{
-  margin-bottom: 5px!important;
+.icon12__item--icon {
+  margin-bottom: 5px !important;
 }
 </style>

@@ -136,7 +136,7 @@
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input v-model="form.payPassword" :password="!showPassword" placeholder-class="input-placeholder"
+                <input type="number" v-model="form.payPassword" :password="!showPassword" placeholder-class="input-placeholder"
                        placeholder="请输入支付密码"/>
               </view>
               <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">

@@ -134,15 +134,25 @@
     {
       "path": "pages/seabead/seabead",
       "style": {
-        "navigationBarTitleText": "我的海珠",
-        "navigationBarBackgroundColor": "white"
+        "navigationBarTitleText": "我的海珠"
       }
     },
     {
       "path": "pages/team/team",
       "style": {
-        "navigationBarTitleText": "我的团队",
-        "background-color": "#FFFFFF"
+        "navigationBarTitleText": "我的团队"
+      }
+    },
+    {
+      "path": "pages/cardvendor/cardvendor",
+      "style": {
+        "navigationBarTitleText": "战神计划"
+      }
+    },
+    {
+      "path": "pages/cardvendor/giveuser",
+      "style": {
+        "navigationBarTitleText": "战神计划"
       }
     }
   ],

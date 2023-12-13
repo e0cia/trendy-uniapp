@@ -5,7 +5,7 @@
       <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
         <text class='icon tn-icon-left'></text>
       </view>
-      <span class="tn-text-xl" style="color: #FFFFFF">海珠赠送</span>
+      <span class="tn-text-xl" style="color: #FFFFFF">战神计划</span>
     </tn-nav-bar>
 
     <view class="tn-margin" :style="{paddingTop: vuex_custom_bar_height + 20+'px'}">
@@ -17,10 +17,10 @@
               style="width: 50px;height: 50px;margin-left: 20px"
               :src="'/static/image/userCenter/haizhu.png'"
           ></image>
-          <view class="tn-text-bold tn-text-xl">海珠总量</view>
+          <view class="tn-text-bold tn-text-xl">我的卡配额：</view>
 
           <view style="font-size: 28px" class="tn-text-bold tn-margin-lg">{{
-              userInfo.extendUserInfo.remainingBalance
+              userInfo.extendUserInfo.canUserCardNumber
             }}
           </view>
         </view>
@@ -31,14 +31,14 @@
     <view class="tn-margin tn-padding-top-xl">
       <view class="tn-bg-gray--light tn-flex" style="border-radius: 10rpx;padding: 20rpx 30rpx;">
         <text class="tn-flex tn-text-xl tn-padding-right-xs tn-icon-my-circle"></text>
-        <input placeholder="请输入转增用户ID" type="number" min="0" max="100000" v-model="userId"
+        <input placeholder="请输入赠送用户ID" type="number" min="0" max="100000" v-model="userId"
                @input="click"></input>
       </view>
     </view>
     <view class="tn-margin tn-padding-top-xl">
       <view class="tn-bg-gray--light tn-flex" style="border-radius: 10rpx;padding: 20rpx 30rpx;">
         <text class="tn-flex tn-text-xl tn-padding-right-xs tn-icon-alien"></text>
-        <input placeholder="请输入转增金额" type="number" min="0" max="100000" v-model="trandeNumber"
+        <input placeholder="请输入转增数量" type="number" min="0" max="100000" v-model="trandeNumber"
                @input="click"></input>
       </view>
     </view>
@@ -51,16 +51,20 @@
       <p class="text1">3.转增出去的珍珠所有权将会由接受人自动继承</p>
     </view>
 
-    <!-- 悬浮按钮-->
-    <view class="tn-flex tn-footerfixed">
-      <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center">
-        <tn-button backgroundColor="#4865ba" padding="40rpx 0" width="60%" shadow fontBold @click="openModel">
-          <!-- <text class="tn-icon-light tn-padding-right-xs tn-color-black"></text> -->
-          <text class="tn-color-white">确认数额</text>
-          <!-- <text class="tn-icon-camera tn-padding-left-xs tn-color-black"></text> -->
-        </tn-button>
-      </view>
+    <view style="text-align: center">
+      <tn-button @click="openModel" backgroundColor="#4865ba" padding="40rpx 0" width="60%" :fontSize="28"
+                 fontColor="#FFFFFF" shape="round">确认数额</tn-button>
     </view>
+    <!-- 悬浮按钮-->
+<!--    <view class="tn-flex tn-footerfixed">-->
+<!--      <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center">-->
+<!--        <tn-button backgroundColor="#4865ba" padding="40rpx 0" width="60%" shadow fontBold @click="openModel">-->
+<!--          &lt;!&ndash; <text class="tn-icon-light tn-padding-right-xs tn-color-black"></text> &ndash;&gt;-->
+<!--          <text class="tn-color-white">确认转增</text>-->
+<!--          &lt;!&ndash; <text class="tn-icon-camera tn-padding-left-xs tn-color-black"></text> &ndash;&gt;-->
+<!--        </tn-button>-->
+<!--      </view>-->
+<!--    </view>-->
 
 
     <tn-modal :zIndex="100" v-model="showModeal" :custom="true" :showCloseBtn="true">
@@ -135,7 +139,7 @@ export default {
     zhuanzeng() {
       let param = {
         userId: this.userId,
-        trandeNumber: this.trandeNumber,
+        trandeCardNumber: this.trandeNumber,
         payPassword: this.payPassword
       }
 
@@ -144,7 +148,7 @@ export default {
         return
       }
       this.$t.message.loading('支付密码不可以为空')
-      this.$http.postRequest('/kakabl/inventory/transferAndIncrease', param)
+      this.$http.postRequest('/kakabl/inventory/transferCard', param)
           .then(res => {
             this.$t.message.closeLoading()
             if (res.code === 200) {
@@ -153,7 +157,7 @@ export default {
               this.$t.message.toast("转增成功")
               setTimeout(() => {
                 uni.navigateBack({
-                  delta: 1,//返回层数，2则上上页
+                  delta: 2,//返回层数，2则上上页
                 })
               }, 1000)
 
@@ -174,7 +178,7 @@ export default {
     // 跳转
     tn(e) {
       uni.navigateTo({
-        url: '/pages/index/index',
+        url: e,
       });
     },
     click(e) {
