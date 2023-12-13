@@ -3,7 +3,7 @@
     <!-- 顶部自定义导航 -->
     <view class="kk-jx-top">
       <tn-nav-bar   :isBack="true" fixed alpha customBack>
-        <view slot="back" class='tn-custom-nav-bar__back' @click="tn('../index/index')">
+        <view slot="back" class='tn-custom-nav-bar__back'  @click="goBack">
           <text class='icon tn-icon-left-arrow'></text>
         </view>
       </tn-nav-bar>
@@ -75,8 +75,10 @@
 </template>
 
 <script>
+import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
 export default {
   name: 'PageC',
+  mixins: [template_page_mixin],
   data() {
     return {
       page: 1,
@@ -259,4 +261,5 @@ export default {
   }
 
 }
+
 </style>

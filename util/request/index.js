@@ -1,7 +1,7 @@
 // 请求接口
 // const commoneUrl = "https://gongshen.yuanmajie.top/";
-const commoneUrl = "http://112.124.38.175:8080";
-// const commoneUrl = "http://127.0.0.1:8081";
+// const commoneUrl = "http://112.124.38.175:8080";
+const commoneUrl = "http://127.0.0.1:8081";
 // new 域名
  
 //get请求封装

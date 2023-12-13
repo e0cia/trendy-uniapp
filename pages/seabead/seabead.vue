@@ -46,8 +46,7 @@
                      activeColor="#000000" :bold="true" backgroundColor="#FFFFFF" :fontSize="32" :badgeOffset="[20, 50]"
                      @change="tabChange"></tn-tabs>
             <!-- 标签内容 -->
-            <view class="swiper__box" :current="swiperIndex" @transition="swiperTransition"
-                  @animationfinish="swiperAnimationFinish">
+            <view class="swiper__box" :current="swiperIndex">
               <view class="swiper__item">
 
                 <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
@@ -110,7 +109,6 @@ export default {
       isLoadding: false,
       userInfo: {},
       seabedNumber: 0
-
     }
   },
   mounted() {
@@ -159,7 +157,6 @@ export default {
       this.isRefresh = true
     },
     scrollToLower() {
-      console.log("daodile:", this.isRefresh)
       if (this.isRefresh) {
         this.getDataList();
       }

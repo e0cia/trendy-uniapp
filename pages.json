@@ -7,7 +7,8 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "卡卡部落"
+        "navigationBarTitleText": "卡卡部落",
+		"enablePullDownRefresh": true
       }
     },
     {
@@ -136,14 +137,53 @@
         "navigationBarTitleText": "我的海珠",
         "navigationBarBackgroundColor": "white"
       }
+    },
+    {
+      "path": "pages/team/team",
+      "style": {
+        "navigationBarTitleText": "我的团队",
+        "background-color": "#FFFFFF"
+      }
     }
   ],
   "globalStyle": {
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "云晨科技",
+    "navigationBarTitleText": "卡卡部落",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#20202d",
+    "color": "#ffffff",
+    "selectedColor": "#8470c6",
+    "list": [
+      {
+        "text": "商店",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/image/tabbar/mall.png",
+        "selectedIconPath": "static/image/tabbar/mall_select.png"
+      },
+      {
+        "text": "海底",
+        "pagePath": "pages/index/sea",
+        "iconPath": "static/image/tabbar/sea.png",
+        "selectedIconPath": "static/image/tabbar/sea_select.png"
+      },
+      {
+        "text": "部落",
+        "pagePath": "pages/index/tribe",
+        "iconPath": "static/image/tabbar/bl.png",
+        "selectedIconPath": "static/image/tabbar/bl_select.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/index/my",
+        "iconPath": "static/image/tabbar/my.png",
+        "selectedIconPath": "static/image/tabbar/my_select.png"
+      }
+    ]
   },
   "uniIdRouter": {}
 }

@@ -69,10 +69,11 @@
 
     <view class="content-backgroup">
       <image
+
           v-for="(item,index) in detialImageList" :key="index"
           :src='item'
           mode='widthFix' class='backgroud-image'></image>
-<!--      <rich-text nodes="asdasdsadsad" class="texttitle"></rich-text>-->
+      <!--      <rich-text nodes="asdasdsadsad" class="texttitle"></rich-text>-->
     </view>
 
 
@@ -487,15 +488,15 @@ export default {
 }
 
 .detial_box .flag_detial{
- width: 6px;
-     height: 6px;
-     background: #892eaa;
-     transform: rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: #892eaa;
+  transform: rotate(45deg);
 }
 //uni-page-body {
 //  background-color: #fff;
 //}
-.template-product{
+.template-product,.page{
   background: #FFFFFF!important;
 }
 </style>

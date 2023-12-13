@@ -59,9 +59,9 @@
         </view>
         <view class="menu_right">
           <image  @click="tn('../product/productList')" style="background-color: #eeeeee;"
-                  :src="'https://demoh5.sxqichuangkeji.com/static/menus/img2.jpg'"></image>
+                 :src="'https://demoh5.sxqichuangkeji.com/static/menus/img2.jpg'"></image>
           <image  @click="tn('../product/productList')"  style="background-color: #eeeeee;"
-                  :src="'https://demoh5.sxqichuangkeji.com/static/menus/img3.jpg'"></image>
+                 :src="'https://demoh5.sxqichuangkeji.com/static/menus/img3.jpg'"></image>
         </view>
       </view>
       <view class="indication">
@@ -132,19 +132,110 @@
         <!-- 数字模型 end-->
 
       </view>
+
+<!--      <view class="" v-if="current==1">-->
+
+<!--        &lt;!&ndash; 数字模型 start&ndash;&gt;-->
+<!--        <view class="tn-flex tn-flex-wrap">-->
+<!--          <block v-for="(item, index) in list.hotsales" :key="index">-->
+<!--            <view class="" style="width: 100%;" @click="tn('../product/product?id='+item.goodsid)">-->
+
+<!--              <view class="product-content">-->
+<!--                <view class="image-pic"-->
+<!--                      :style="'background-image:url(' + item.coverimage + ');background-size: cover;background-position: center;'">-->
+<!--                  <view class="image-product">-->
+<!--                    <view class="tn-text-df"-->
+<!--                          style="width: 100%;height: 160rpx;background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0));position: absolute;bottom: 0;border-radius: 0 0 12rpx 12rpx;">-->
+<!--                      <view-->
+<!--                          class="tn-padding-top-xl tn-padding-left tn-padding-right tn-color-white clamp-text-1"-->
+<!--                          style="font-size: 30rpx;">{{ item.name }}-->
+<!--                      </view>-->
+<!--                      <view-->
+<!--                          class="tn-flex tn-flex-row-between tn-flex-col-center tn-padding-left tn-padding-right tn-padding-top-xs">-->
+<!--                        <view-->
+<!--                            class="justify-content-item tn-flex tn-flex-col-center tn-color-white"-->
+<!--                            style="margin-left: -6rpx;">-->
+<!--                          <text class="tn-text-lg tn-icon-alien">&lt;!&ndash; ￥ &ndash;&gt;</text>-->
+<!--                          <text class="tn-padding-right-sm tn-text-lg">{{ item.pay }}</text>-->
+<!--                          <text class="tn-text-sm"> {{ item.sales }} 人购买</text>-->
+<!--                        </view>-->
+<!--                        <view class="justify-content-item tn-flex tn-flex-col-center">-->
+<!--                          &lt;!&ndash; <text class="tn-color-white tn-text-sm"> 12 人购买</text> &ndash;&gt;-->
+<!--                          <tn-button size="sm" shape="icon" backgroundColor="#000000"-->
+<!--                                     fontColor="tn-color-white" padding="10rpx 0 0 0" shadow>-->
+<!--                            <text class="tn-icon-buy tn-text-lg"></text>-->
+<!--                          </tn-button>-->
+<!--                        </view>-->
+<!--                      </view>-->
+<!--                    </view>-->
+<!--                  </view>-->
+<!--                </view>-->
+<!--              </view>-->
+
+<!--            </view>-->
+<!--          </block>-->
+<!--        </view>-->
+<!--        &lt;!&ndash; 数字模型 end&ndash;&gt;-->
+
+<!--      </view>-->
+
+
+<!--      <view class="" v-if="current==2">-->
+
+<!--        &lt;!&ndash; 数字模型 start&ndash;&gt;-->
+<!--        <view class="tn-flex tn-flex-wrap">-->
+<!--          <block v-for="(item, index) in list.newproduct" :key="index">-->
+<!--            <view class="" style="width: 100%;" @click="tn('../product/product?id='+item.goodsid)">-->
+
+<!--              <view class="product-content">-->
+<!--                <view class="image-pic"-->
+<!--                      :style="'background-image:url(' + item.coverimage + ');background-size: cover;background-position: center;'">-->
+<!--                  <view class="image-product">-->
+<!--                    <view class="tn-text-df"-->
+<!--                          style="width: 100%;height: 160rpx;background: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0));position: absolute;bottom: 0;border-radius: 0 0 12rpx 12rpx;">-->
+<!--                      <view-->
+<!--                          class="tn-padding-top-xl tn-padding-left tn-padding-right tn-color-white clamp-text-1"-->
+<!--                          style="font-size: 30rpx;">{{ item.name }}-->
+<!--                      </view>-->
+<!--                      <view-->
+<!--                          class="tn-flex tn-flex-row-between tn-flex-col-center tn-padding-left tn-padding-right tn-padding-top-xs">-->
+<!--                        <view-->
+<!--                            class="justify-content-item tn-flex tn-flex-col-center tn-color-white"-->
+<!--                            style="margin-left: -6rpx;">-->
+<!--                          <text class="tn-text-lg tn-icon-alien">&lt;!&ndash; ￥ &ndash;&gt;</text>-->
+<!--                          <text class="tn-padding-right-sm tn-text-lg">{{ item.pay }}</text>-->
+<!--                          <text class="tn-text-sm"> {{ item.sales }} 人购买</text>-->
+<!--                        </view>-->
+<!--                        <view class="justify-content-item tn-flex tn-flex-col-center">-->
+<!--                          &lt;!&ndash; <text class="tn-color-white tn-text-sm"> 12 人购买</text> &ndash;&gt;-->
+<!--                          <tn-button size="sm" shape="icon" backgroundColor="#000000"-->
+<!--                                     fontColor="tn-color-white" padding="10rpx 0 0 0" shadow>-->
+<!--                            <text class="tn-icon-buy tn-text-lg"></text>-->
+<!--                          </tn-button>-->
+<!--                        </view>-->
+<!--                      </view>-->
+<!--                    </view>-->
+<!--                  </view>-->
+<!--                </view>-->
+<!--              </view>-->
+
+<!--            </view>-->
+<!--          </block>-->
+<!--        </view>-->
+<!--        &lt;!&ndash; 数字模型 end&ndash;&gt;-->
+
+<!--      </view>-->
+
     </view>
+
     <view class='tn-tabbar-height'></view>
     <view class="bg-tabbar-shadow"></view>
-    <TabBarBottom :tarbarIndex="0"></TabBarBottom>
   </view>
 </template>
 
 <script>
-import TabBarBottom from './component/TabBar.vue'
 export default {
-  components: {
-    TabBarBottom,
-  },
+  name: 'PageA',
   data() {
     return {
       cardCur: 0,

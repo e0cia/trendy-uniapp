@@ -54,7 +54,7 @@ export default {
       }
       this.currentIndex = e
       if (e===0){
-        uni.navigateTo({
+        uni.switchTab({
           url:'/pages/index/index'
         })
       }else if (e===1){
