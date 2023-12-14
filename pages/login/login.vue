@@ -205,9 +205,9 @@
             </view>
             <view class="desc">
               <text class="text1">我已阅读并同意</text>
-              <text style="color: #0670ec" class="text1">用户协议</text>
+              <text @click="tn('/pages/policy/userAgreement')" style="color: #0670ec" class="text1">用户协议</text>
               <text class="text1">和</text>
-              <text style="color: #0670ec" class="text1">隐私协议</text>
+              <text  @click="tn('/pages/policy/privacyPolicy')" style="color: #0670ec" class="text1">隐私协议</text>
             </view>
           </view>
       </view>

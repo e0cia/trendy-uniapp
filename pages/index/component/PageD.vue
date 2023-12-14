@@ -247,7 +247,7 @@
         </tn-list-cell>
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
-          <button class="tn-flex tn-flex-col-center tn-button--clear-style" >
+          <button  @click="tn('/pages/aboutus/aboutus')"  class="tn-flex tn-flex-col-center tn-button--clear-style" >
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-tip"></view>
             </view>

@@ -8,7 +8,7 @@
       "path": "pages/index/index",
       "style": {
         "navigationBarTitleText": "卡卡部落",
-		"enablePullDownRefresh": true
+        "enablePullDownRefresh": true
       }
     },
     {
@@ -154,6 +154,25 @@
       "style": {
         "navigationBarTitleText": "战神计划"
       }
+    },
+    {
+      "path": "pages/policy/privacyPolicy",
+      "style": {
+        "navigationBarTitleText": "隐私协议"
+      }
+    },
+    {
+      "path": "pages/policy/userAgreement",
+      "style": {
+        "navigationBarTitleText": "用户协议"
+      }
+    },
+    {
+      "path": "pages/aboutus/aboutus",
+      "style": {
+        "navigationBarTitleText": "关于我们"
+      }
+
     }
   ],
   "globalStyle": {
