@@ -8,11 +8,12 @@
         <text class='icon tn-icon-home-capsule-fill'></text>
       </view>
     </tn-nav-bar>
-    <view >
+    <view  :style="{paddingTop: vuex_custom_bar_height  + 'px'}" class="share-content">
+<!--      备用https://api.nbhao.org/v1/qrcode/make?text=https://h5.xunfan.art/%23/pages/login/login&el=H&fc=steelblue&bc=white&s=500-->
       <poster @success="posterSuccess"
-              :imgSrc="'https://bpic.51yuansu.com/pic3/cover/04/09/63/632a5f6c79f34_800.jpg?x-oss-process=image/sharpen,100'"
-              :QrSrc="'https://bpic.51yuansu.com/pic2/cover/00/27/19/57fc383074f64_610.jpg?x-oss-process=image/sharpen,100'"
-              :Title="'卡卡部落'" :PriceTxt="'卡卡部落'"  :ViewDetails="'激活码:336655'" :LineType="true"></poster>
+                :imgSrc="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/poster.png'"
+              :QrSrc="'https://api.qrserver.com/v1/create-qr-code/?size=391x391&data=https://h5.xunfan.art/%23/pages/login/login?inviteCode='+userInfo.inviteCode"
+              :Title="'卡卡部落'" :PriceTxt="'卡卡部落'"  :ViewDetails="'激活码:'+userInfo.inviteCode" :LineType="true"></poster>
     </view>
 
   <view style="margin-top: 10px;text-align: center">
@@ -23,6 +24,8 @@
 <script>
 import poster from '@/components/poster.vue'
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+import sharebg from '@/static/image/share/share-bg.jpg';
+import qrcode from 'uniapp-qrcode'
 export default {
   mixins: [template_page_mixin],
   components: {
@@ -30,8 +33,17 @@ export default {
   },
   methods: {
     posterSuccess(e) {
-      console.log(e)
+    },
+  },
+  data() {
+    return {
+      sharebg:sharebg,
+      userInfo:{}
     }
+  },
+  mounted() {
+    //获取用户信息
+    this.userInfo = uni.getStorageSync("userInfo").extendUserInfo;
   }
 }
 </script>
@@ -61,6 +73,9 @@ export default {
 }
 .share{
   height: 100vh;
-  background: #FFFFFF;
+  background: #f6f6f6;
+}
+.share-content{
+  padding: 12px 18px;
 }
 </style>

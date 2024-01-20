@@ -12,312 +12,312 @@
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKABULUO</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
-        <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item original">WORD</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">BOX</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">WORD</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
-        <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item original">WORD</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">BOX</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">WORD</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
-        <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item original">WORD</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">BOX</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">WORD</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
+        <view class="item original">SEA</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
       <view class="row">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
       </view>
 
       <view class="row invert">
 
-        <view class="item original">ARTWORK</view>
-        <view class="item original">DIGIT</view>
+        <view class="item original">KAKA</view>
+        <view class="item original">TRIBE</view>
         <view class="item original">BOX</view>
-        <view class="item original">YUNCHEN</view>
-        <view class="item original">FORTUNE</view>
+        <view class="item original">SEA</view>
+        <view class="item original">WORD</view>
 
-        <view class="item shadow">ARTWORK</view>
-        <view class="item shadow">DIGIT</view>
+        <view class="item shadow">KAKA</view>
+        <view class="item shadow">TRIBE</view>
         <view class="item shadow">BOX</view>
-        <view class="item shadow">YUNCHEN</view>
-        <view class="item shadow">FORTUNE</view>
+        <view class="item shadow">SEA</view>
+        <view class="item shadow">WORD</view>
 
       </view>
 
@@ -332,52 +332,56 @@
 
       <view class="cards-wrapper">
         <view class="card-container">
-          <view class="card rotated">
+<!--          <view class="card rotated">-->
+          <view class="card" :class="isCanOpen?'rotated':''">
             <view class="card-contents card-front">
               <view class="card-depth">
-                <view class="tn-text-xxl">
-                  恭喜获得
+                <view v-if="isCanOpen" class="card-img"
+                      style="background-image:url('https://kakabl.oss-cn-beijing.aliyuncs.com/kk/blindBox.png');width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
                 </view>
+                <view class="tn-margin-top tn-text-lg">{{openTitle}}</view>
+
               </view>
             </view>
-            <view class="card-contents card-back">
 
+
+            <view class="card-contents card-back">
               <!-- 平面效果，我觉得这个简单点比较好看-->
               <view class="card-depth">
                 <view class="card-img"
-                  style="background-image:url('https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png');width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
+                  style="background-image:url('https://kakabl.oss-cn-beijing.aliyuncs.com/kk/5.jpg');width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
                 </view>
-                <view class="tn-margin-top tn-text-lg">不许凶我</view>
+                <view class="tn-margin-top tn-text-lg">恭喜获得：{{blindBoxNmae}}</view>
               </view>
 
               <!-- 立体效果 -->
-              <!-- <view class="card-depth">
-                <view class='cube'>
-                  <view class="cube__container">
-                    <view class="cube__container__body">
-                      <view class="cube__container__body__item cube__container__body__item--front"
-                        style="background-image: url(https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png);">
-                      </view>
-                      <view class="cube__container__body__item cube__container__body__item--back"
-                        style="background-image: url(https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png);">
-                      </view>
-                      <view class="cube__container__body__item cube__container__body__item--right"
-                        style="background-image: url(https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png);">
-                      </view>
-                      <view class="cube__container__body__item cube__container__body__item--left"
-                        style="background-image: url(https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png);">
-                      </view>
-                      <view class="cube__container__body__item cube__container__body__item--top"
-                        style="background-image: url(https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png);">
-                      </view>
-                      <view class="cube__container__body__item cube__container__body__item--bottom"
-                        style="background-image: url(https://cdn.nlark.com/yuque/0/2023/png/280373/1684559753546-assets/web-upload/e65b2ffd-16be-4933-9cd8-0d468a75a116.png);">
-                      </view>
-                    </view>
-                  </view>
-                </view>
-                <view class="tn-margin-top-xl tn-padding-top-xl tn-text-lg">图鸟·不许凶我</view>
-              </view> -->
+<!--          <view class="card-depth">-->
+<!--                <view class='cube'>-->
+<!--                  <view class="cube__container">-->
+<!--                    <view class="cube__container__body">-->
+<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;front"-->
+<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg);">-->
+<!--                      </view>-->
+<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;back"-->
+<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/2.jpg);">-->
+<!--                      </view>-->
+<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;right"-->
+<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/3.jpg);">-->
+<!--                      </view>-->
+<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;left"-->
+<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/4.jpg);">-->
+<!--                      </view>-->
+<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;top"-->
+<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg);">-->
+<!--                      </view>-->
+<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;bottom"-->
+<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg);">-->
+<!--                      </view>-->
+<!--                    </view>-->
+<!--                  </view>-->
+<!--                </view>-->
+<!--                <view class="tn-margin-top-xl tn-padding-top-xl tn-text-lg">图鸟·不许凶我</view>-->
+<!--              </view>-->
 
 
             </view>
@@ -391,15 +395,38 @@
 </template>
 
 <script>
+
+import * as util from './../../util/util'
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
   export default {
     name: 'TemplateBox',
     mixins: [template_page_mixin],
     data() {
-      return {}
+      return {
+        blindBoxNmae:'',
+        isCanOpen:false,
+        openTitle:'开启中...'
+      }
+    },
+    onLoad(options){
+    },
+    mounted() {
+      this.getBlindBoxName();
     },
     methods: {
-
+      getBlindBoxName(){
+        //首先开启盲盒
+        this.$http.postRequest('/kakabl/inventory/openCard', {})
+            .then(res => {
+              if (res.code === 200) {
+                this.blindBoxNmae =  util.blidBoxType(res.data).name;
+                this.isCanOpen = true
+              } else {
+                this.openTitle = res.msg;
+              }
+            })
+       //
+      }
     }
   }
 </script>

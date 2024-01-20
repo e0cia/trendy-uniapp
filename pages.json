@@ -172,7 +172,12 @@
       "style": {
         "navigationBarTitleText": "关于我们"
       }
-
+    },
+    {
+      "path": "pages/rankingList/rankingList",
+      "style": {
+        "navigationBarTitleText": "邀请排名"
+      }
     }
   ],
   "globalStyle": {

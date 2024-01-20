@@ -17,20 +17,20 @@
         <block v-for="(item, index) in content" :key="index">
           <view class="" style="width: 50%;"   >
             <view class="box-shadow image-content__wrap"> <!-- :class="[getRandomCoolBg(index)]" -->
-              <view class="image-picbook" :style="'background-image:url(' + item.coverimage + ')'">
+              <view class="image-picbook" :style="'background-image:url(' + blindBoxInfo.image + ')'">
                 <view class="image-book">
                 </view>
               </view> 
               <view class="image-content__label tn-text-justify tn-padding-sm">
                 <view class="image-content__label__desc">
                   <view class="image-content__label__desc__text">
-                    {{ item.name }}
+                    {{ blindBoxInfo.name }}
                   </view>
                 </view>  
               </view>
               
               <view class="image-content__label__item tn-text-bold">
-                <text class="image-content__label__item--prefix tnloukong tn-icon-trophy"> {{item.zrate}}%</text>
+                <text class="image-content__label__item--prefix tnloukong tn-icon-trophy"> {{(100/6).toFixed(2)}}%</text>
               </view>
               
               
@@ -49,27 +49,32 @@
 
 <script>
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import * as util from './../../util/util'
   export default {
     name: 'TemplateSeries',
     mixins: [template_page_mixin],
     data(){
       return {
         content: [],
-        
+        blindBoxInfo:{}
       }
     },
 	onLoad(e) {
-		if(e.id){
-			this.goolist(e.id)
-		}
+    this.goolist()
+
 	},
     methods: {
-		goolist(id){
-			this.$http.postRequest('Release/homeGoodsList', {id:id})
-			.then(res => {
-				this.content=res.data
-				// console.log(res)
-			})
+		goolist(){
+      this.$http.postRequest('/kakabl/inventory/getCardInfo', {})
+          .then(res => {
+            if (res.code === 200) {
+              this.content.push(res.data)
+              this.blindBoxInfo = util.blidBoxType(res.data.blindBoxType);
+              console.log(this.blindBoxInfo)
+            } else {
+              this.$t.message.toast(res.msg)
+            }
+          })
 		},
       // 跳转
       tn(e) {

@@ -10,7 +10,7 @@
 
     <view class="login">
 
-      <view class="login__wrapper"  :style="{paddingTop: vuex_custom_bar_height  + 'px'}">
+      <view class="login__wrapper" :style="{paddingTop: vuex_custom_bar_height  + 'px'}">
         <view class="tn-margin-left tn-margin-right tn-text-bold tn-color-white" style="font-size: 45rpx;">
           你好!
         </view>
@@ -136,7 +136,8 @@
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input type="number" v-model="form.payPassword" :password="!showPassword" placeholder-class="input-placeholder"
+                <input type="number" v-model="form.payPassword" :password="!showPassword"
+                       placeholder-class="input-placeholder"
                        placeholder="请输入支付密码"/>
               </view>
               <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
@@ -192,7 +193,7 @@
 
           <view v-if="currentModeIndex === 1" :class="[{'login__info__item__tips': currentModeIndex === 0}]">
             <view class="tn-flex tn-flex-row-between ">
-              <view  style="color: #FFFFFF80; margin-top: 10px" @tap.stop="modeSwitch(0)">已有账号？前往登录</view>
+              <view style="color: #FFFFFF80; margin-top: 10px" @tap.stop="modeSwitch(0)">已有账号？前往登录</view>
             </view>
           </view>
 
@@ -207,10 +208,10 @@
               <text class="text1">我已阅读并同意</text>
               <text @click="tn('/pages/policy/userAgreement')" style="color: #0670ec" class="text1">用户协议</text>
               <text class="text1">和</text>
-              <text  @click="tn('/pages/policy/privacyPolicy')" style="color: #0670ec" class="text1">隐私协议</text>
+              <text @click="tn('/pages/policy/privacyPolicy')" style="color: #0670ec" class="text1">隐私协议</text>
             </view>
           </view>
-      </view>
+        </view>
 
 
       </view>
@@ -256,14 +257,19 @@ export default {
         payPassword: '',//支付密码
         rePayPassWord: ""//确认支付密码
       },
-      isSureFlag: false
-
+      isSureFlag: false,
     }
   },
   watch: {
     currentModeIndex(value) {
       const sliderWidth = uni.upx2px(476 / 2)
       this.modeSliderStyle.left = `${sliderWidth * value}px`
+    }
+  },
+  onLoad (e) {
+    if (e.inviteCode) {
+      this.form.inviteCode = e.inviteCode
+	  this.currentModeIndex =1
     }
   },
   methods: {

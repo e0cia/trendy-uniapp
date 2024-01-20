@@ -86,6 +86,36 @@ const isRealName = (value) => {
 };
 
 
+const blidBoxType = (value) => {
+
+    let blindBox = {}
+    if (value===1){
+        blindBox.name = "火斯";
+        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg"
+        return blindBox;
+    }else if (value===2){
+        blindBox.name = "侠斯";
+        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/2.jpg"
+        return blindBox;
+    }else if (value===3){
+        blindBox.name = "库斯";
+        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/3.jpg"
+        return blindBox;
+    }else if (value===4){
+        blindBox.name = "剑斯";
+        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/4.jpg"
+        return blindBox;
+    }else if (value===5){
+        blindBox.name = "魄斯";
+        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/5.jpg"
+        return blindBox;
+    }else if (value===6){
+        blindBox.name = "飞斯";
+        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/6.jpg"
+        return blindBox;
+    }
+};
+
 /**
  * 导出 
  **/
@@ -100,5 +130,6 @@ export {
     isSmsCode,
     isPassword,
     isPayWord,
-    isRealName
+    isRealName,
+    blidBoxType
 }

@@ -1,8 +1,10 @@
 <template>
-	<view style="background: #FFFFFF;">
+	<view  style="background: #FFFFFF;text-align: center;" :style="isShowCan?'opacity:1':'opacity:0'">
 		<canvas v-if="!tempFilePath" :canvas-id="CanvasID" :style="{ width: canvasW + 'px', height: canvasH + 'px' }"></canvas>
 		<image v-else lazy-load :src="tempFilePath" mode="widthFix" class="is-response" @longpress="toSave(tempFilePath)"></image>
-	</view>
+  </view>
+
+
 </template>
 
 <script>
@@ -63,7 +65,7 @@
 			Width: {
 				//画布宽度  (高度根据图片比例计算 单位upx)
 				Type: String,
-				default: 750
+				default: 690
 			},
 			CanvasBg: {
 				//canvas画布背景色
@@ -88,21 +90,22 @@
 				canvasW: 0,
 				canvasH: 0,
 				canvasImgSrc: '',
-				ctx: null
+				ctx: null,
+        isShowCan:false
 			};
 		},
 		methods: {
 			toSave(url) {
-				console.log("长按开始");
+				// console.log("长按开始");
 				//#ifndef H5
 				uni.getImageInfo({
 					src: url,
 					success: function(image) {
-						console.log('图片信息：', JSON.stringify(image));
+						// console.log('图片信息：', JSON.stringify(image));
 						uni.saveImageToPhotosAlbum({
 							filePath: image.path,
 							success: function() {
-								console.log('save success');
+								// console.log('save success');
 								uni.showToast({
 									title: '海报已保存相册',
 									icon: 'success',
@@ -120,23 +123,21 @@
 				// this.$queue.showLoading('海报生成中...');
 				_this.ctx = uni.createCanvasContext(_this.CanvasID, this);
 				const C_W = uni.upx2px(_this.Width), //canvas宽度
-					C_P = uni.upx2px(30), //canvas Paddng 间距
+					C_P = uni.upx2px(0), //canvas Paddng 间距
 					C_Q = uni.upx2px(150); //二维码或太阳码宽高
 				let _strlineW = 0; //文本宽度
 				let _imgInfo = await _this.getImageInfo({
 					imgSrc: _this.imgSrc
 				}); //广告图
-				console.log('图片信息0：', JSON.stringify(""));
-
 				let _QrCode = await _this.getImageInfo({
 					imgSrc: _this.QrSrc
 				}); //二维码或太阳码
-
-				console.log('图片信息1：', JSON.stringify(""));
-
 				let r = [_imgInfo.width, _imgInfo.height];
 				let q = [_QrCode.width, _QrCode.height];
+        // console.log("宽度：：：：：：：",C_W)
 				let imgW = C_W - C_P * 2;
+
+        // console.log("图片宽度：：：：：：：",imgW)
 				if (r[0] != imgW) {
 					r[1] = Math.floor((imgW / r[0]) * r[1]);
 					r[0] = imgW;
@@ -163,7 +164,8 @@
 
 				//设置文本 end
 				//设置价格
-				_strlineW = C_P;
+        let otherWidth = 20;
+				_strlineW = C_P+otherWidth;
 				_strHeight += uni.upx2px(50);
 				if (_this.PriceTxt != '') {
 					//判断是否有销售价格
@@ -192,21 +194,22 @@
 
 				//添加二维码
 				_strHeight += uni.upx2px(0);
-				_this.ctx.drawImage(_QrCode.path, r[0] - q[0] + C_P, _strHeight, q[0], q[1]);
+				_this.ctx.drawImage(_QrCode.path, r[0] - q[0] + C_P-10, _strHeight, q[0], q[1]);
 				//添加二维码 end
 
 				//添加推荐人与描述
 				_this.ctx.setFillStyle(_this.TitleColor);
 				_this.ctx.setFontSize(uni.upx2px(30));
         _strHeight += uni.upx2px(30);
-				_this.ctx.fillText(_this.Referrer, C_P, _strHeight + q[1] / 2);
+				_this.ctx.fillText(_this.Referrer, C_P+10, _strHeight + q[1] / 2);
 				_this.ctx.setFillStyle(_this.OriginalColor);
 				_this.ctx.setFontSize(uni.upx2px(24));
-				_this.ctx.fillText(_this.ViewDetails, C_P, _strHeight + q[1] / 2 + 20);
+				_this.ctx.fillText(_this.ViewDetails, C_P+10, _strHeight + q[1] / 2 + 20);
 				//添加推荐人与描述 end
 				//延迟后渲染至canvas上
 				setTimeout(function() {
 					_this.ctx.draw(true, ret => {
+            _this.isShowCan = true
 						uni.hideLoading();
 						_this.getNewImage();
 					});
@@ -259,6 +262,10 @@
 		},
 		mounted() {
 			_this = this;
+      uni.showLoading({
+        title: '海报生成中......',
+        mask: true
+      })
 			this.OnCanvas();
 		}
 	};

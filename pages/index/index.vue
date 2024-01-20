@@ -14,44 +14,53 @@
       </view>
     </tn-nav-bar>
 
-    <view class="tn-margin-bottom-xl" :style="{paddingTop: vuex_custom_bar_height  + 'px'}">
+    <view class="tn-margin-bottom-xl">
+
+
+      <view class="top-backgroup">
+        <view class="top-backgroup-up">
+          <img width="400px" src="https://kakabl.oss-cn-beijing.aliyuncs.com/kk/index-bg.png" draggable="false">
+        </view>
+
+
+        <view class="kk-bg-button tn-flex tn-flex-wrap tn-padding-xs">
+<!--          <image class="image-button"-->
+<!--                 src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/play-rule.png"-->
+<!--          ></image>-->
+
+          <view  style="width: 100%;"  @click="tn('/pages/share/share')" class="tn-flex tn-flex-wrap tn-padding-xs">
+            <view style="width: 100%;">
+              <view class="image-haibao tn-shadow-blur"
+                    style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/player.png);">
+                <view class="image-position"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
       <view class="kk_home_swiper">
 
-        <swiper class="card-swiper" :circular="true" :autoplay="false" duration="500" :disable-touch="true"
-                previous-margin="100rpx" next-margin="100rpx" @change="cardSwiper">
-          <swiper-item class="image-class" v-for="(item,index) in carouselList" :key="index"
-                       :class="cardCur==index?'cur':''"
-                       @click="tn('../product/product?id=1')">
-            <view class="swiper-item image-banner">
-              <image :src="item.imageCard" mode="aspectFill"></image>
-            </view>
+        <!--        <view class="kk-bg-top">-->
+        <!--          <image class="image-bg"-->
+        <!--                 src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/bg-image.png"-->
+        <!--          ></image>-->
+        <!--        </view>-->
 
-            <view class="swiper-item-text">
-              <view class="tn-padding-sm">
-                <view class="tn-text-lg tn-color-white tn-padding-top-xs"></view>
-                <view class="tn-text-sm tn-text-bold tn-color-white tn-padding-top-sm"
-                      style="opacity: 0.5;">开启全新的探索之旅
-                </view>
-              </view>
 
-            </view>
-
-          </swiper-item>
-        </swiper>
-
-        <view class="kaka_buy_top">
-          <view class="kaka_buy_name">卡卡部落卡</view>
-          <view class="kaka_buy_price">￥147.0/张</view>
-          <view class="kaka_buy_gif_left">1.1海珠 / 天</view>
-          <view class="kaka_buy_gif_right">会员权益 ×1</view>
-        </view>
+        <!--        <view class="kaka_buy_top">-->
+        <!--          <view class="kaka_buy_name">卡卡部落卡</view>-->
+        <!--          <view class="kaka_buy_price">￥147.0/张</view>-->
+        <!--          <view class="kaka_buy_gif_left">1.1海珠 / 天</view>-->
+        <!--          <view class="kaka_buy_gif_right">会员权益 ×1</view>-->
+        <!--        </view>-->
 
       </view>
-      <view class="kaka_buy_button">
-        <view class="buluo_button">
-          立即购买
-        </view>
-      </view>
+      <!--      <view class="kaka_buy_button">-->
+      <!--        <view class="buluo_button">-->
+      <!--          立即购买-->
+      <!--        </view>-->
+      <!--      </view>-->
 
       <view class="menu">
         <view @click="tn('../product/product?id=1')" class="menu_left">
@@ -182,7 +191,7 @@ export default {
     gethomelist(e) {
       this.$http.getRequest('/open/goods/list?pageNum=1&pageSize=10', {})
           .then(res => {
-            if (e===1){
+            if (e === 1) {
               console.log(res.rows)
               uni.stopPullDownRefresh();//停止刷新
             }
@@ -253,6 +262,9 @@ export default {
 
 /* 自定义导航栏内容 end */
 
+.kk-bg-top {
+
+}
 
 /* 轮播图片入口 start*/
 .card-swiper {
@@ -420,9 +432,6 @@ export default {
 .kk_home_swiper {
   width: 100%;
   position: relative;
-  background: url(https://demoh5.sxqichuangkeji.com/static/mainland/bg.gif) no-repeat;
-  background-size: 100% 100%;
-  overflow: hidden;
 }
 
 .kaka_buy_top {
@@ -500,6 +509,29 @@ export default {
   box-shadow: inset 0px -3px 0px 0px #b29572;
 }
 
+.top-backgroup{
+  position: relative;
+}
+.kk-bg-button{
+  position: absolute;
+  width: 100%;
+  top: 210px;
+}
+
+.image-haibao {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  border-radius: 8px 8px 0 0;
+}
+
+.image-position {
+  min-height: 74px;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 10px;
+  border: 2px solid #f989f8;
+}
 </style>
 
 

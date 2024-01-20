@@ -80,11 +80,12 @@
         </view>
       </view>
 
+<!--  tn-padding-xs     -->
 
-      <view class="tn-flex tn-flex-wrap tn-padding-xs">
+      <view  @click="tn('/pages/share/share')" class="tn-flex tn-flex-wrap" style="margin-top: 10px">
         <view style="width: 100%;">
-          <view class="image-haibao tn-shadow-blur"
-                style="background-image: url(https://resource.tuniaokj.com/images/capsule-banner/banner-tnui.png);">
+          <view  class="image-haibao tn-shadow-blur"
+                style="background: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/intivite.png) no-repeat center / contain; width: 100%; height: 100%;">
             <view class="image-position"></view>
           </view>
         </view>
@@ -94,7 +95,7 @@
       <!-- 方式12 start-->
       <view class="box-shadow tn-margin-top-lg tn-padding-bottom-sm">
 
-        <view class="tn-flex tn-flex-row-center tn-radius tn-padding-top">
+        <view class="tn-flex tn-flex-row-center tn-radius ">
           <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../order/order')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
@@ -185,18 +186,18 @@
 
       <view class="box-shadow tn-margin-top tn-margin-bottom-lg tn-padding-top-sm tn-padding-bottom-sm">
 
-        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
-                      backgroundColor="#FFFFFF00">
-          <button @click="tn('/pages/share/share')" class="tn-flex tn-flex-col-center tn-button--clear-style">
-            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
-              <view class="tn-icon-empty-address"></view>
-            </view>
-            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
-              <view class="tn-margin-left-sm tn-color-white">邀请</view>
-              <view class="tn-color-gray--dark tn-icon-right"></view>
-            </view>
-          </button>
-        </tn-list-cell>
+<!--        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"-->
+<!--                      backgroundColor="#FFFFFF00">-->
+<!--          <button @click="tn('/pages/share/share')" class="tn-flex tn-flex-col-center tn-button&#45;&#45;clear-style">-->
+<!--            <view class="icon1__item&#45;&#45;icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">-->
+<!--              <view class="tn-icon-empty-address"></view>-->
+<!--            </view>-->
+<!--            <view class="tn-flex tn-flex-row-between" style="width: 100%;">-->
+<!--              <view class="tn-margin-left-sm tn-color-white">邀请</view>-->
+<!--              <view class="tn-color-gray&#45;&#45;dark tn-icon-right"></view>-->
+<!--            </view>-->
+<!--          </button>-->
+<!--        </tn-list-cell>-->
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
           <button @click="tn('/pages/realName/realName')" class="tn-flex tn-flex-col-center tn-button--clear-style">
@@ -659,11 +660,11 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
 }
 
 .image-position {
-  padding: 54px 0px;
+  padding: 42px 0px;
   font-size: 16px;
   font-weight: 300;
   position: relative;
