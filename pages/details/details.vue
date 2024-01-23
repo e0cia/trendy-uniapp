@@ -73,7 +73,7 @@
         <view class="tn-flex-1 justify-content-item tn-margin-left tn-margin-right tn-text-center">
           <tn-button backgroundColor="#FFFFFF " padding="40rpx 0" width="100%" :fontSize="28"
                      fontColor="#000000" shape="round" @click="zhifu()">
-            <text class="">立即付款</text>
+            <text class="">立即兑换</text>
           </tn-button>
         </view>
       </view>
@@ -132,38 +132,7 @@ export default {
       this.cardCur = e.detail.current
     },
     zhifu() {
-      let data = {
-        goods_id: this.bydata.id,
-        title: this.bydata.name,
-        coverimage: this.bydata.coverimage,
-        pay: this.bydata.pay,
-        name: this.address.name,
-        phone: this.address.phone,
-        province: this.address.province,
-        city: this.address.city,
-        area: this.address.area,
-        address: this.address.address
-      }
-      // console.log(data)
-      this.$http.postRequest('GoodsOrder/PlaceOrder', data)
-          .then(res => {
-            // this.bydata=res.data
-            // console.log(res)
-            if (res.code == 200) {
-              uni.showToast({
-                title: "下单成功",
-                icon: 'none',
-                duration: 2000
-              });
-              this.tn('../order/order')
-            } else {
-              uni.showToast({
-                title: res.msg,
-                icon: 'none',
-                duration: 2000
-              });
-            }
-          })
+      this.$t.message.toast("暂未开通兑换,敬请期待")
     }
   }
 }

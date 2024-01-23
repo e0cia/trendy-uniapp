@@ -16,7 +16,7 @@
                    :src="'/static/image/userCenter/haizhu.png'"></image>
           </view>
           <view>
-            卡卡部落<text class="top-image-version">（V1.1.0）</text>
+            卡卡部落<text class="top-image-version">（V{{currentVersion}}）</text>
           </view>
       </view>
       <!-- 下面的导航栏 -->
@@ -38,16 +38,16 @@
             </view>
           </view>
         </view>
-
+	<!-- #ifdef APP-PLUS -->
         <view class="tn-margin-top-lg">
           <view style="font-size: 10px;" class="tn-border-solid-bottom  tn-form-item tn-list-cell-class tn-list-cell  tn-list-cell--unlined tn-list-cell--radius">
             <view class="tn-flex tn-flex-col-center">
               <view class="tn-margin-left-sm tn-flex-1 tn-text-xl">检测更新</view>
-              <view class="tn-margin-left-sm  tn-text-sm right-icon">当前最新版本</view>
+              <view class="tn-margin-left-sm  tn-text-sm right-icon" @click="habdleCheckUpdate">最新版本：{{laseVersion}}({{isUpdate?"待更新":"已最新"}})</view>
             </view>
           </view>
         </view>
-
+	<!-- #endif -->
       </view>
 
 
@@ -59,7 +59,9 @@
         <view class="tn-margin-left-sm  tn-text-sm ">版权所有</view>
       </view>
     </view>
-
+	<!-- #ifdef APP-PLUS -->
+    <wrap-version-update ref="versionRef" id="506542629056581" :auto="false"  	@check="habdleCheck" @finish="lastVersion"></wrap-version-update>
+	<!-- #endif -->
   </view>
 
 </template>
@@ -72,9 +74,41 @@ export default {
   components: {TnListView},
   mixins: [template_page_mixin],
   data() {
-    return {};
+    return {
+		currentVersion:'1.0.0',
+		isUpdate:false,
+		laseVersion:'1.0.0'
+	};
+  },
+  mounted() {
+    this.getCurrentVersion();
   },
   methods: {
+	  getCurrentVersion(){
+		    // 获取运行平台，确保在App环境下执行
+		    if (uni.getSystemInfoSync().platform === 'ios' || uni.getSystemInfoSync().platform === 'android') {
+		
+				const systemInfo = uni.getSystemInfoSync();
+				// 应用程序版本号
+				// 条件编译，只在APP渲染
+				// #ifdef APP
+				this.currentVersion = systemInfo.appWgtVersion;
+				// #endif
+		    }  
+	  },
+	  lastVersion(){
+		   this.$t.message.toast('已是最新版本！')
+	  },
+	  habdleCheckUpdate(){
+		  this.$refs.versionRef.check()
+	  },
+	  habdleCheck(e){
+		  this.laseVersion = e.version
+		  if(e.needUpdate){
+			  this.isUpdate = e.needUpdate;
+			  uni.hideTabBar();
+		  }
+	  },
     tn(e) {
       uni.navigateTo({
         url: e,

@@ -19,13 +19,13 @@
                   <text class="tn-color-white tn-text-xl tn-text-bold">{{ userInfo.extendUserInfo.name }}</text>
                 </view>
                 <view class="tn-padding-right tn-padding-top-xs tn-padding-left-sm tn-text-ellipsis">
-                  <text class="tn-color-gray">ID: {{ userInfo.userId }}</text>
+                  <text  @click="copyContant(userInfo.userId)"  class="tn-color-gray">ID: {{ userInfo.userId }}</text>
 
                   <text class="tn-color-gray--disabled tn-padding-left-xs tn-text-sm tn-icon-copy"></text>
                 </view>
                 <view class="tn-padding-right tn-padding-top-xs tn-padding-left-sm tn-text-ellipsis">
                   <text class="tn-color-gray">邀请码: {{ userInfo.extendUserInfo.inviteCode }}</text>
-                  <text class="tn-color-gray--disabled tn-padding-left-xs tn-text-sm tn-icon-copy"></text>
+                  <text @click="copyContant(userInfo.extendUserInfo.inviteCode)" class="tn-color-gray--disabled tn-padding-left-xs tn-text-sm tn-icon-copy"></text>
                 </view>
 
               </view>
@@ -186,18 +186,7 @@
 
       <view class="box-shadow tn-margin-top tn-margin-bottom-lg tn-padding-top-sm tn-padding-bottom-sm">
 
-<!--        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"-->
-<!--                      backgroundColor="#FFFFFF00">-->
-<!--          <button @click="tn('/pages/share/share')" class="tn-flex tn-flex-col-center tn-button&#45;&#45;clear-style">-->
-<!--            <view class="icon1__item&#45;&#45;icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">-->
-<!--              <view class="tn-icon-empty-address"></view>-->
-<!--            </view>-->
-<!--            <view class="tn-flex tn-flex-row-between" style="width: 100%;">-->
-<!--              <view class="tn-margin-left-sm tn-color-white">邀请</view>-->
-<!--              <view class="tn-color-gray&#45;&#45;dark tn-icon-right"></view>-->
-<!--            </view>-->
-<!--          </button>-->
-<!--        </tn-list-cell>-->
+
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
           <button @click="tn('/pages/realName/realName')" class="tn-flex tn-flex-col-center tn-button--clear-style">
@@ -235,18 +224,33 @@
             </view>
           </button>
         </tn-list-cell>
-        <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
+        <tn-list-cell v-if="userInfo.extendUserInfo.isCardVendor===1" :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
-          <button @click="tn('/pages/set/set')" class="tn-flex tn-flex-col-center tn-button--clear-style">
+          <button @click="tn('/pages/set/set_store')" class="tn-flex tn-flex-col-center tn-button--clear-style">
             <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
               <view class="tn-icon-install"></view>
             </view>
             <view class="tn-flex tn-flex-row-between" style="width: 100%;">
-              <view class="tn-margin-left-sm tn-color-white">设置</view>
+              <view class="tn-margin-left-sm tn-color-white">小店信息</view>
               <view class="tn-color-gray--dark tn-icon-right"></view>
             </view>
           </button>
         </tn-list-cell>
+
+
+<!--    <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
+                     backgroundColor="#FFFFFF00">
+          <button @click="tn('/pages/share/share')" class="tn-flex tn-flex-col-center tn-button--clear-style">
+            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
+              <view class="tn-icon-empty-address"></view>
+            </view>
+            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
+              <view class="tn-margin-left-sm tn-color-white">邀请</view>
+             <view class="tn-color-gray--dark tn-icon-right"></view>
+            </view>
+          </button>
+      </tn-list-cell> -->
+
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
           <button   @click="tn('/pages/aboutus/aboutus')"   class="tn-flex tn-flex-col-center tn-button--clear-style">
@@ -320,6 +324,15 @@ export default {
     this.getuserInfo()
   },
   methods: {
+	  
+	  copyContant(e){
+	  	uni.setClipboardData({
+	  	  data: e,
+	  	  success: function() {
+	  	    this.$t.message.toast('复制成功');
+	  	  }
+	  	})
+	  },
     getuserInfo() {
       this.$http.postRequest('/kakabl/extenduser/center/userInfo', {})
           .then(res => {

@@ -8,17 +8,18 @@
         <text class='icon tn-icon-home-capsule-fill'></text>
       </view>
     </tn-nav-bar>
-    <view  :style="{paddingTop: vuex_custom_bar_height  + 'px'}" class="share-content">
-<!--      备用https://api.nbhao.org/v1/qrcode/make?text=https://h5.xunfan.art/%23/pages/login/login&el=H&fc=steelblue&bc=white&s=500-->
+    <view :style="{paddingTop: vuex_custom_bar_height  + 'px'}" class="share-content">
+      <!--      备用https://api.nbhao.org/v1/qrcode/make?text=https://h5.xunfan.art/%23/pages/login/login&el=H&fc=steelblue&bc=white&s=500-->
       <poster @success="posterSuccess"
-                :imgSrc="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/poster.png'"
+              :imgSrc="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/poster.png'"
               :QrSrc="'https://api.qrserver.com/v1/create-qr-code/?size=391x391&data=https://h5.xunfan.art/%23/pages/login/login?inviteCode='+userInfo.inviteCode"
-              :Title="'卡卡部落'" :PriceTxt="'卡卡部落'"  :ViewDetails="'激活码:'+userInfo.inviteCode" :LineType="true"></poster>
+              :Title="'卡卡部落'" :PriceTxt="'卡卡部落'" :ViewDetails="'激活码:'+userInfo.inviteCode"
+              :LineType="true"></poster>
     </view>
 
-  <view style="margin-top: 10px;text-align: center">
-    长安图片保存分享
-  </view>
+    <view style="margin-top: 10px;text-align: center">
+      长安图片保存分享
+    </view>
   </view>
 </template>
 <script>
@@ -26,6 +27,7 @@ import poster from '@/components/poster.vue'
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
 import sharebg from '@/static/image/share/share-bg.jpg';
 import qrcode from 'uniapp-qrcode'
+
 export default {
   mixins: [template_page_mixin],
   components: {
@@ -37,8 +39,8 @@ export default {
   },
   data() {
     return {
-      sharebg:sharebg,
-      userInfo:{}
+      sharebg: sharebg,
+      userInfo: {}
     }
   },
   mounted() {
@@ -71,11 +73,19 @@ export default {
   }
 
 }
-.share{
+
+.share {
   height: 100vh;
   background: #f6f6f6;
 }
-.share-content{
+
+.share-content {
   padding: 12px 18px;
+}
+
+body, page {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  font-weight: 200px;
 }
 </style>

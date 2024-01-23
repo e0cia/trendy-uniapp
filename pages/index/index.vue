@@ -19,21 +19,17 @@
 
       <view class="top-backgroup">
         <view class="top-backgroup-up">
-          <img width="400px" src="https://kakabl.oss-cn-beijing.aliyuncs.com/kk/index-bg.png" draggable="false">
-        </view>
-
-
+          <img width="100%" src="https://kakabl.oss-cn-beijing.aliyuncs.com/kk/index-bg.png" draggable="false">
+		</view>
         <view class="kk-bg-button tn-flex tn-flex-wrap tn-padding-xs">
 <!--          <image class="image-button"-->
 <!--                 src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/play-rule.png"-->
 <!--          ></image>-->
 
           <view  style="width: 100%;"  @click="tn('/pages/share/share')" class="tn-flex tn-flex-wrap tn-padding-xs">
-            <view style="width: 100%;">
-              <view class="image-haibao tn-shadow-blur"
-                    style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/player.png);">
-                <view class="image-position"></view>
-              </view>
+            <view class="kk-bg-button-rule" style="width: 100%;">
+				<image src="https://kakabl.oss-cn-beijing.aliyuncs.com/kk/player.png"></image>
+             
             </view>
           </view>
         </view>
@@ -58,7 +54,7 @@
       </view>
       <!--      <view class="kaka_buy_button">-->
       <!--        <view class="buluo_button">-->
-      <!--          立即购买-->
+      <!--          海珠兑换-->
       <!--        </view>-->
       <!--      </view>-->
 
@@ -147,6 +143,10 @@
 
     <view class='tn-tabbar-height'></view>
     <view class="bg-tabbar-shadow"></view>
+	<!-- #ifdef APP-PLUS -->
+    <wrap-version-update id="506542629056581"  	@check="habdleCheck"></wrap-version-update>
+	<!-- #endif -->
+	
   </view>
 </template>
 
@@ -188,6 +188,11 @@ export default {
     this.gethomelist(1);
   },
   methods: {
+	  habdleCheck(e){
+		  if(e.needUpdate && e.isForceUpdate){
+				 uni.hideTabBar();
+		  }
+	  },
     gethomelist(e) {
       this.$http.getRequest('/open/goods/list?pageNum=1&pageSize=10', {})
           .then(res => {
@@ -513,9 +518,9 @@ export default {
   position: relative;
 }
 .kk-bg-button{
-  position: absolute;
+  // position: absolute;
   width: 100%;
-  top: 210px;
+  // top: 210px;
 }
 
 .image-haibao {
@@ -531,6 +536,15 @@ export default {
   font-weight: 300;
   border-radius: 10px;
   border: 2px solid #f989f8;
+}
+.kk-bg-button-rule uni-image{
+	height: 80px;
+	width: 100%;
+	min-height: 74px;
+	font-size: 16px;
+	font-weight: 300;
+	border-radius: 10px;
+	// border: 2px solid #f989f8;
 }
 </style>
 

@@ -705,10 +705,12 @@ button::after {
 /* 提升H5端uni.toast()的层级，避免被tn-modal等遮盖 start */
 /* #ifdef H5 */
 uni-toast {
-    z-index: 10090;
+    //z-index: 10090;
+  z-index: 20077;
 }
 uni-toast .uni-toast {
-   z-index: 10090;
+   //z-index: 10090;
+  z-index: 20077;
 }
 /* #endif */
 /* 提升H5端uni.toast()的层级，避免被tn-modal等遮盖 end */

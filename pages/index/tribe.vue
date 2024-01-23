@@ -1,67 +1,43 @@
 <template>
-	<view class="pagesC tn-safe-area-inset-bottom">
-
-		<!-- 顶部自定义导航 -->
-		<tn-nav-bar :isBack="false" :bottomShadow="false" backgroundColor="#16171D00">
-			<view class="" style="width: 70vw;overflow: hidden;margin-top: 6rpx;">
-				<tn-tabs :list="scrollList" :current="current" @change="tabChange" activeColor="#FFF"
-					inactiveColor="#FFFFFF80" :bold="true" :fontSize="36"></tn-tabs>
-			</view>
-		</tn-nav-bar>
-
-		<view class="tn-margin-bottom-xl" :style="{paddingTop: vuex_custom_bar_height + 20 + 'px'}">
-
-			<view class="" v-if="content.length>0">
-
-				<!-- 数字模型 start-->
-				<view class="tn-flex tn-flex-wrap" style="margin: 0 15rpx;">
-					<block v-for="(item, index) in content" :key="index">
-						<view class="" style="width: 50%;" @click="tn('../product/product?id='+item.id)">
-							<view class="product-content">
-								<view class="image-pic" :style="'background-image:url(' + item.coverimage + ')'">
-									<view class="image-product">
-									</view>
-								</view>
-
-								<view
-									class="tn-text-justify tn-padding-top-sm tn-padding-left-sm tn-padding-right-sm tn-padding-top">
-									<text class="tn-color-white">{{ item.name }}</text>
-								</view>
-
-								<view class="tn-flex tn-flex-row-between tn-flex-col-center tn-padding-sm">
-									<view class="justify-content-item tn-flex tn-flex-col-center tn-color-gray"
-										style="margin-left: -6rpx;">
-										<text class="tn-text-lg tn-icon-alien"><!-- ￥ --></text>
-										<text class="tn-padding-right-sm tn-text-lg">{{ item.pay }}</text>
-										<!-- <text class="tn-color-gray tn-text-sm"> 66 人购买</text> -->
-									</view>
-									<view class="justify-content-item tn-flex tn-flex-col-center">
-										<text class="tn-color-gray tn-text-sm"> {{ item.sales }} 人购买</text>
-									</view>
-								</view>
-							</view>
-						</view>
-					</block>
-				</view>
-				<!-- 数字模型 end-->
-
-			</view>
-
-			<view class="" v-if="content.length==0">
-				<view class="" style="padding: 15vh 20rpx;opacity: 0.6;">
-					<view class="tn-text-center" style="font-size: 260rpx;padding-top: 30rpx;">
-						<text class="tn-icon-commissary tn-color-gray--light"></text>
-					</view>
-					<view class="tn-color-gray--disabled tn-text-center tn-text-lg">暂无商品信息~~~</view>
-				</view>
-			</view>
-
-			
-
+	<view class="pages-games tn-safe-area-inset-bottom">
+		 <view class="space">
+		<view class="pages-games-title">
+			【海底探险】倒计时
 		</view>
-
-		<view class='tn-tabbar-height'></view>
-		<view class="bg-tabbar-shadow"></view>
+		<view class="pages-games-time">
+			即将开启
+		</view>
+		<view class="pages-games-tic">
+			通往·海底世界
+		</view>
+		<view class="game-npc">
+			航海任务是非常艰巨的过程<br >
+			在浩瀚海洋中寻找新世界 
+			</view>
+	<view class="pages-games-box">
+		<view @click="noFunction" class="item-list">
+			<image class="image" src="@/static/image/box/box1.png" ></image>
+		</view>
+		<view  @click="noFunction" class="item-list">
+			<image class="image" src="@/static/image/box/box2.png"  ></image>
+		</view>
+		<view  @click="noFunction" class="item-list">
+			<image class="image" src="@/static/image/box/box3.png" ></image>
+		</view>
+		<view  @click="tn('/pages/save/save')" class="item-list">
+			<image class="image" src="@/static/image/box/box4.png" ></image>
+		</view>
+		<view  @click="noFunction" class="item-list">
+			<image class="image" src="@/static/image/box/box5.png"  ></image>
+		</view>
+		<view  @click="noFunction" class="item-list">
+			<image class="image" src="@/static/image/box/box6.png" ></image>
+		</view>
+	</view>
+				
+			</view>
+			<view class='tn-tabbar-height'></view>
+			<view class="bg-tabbar-shadow"></view>
 	</view>
 </template>
 
@@ -70,121 +46,105 @@
 		name: 'PageC',
 		data() {
 			return {
-				page:1,
-				current: 0,
-				scrollList: [{
-						id:0,
-						name: '全部'
-					}
-				],
-				content: [],
+			imageurl:require('@/static/image/box/box-image.jpg')
 			}
 		},
 		mounted() {
-			this.getlmlist();
-			this.getgoodslist();
 		},
 		methods: {
-			getlmlist() {
-				let than=this;
-				this.$http.postRequest('Release/LmList', {})
-					.then(res => {
-						let arr=res.data;
-						arr.forEach(function (item, index, array) {
-							than.scrollList.push({
-								id:item.id,
-								name:item.title,
-							})
-						})
-					})
-			},
-			// tab选项卡切换
-			tabChange(index) {
-				this.current = index;
-				this.content=[];
-				this.page=1;
-				this.getgoodslist();
+			noFunction(){
+				 this.$t.message.toast('敬请期待')
 			},
 			// 跳转
 			tn(e) {
-				uni.navigateTo({
-					url: e,
-				});
-			},
-			getgoodslist() {
-				let than=this;
-				let categoryid=this.scrollList[this.current].id
-				this.$http.postRequest('Release/GoodsList', {page:this.page,categoryid:categoryid})
-					.then(res => {
-						if(res.data.length>0){
-							than.page=than.page+1;
-							let arr=res.data;
-							// console.log(arr)
-							arr.forEach(function (item, index, array) {
-								than.content.push({
-									id:item.id,
-									name:item.name,
-									coverimage:item.coverimage,
-									pay:item.pay,
-									sales:item.sales
-								})
-							})
-						}
-						
-					})
-			},
+			  uni.navigateTo({
+				url: e,
+			  });
+			}
 		}
 	}
 </script>
 
-
 <style lang="scss" scoped>
-	.pagesC {
-		max-height: 100vh;
+	
+	.pages-games{
+		background: url(@/static/image/box/box-image.jpg) center center / 100% 100% no-repeat;
+		// height: 53.65625rem;
+		
+		
+		
+		color: #FFF;
+		.space{
+			.pages-games-title{
+				font-size: 1.4375rem;
+				font-family: BDZongYi-A001;
+				font-weight: 400;
+				color: #d1fdfd;
+				text-align: center;
+				padding-top: 4.6875rem;
+			}
+			.pages-games-time{
+				    text-align: center;
+				    margin-top: 0.9375rem;
+				    font-family: Microsoft JhengHei;
+				    font-weight: 400;
+				    color: #d1fdfd;
+				    font-size: 2.03125rem;
+				    text-shadow: 0px 6px 18px rgba(0,20,60,.96);
+			}
+			.pages-games-tic{
+				font-size: .9375rem;
+    text-align: center;
+    font-family: PingFang SC;
+    font-weight: 600;
+    color: #d1fdfd;
+    margin-top: 0.9375rem;
+			}
+			.game-npc{
+				 width: 12.84375rem;
+				    height: 5.90625rem;
+				    background: url(@/static/image/box/box-npc.png) no-repeat center center;
+				    background-size: 100% 100%;
+				    // margin-top: 7.96875rem;
+					margin-top: 3.96875rem;
+				    font-size: .6875rem;
+				    font-family: PingFang SC;
+				    font-weight: 700;
+				    color: #d1fdfd;
+				    display: flex;
+				    justify-content: center;
+				    align-items: center
+			}
+			.pages-games-box{
+				display: flex;
+				    flex-wrap: wrap;
+				    justify-content: space-between;
+				    padding: 0.9375rem;
+				    margin-top: 0;
+				    box-sizing: border-box;
+					.item-list{
+						position: relative;
+						width: 10.4375rem;
+						    height: 5.78125rem;
+						    margin-bottom: 0.6875rem;
+						    background-size: contain;
+							uni-image{
+								    width: 100%;
+								    height: 100%;
+							}
+					}
+			}
+		}
 	}
-
-	/* 底部tabbar假阴影 start*/
-	.bg-tabbar-shadow {
-		// background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.1) 10rpx, rgba(255,255,255,0) , rgba(255,255,255,0));
-		box-shadow: 0rpx 0rpx 220rpx 0rpx rgba(0, 0, 0, 0.55);
-		position: fixed;
-		bottom: -100rpx;
-		height: 100rpx;
-		width: 100vw;
-		z-index: 1;
-	}
-
+	
 	/* 底部安全边距 start*/
 	.tn-tabbar-height {
-		min-height: 60rpx;
-		height: calc(80rpx + env(safe-area-inset-bottom) / 2);
-		height: calc(80rpx + constant(safe-area-inset-bottom));
+	  min-height: 60rpx;
+	  height: calc(80rpx + env(safe-area-inset-bottom) / 2);
+	  height: calc(80rpx + constant(safe-area-inset-bottom));
 	}
-
-
-	/* 数字模型 start*/
-	.product-content {
-		// box-shadow: 0rpx 0rpx 50rpx 0rpx rgba(0, 0, 0, 0.07);
-		border-radius: 15rpx;
-		background-color: rgba(255, 255, 255, 0.08);
-		border: 1rpx solid #494B51;
-		margin: 15rpx;
+	
+	body,page{
+	  width:100%
 	}
-
-	.image-product {
-		height: 327rpx;
-		font-size: 16rpx;
-		font-weight: 300;
-		position: relative;
-	}
-
-	.image-pic {
-		background-size: cover;
-		background-repeat: no-repeat;
-		// background-attachment:fixed;
-		background-position: top;
-		border-radius: 15rpx;
-	}
-
-	/* 数字模型 end*/
 </style>

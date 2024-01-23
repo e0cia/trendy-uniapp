@@ -70,8 +70,8 @@
     </swiper>
 
     <!-- 右边悬浮按钮   -->
-    <view   class="float-right round position-bottom" @click="tn('../rankingList/rankingList')">
-      <view  class="fix-right-item">
+    <view   class="float-right round position-bottom">
+      <view  class="fix-right-item"  @click="tn('../rankingList/rankingList')">
         <image class="image" :src="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/order.png'"></image>
       </view>
       <view class="fix-right-item">
@@ -84,10 +84,10 @@
 
 
     <!-- 悬浮按钮2-->
-    <view v-if="cardInfo.id===0" class="tn-flex tn-footerfixed" @click="noCard()">
+    <view v-if="cardInfo.id===0" class="tn-flex tn-footerfixed"  @click="tn('../vendor/vendor')">
       <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center">
         <tn-button shape="round" backgroundColor="#FFFFFF10" padding="40rpx 0" width="50%">
-          <text class="tn-color-white">您暂无此卡</text>
+          <text class="tn-color-white">您暂无此卡(点击获取)</text>
         </tn-button>
       </view>
     </view>
@@ -451,7 +451,7 @@ export default {
 
 .float-right {
   position: fixed;
-  bottom: 50vh;
+  bottom: 20vh;
   right: 10px;
   z-index: 1030;
   text-align: center;

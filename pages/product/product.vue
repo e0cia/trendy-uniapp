@@ -98,7 +98,7 @@
           <tn-button shape="round" backgroundColor="#4ecccb" padding="38rpx 0" width="90%" :fontSize="30"
                      @click="tn('../details/details?id='+bydata.id)">
             <text class="tn-color-white" hover-class="tn-hover" :hover-stay-time="150">
-              立即购买
+              海珠兑换
             </text>
           </tn-button>
         </view>

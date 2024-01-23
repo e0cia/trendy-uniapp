@@ -39,43 +39,43 @@
     </view>
 
 
-        <view class="bead-content">
-          <view class="bead-three">
+    <view class="bead-content">
+      <view class="bead-three">
 
-            <tn-tabs :list="fixedList" :current="tabsIndex" :isScroll="false"
-                     activeColor="#000000" :bold="true" backgroundColor="#FFFFFF" :fontSize="32" :badgeOffset="[20, 50]"
-                     @change="tabChange"></tn-tabs>
-            <!-- 标签内容 -->
-            <view class="swiper__box" :current="swiperIndex">
-              <view class="swiper__item">
+        <tn-tabs :list="fixedList" :current="tabsIndex" :isScroll="false"
+                 activeColor="#000000" :bold="true" backgroundColor="#FFFFFF" :fontSize="32" :badgeOffset="[20, 50]"
+                 @change="tabChange"></tn-tabs>
+        <!-- 标签内容 -->
+        <view class="swiper__box" :current="swiperIndex">
+          <view class="swiper__item">
 
-                <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
-                  <view class="all" style="height:calc(100vh - 330px) ">
+            <scroll-view class="scroll-view" scroll-y @scrolltolower="scrollToLower">
+              <view class="all" style="height:calc(100vh - 330px) ">
 
-                    <view v-if="dataList.length>0" v-for="(item,index) in dataList" :key="index" class="item">
-                      <view class="zz-left">
-                        <view class="name">{{ item.description }}</view>
-                        <view class="desc">{{ item.createTime }}</view>
-                      </view>
-                      <view class="zz-right">
-                        <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
-                              style="font-size: 20px;margin-right: 5px">{{ item.remark }}
-                        </view>
-                        <image
-                            style="width: 16px;height: 16px;"
-                            :src="'/static/image/userCenter/haizhu.png'"
-                        ></image>
-                      </view>
-                    </view>
-                    <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
+                <view v-if="dataList.length>0" v-for="(item,index) in dataList" :key="index" class="item">
+                  <view class="zz-left">
+                    <view class="name">{{ item.description }}</view>
+                    <view class="desc">{{ item.createTime }}</view>
                   </view>
-                </scroll-view>
+                  <view class="zz-right">
+                    <view :style="item.remark >= 0?'color: #008000;':'color: #F00000'"
+                          style="font-size: 20px;margin-right: 5px">{{ item.remark }}
+                    </view>
+                    <image
+                        style="width: 16px;height: 16px;"
+                        :src="'/static/image/userCenter/haizhu.png'"
+                    ></image>
+                  </view>
+                </view>
+                <tn-load-more :status="isLoadding?'loading':'nomore'" :loadingIcon="isLoadding"></tn-load-more>
               </view>
-            </view>
+            </scroll-view>
           </view>
-
-
         </view>
+      </view>
+
+
+    </view>
   </view>
 </template>
 <script>

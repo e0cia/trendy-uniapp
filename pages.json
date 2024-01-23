@@ -60,6 +60,12 @@
       }
     },
     {
+      "path": "pages/set/set_store",
+      "style": {
+        "navigationBarTitleText": "小店信息"
+      }
+    },
+    {
       "path": "pages/series/series",
       "style": {
         "navigationBarTitleText": "手办系列"
@@ -178,7 +184,22 @@
       "style": {
         "navigationBarTitleText": "邀请排名"
       }
+    },
+    {
+      "path": "pages/save/save",
+      "style": {
+        "navigationBarTitleText": "海底寻宝"
+      }
+    }, 
+	{
+      "path": "pages/vendor/vendor",
+      "style": {
+        "navigationBarTitleText": "卡商信息"
+      }
     }
+	
+	
+	
   ],
   "globalStyle": {
     "navigationStyle": "custom",

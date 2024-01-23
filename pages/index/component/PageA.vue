@@ -48,7 +48,7 @@
       </view>
       <view class="kaka_buy_button">
         <view class="buluo_button">
-          立即购买
+          海珠兑换
         </view>
       </view>
 

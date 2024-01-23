@@ -1,14 +1,11 @@
 <!-- 薪资排行 -->
-<template>
+<template class="template-rankList">
   <view>
 
     <!-- 顶部自定义导航 -->
     <tn-nav-bar class='back-go' :isBack="true" fixed alpha customBack>
       <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
         <text class='icon tn-icon-left-arrow'></text>
-      </view>
-      <view class="tn-flex tn-flex-col-center tn-flex-row-center">
-        <text class="tn-text-xl tn-color-white">排行榜</text>
       </view>
     </tn-nav-bar>
 
@@ -17,34 +14,40 @@
       <view class="top_bg">
         <view class="one_box">
           <!-- 第二名 -->
-          <view   v-if="inviteList.length>1 "  class="top3">
+          <view v-if="inviteList.length>1 " class="top3">
             <view class="num_two">
               <image class="huangguan2" src="@/static/image/rank/two.png"></image>
               <image class="top3_head" :src="this.inviteList[1].userPhoto"></image>
               <!-- <view class="top_name">{{twoName}}</view> -->
               <view class="top_name">{{ this.inviteList[1].name }}</view>
-              <view class="top_sy">{{ this.inviteList[1].userId }}<span>(有效:{{this.inviteList[1].intiveNumber}})</span></view>
+              <view class="top_sy">{{
+                  this.inviteList[1].userId
+                }}<span>(有效:{{ this.inviteList[1].intiveNumber }})</span></view>
             </view>
           </view>
 
           <!-- 第一名 -->
-          <view  v-if="inviteList.length>0 "  class="top3">
+          <view v-if="inviteList.length>0 " class="top3">
             <view class="num_one">
               <image class="huangguan1" src="@/static/image/rank/one.png"></image>
               <image class="top3_head" :src="this.inviteList[0].userPhoto"></image>
               <!-- <view class="top_name" style="font-size: 30rpx;">{{oneName}}</view> -->
               <view class="top_name text-bold" style="font-size: 30rpx;">{{ this.inviteList[0].name }}</view>
-              <view class="top_sy">{{ this.inviteList[0].userId }}<span>(有效:{{this.inviteList[0].intiveNumber}})</span></view>
+              <view class="top_sy">{{
+                  this.inviteList[0].userId
+                }}<span>(有效:{{ this.inviteList[0].intiveNumber }})</span></view>
             </view>
           </view>
 
           <!-- 第三名 -->
-          <view   v-if="inviteList.length>2"   class="top3">
+          <view v-if="inviteList.length>2" class="top3">
             <view class="num_three">
               <image class="huangguan2" src="@/static/image/rank/three.png"></image>
               <image class="top3_head" :src="this.inviteList[2].userPhoto"></image>
               <view class="top_name">{{ this.inviteList[2].name }}</view>
-              <view class="top_sy">{{ this.inviteList[2].userId }}<span>(有效:{{this.inviteList[2].intiveNumber}})</span></view>
+              <view class="top_sy">{{
+                  this.inviteList[2].userId
+                }}<span>(有效:{{ this.inviteList[2].intiveNumber }})</span></view>
             </view>
           </view>
         </view>
@@ -54,7 +57,7 @@
           <view class="number_sy_box_title">
             <text>大数据·统计</text>
             <text style="position: absolute; right: 20rpx;z-index: 9999; font-size: 24rpx;color: #c3c3c3;">
-              截止（本周）：{{nowTime}}
+              截止（本周）：{{ nowTime }}
             </text>
           </view>
           <view class="number_sy_main">
@@ -70,7 +73,7 @@
       <view class="rankList_box">
         <view class="rankItem" v-for="(item,index) in inviteList" :key="index" v-if="index>=3">
           <view class="rankIndex">
-            <text>{{ index +1 }}</text>
+            <text>{{ index + 1 }}</text>
           </view>
           <view class="HeardBox">
             <image class="rankHeard" :src="item.userPhoto"></image>
@@ -78,9 +81,12 @@
 
           <view class="NameBox">
             <!-- <view class="userName">{{item.name}}</view> -->
-            <view class="userName text-bold">{{item.name}}</view>
-            <view class="userPost text-gray">(id:{{item.userId}})</view>
-            <view class="color_ccc">邀请人数 ： <text class="text-blue">{{item.intiveNumber}}</text>人/次</view>
+            <view class="userName text-bold">{{ item.name }}</view>
+            <view class="userPost text-gray">(id:{{ item.userId }})</view>
+            <view class="color_ccc">邀请人数 ：
+              <text class="text-blue">{{ item.intiveNumber }}</text>
+              人/次
+            </view>
           </view>
           <view class="download_box">
             <image mode="widthFix" src="@/static/image/rank/success.png"></image>
@@ -93,17 +99,18 @@
 
 <script>
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+
 export default {
   mixins: [template_page_mixin],
   data() {
     return {
-      weekType:1,
-      inviteList:[],
-      inviteListOne:{},
-      inviteListTwo:{},
-      inviteListThree:{},
+      weekType: 1,
+      inviteList: [],
+      inviteListOne: {},
+      inviteListTwo: {},
+      inviteListThree: {},
       nowTime: '',
-      allNumber:0
+      allNumber: 0
     }
   },
   mounted() {
@@ -117,7 +124,7 @@ export default {
         url: e,
       });
     },
-    getTime: function() {
+    getTime: function () {
       var date = new Date(),
           year = date.getFullYear(),
           month = date.getMonth() + 1,
@@ -132,7 +139,7 @@ export default {
       console.log(this.nowTime);
     },
     queryInviteByDate() {
-      this.$http.getRequest('/kakabl/Invite/query/week/list', {weekType:this.weekType})
+      this.$http.getRequest('/kakabl/Invite/query/week/list', {weekType: this.weekType})
           .then(res => {
             if (res.code === 200) {
               this.inviteList = res.data;
@@ -145,9 +152,7 @@ export default {
 
 
   },
-  filters: {
-
-  }
+  filters: {}
 }
 </script>
 
@@ -423,7 +428,10 @@ export default {
   margin: 50rpx auto;
   display: block;
 }
-.pages-rankingList-rankingList{
-  background-color: #ffffff!important;
+
+body, page {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  font-weight: 200px;
 }
 </style>
