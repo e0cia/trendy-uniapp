@@ -64,10 +64,10 @@
         <view class="menu_center">
         </view>
         <view class="menu_right">
-          <image @click="tn('../product/productList')" style="background-color: #eeeeee;"
-                 :src="'https://demoh5.sxqichuangkeji.com/static/menus/img2.jpg'"></image>
-          <image @click="tn('../product/productList')" style="background-color: #eeeeee;"
-                 :src="'https://demoh5.sxqichuangkeji.com/static/menus/img3.jpg'"></image>
+          <image  @click="tn('../product/productList')" 
+                 :src="'../../static/image/index/right_home_top.png'"></image>
+          <image @click="tn('../product/productList')"
+                 :src="'../../static/image/index/right_home_bottom.png'"></image>
         </view>
       </view>
       <view class="indication">
@@ -402,7 +402,7 @@ export default {
 .menu_left {
   flex: 1;
   height: 212px;
-  background: url(https://demoh5.sxqichuangkeji.com/static/menus/ExplosiveGoods.png) no-repeat;
+  background: url(../../static/image/index/left_home.png) no-repeat;
   background-size: 100% 100%;
   position: relative;
 }
@@ -424,6 +424,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #030732;
 }
 
 .menu .menu_right uni-image {
@@ -432,6 +433,7 @@ export default {
   display: inline-block;
   overflow: hidden;
   position: relative;
+  padding: 8px;
 }
 
 .kk_home_swiper {

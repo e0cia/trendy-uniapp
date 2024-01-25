@@ -82,7 +82,6 @@
 				this.$http.postRequest('/kakabl/address/query', {})
 					.then(res => {
 						this.list = res.data
-            console.log(this.list)
 					})
 			},
 			// 跳转

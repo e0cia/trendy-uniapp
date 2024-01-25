@@ -10,10 +10,10 @@
 		<view class="pages-games-tic">
 			通往·海底世界
 		</view>
-		<view class="game-npc">
+<!-- 		<view class="game-npc">
 			航海任务是非常艰巨的过程<br >
 			在浩瀚海洋中寻找新世界 
-			</view>
+			</view> -->
 	<view class="pages-games-box">
 		<view @click="noFunction" class="item-list">
 			<image class="image" src="@/static/image/box/box1.png" ></image>

@@ -2,8 +2,7 @@
   <view class="template-forget">
     <!-- 顶部自定义导航 -->
     <tn-nav-bar fixed alpha customBack>
-      <view slot="back" class='tn-custom-nav-bar__back'
-        @click="tn('/pages/login/login')">
+      <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
         <text class='icon tn-icon-left'></text>
       </view>
     </tn-nav-bar>
@@ -13,7 +12,7 @@
       <view class="login__wrapper">
         <view  >
           <view class="tn-margin-left tn-margin-right tn-text-bold tn-color-white" style="font-size: 40rpx;">
-            重置密码
+            找回支付密码
           </view>
           <view class="tn-margin tn-color-gray--dark tn-text-lg">
             请输入账号以及验证码
@@ -24,14 +23,6 @@
           <!-- 设置新密码 -->
           <!-- 验证 -->
           <block >
-            <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
-              <view class="login__info__item__input__left-icon">
-                <view class="tn-icon-email"></view>
-              </view>
-              <view class="login__info__item__input__content">
-                <input v-model="form.userName" maxlength="20" placeholder-class="input-placeholder" placeholder="请输入手机/账号" />
-              </view>
-            </view>
 
             <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
@@ -50,10 +41,10 @@
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input  v-model="form.passWord"  :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
+                <input  v-model="form.payPassword"  :password="!showPayPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
               </view>
-              <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
-                <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
+              <view class="login__info__item__input__right-icon" @click="showPayPassword = !showPayPassword">
+                <view :class="[showPayPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
               </view>
             </view>
 
@@ -62,10 +53,10 @@
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input  v-model="form.rePassWord"  :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
+                <input  v-model="form.rePayPassWord"  :password="!showPayPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
               </view>
-              <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
-                <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
+              <view class="login__info__item__input__right-icon" @click="showPayPassword = !showPayPassword">
+                <view :class="[showPayPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
               </view>
             </view>
           </block>
@@ -73,12 +64,7 @@
 
           <view @click="backPassword()" style="width: 100%" >
             <view class="kaka-custom-style">
-              <span class="kaka-custom-text">找回密码</span>
-            </view>
-          </view>
-          <view >
-            <view class="tn-flex tn-flex-row-between tn-padding-xl">
-              <view class="" style="color: #FFFFFF80;"  @click="tn('/pages/login/login')">已有账号？前往登录</view>
+              <span class="kaka-custom-text">立即找回</span>
             </view>
           </view>
         </view>
@@ -114,7 +100,7 @@ import * as util from './../../util/util'
           left: 0
         },
         // 是否显示密码
-        showPassword: false,
+        showPayPassword: false,
         // 倒计时提示文字
         tips: '获取验证码',
         //邀请码
@@ -123,8 +109,6 @@ import * as util from './../../util/util'
           jsCode: '',//发送验证码时候验证的
           userName: '',//用户名
           smsCode: '',//验证码
-          passWord: '',//密码
-          rePassWord: '',//确认密码
           payPassword: '',//支付密码
           rePayPassWord: ""//确认支付密码
         }
@@ -146,49 +130,31 @@ import * as util from './../../util/util'
       // 切换模式
       modeSwitch(index) {
         this.currentModeIndex = index
-        this.showPassword = false
+        this.showPayPassword = false
       },
-	  	captionGetCode(){
-			 if (!this.$refs.code.canGetCode) {
-			   this.$t.message.toast(this.$refs.code.secNum + '秒后再重试')
+	  captionGetCode(){
+	  	 if (!this.$refs.code.canGetCode) {
+	  		   this.$t.message.toast(this.$refs.code.secNum + '秒后再重试')
 			   return;
-			}
-	  		// 当前选中的模式 （ 1、注册 2、登录）
-	  		if (util.isBlank(this.form.userName)) {
-	  		  this.$t.message.toast('手机号不可为空');
-	  		  return;
-	  		}
-	  		if (!util.isPhoneNumber(this.form.userName)) {
-	  		  this.$t.message.toast('请输入正确的手机号');
-	  		  return;
-	  		}
-	  		var captcha = new TencentCaptcha('192025558', this.getCode, {})
-	  		// 调用方法，显示验证码
-	  		captcha.show()
-	  	},
+	  	}
+	  	var captcha = new TencentCaptcha('192025558', this.getCode, {})
+	  	// 调用方法，显示验证码
+	  	captcha.show()
+	  },
       // 获取验证码
       getCode(res) {
 		  if (res.ret !== 0) {
-			 this.$t.message.toast('验证失败');
-			  return;
+		  		 this.$t.message.toast('验证失败');
+		  		  return;
 		  }
-        if (util.isBlank(this.form.userName)) {
-          this.$t.message.toast('手机号不可为空');
-          return;
-        }
-        if (!util.isPhoneNumber(this.form.userName)) {
-          this.$t.message.toast('请输入正确的手机号');
-          return;
-        }
         let param = {
-          userName: this.form.userName,
-			randstr:res.randstr,
-			ticket:res.ticket
+          randstr:res.randstr,
+          ticket:res.ticket
         }
 
         if (this.$refs.code.canGetCode) {
           this.$t.message.loading('正在获取验证码')
-          this.$http.postRequest('/open/api/backpass/sendCmsCode', param)
+          this.$http.postRequest('/kakabl/extenduser/backpaypass/sendCmsCode', param)
               .then(res => {
                 this.$t.message.closeLoading()
                 if (res.code === 200) {
@@ -206,35 +172,27 @@ import * as util from './../../util/util'
 
       },
       backPassword(){
-        if (util.isBlank(this.form.userName)) {
-          this.$t.message.toast('手机号不可为空')
-          return
-        }
-        if (!util.isPhoneNumber(this.form.userName)) {
-          this.$t.message.toast('请输入正确手机号')
-          return;
-        }
         if (util.isBlank(this.form.smsCode)) {
           this.$t.message.toast('验证码不可为空')
           return;
         }
         if (!util.isSmsCode(this.form.smsCode)) {
-          this.$t.message.toast('请输入6为验证码')
+          this.$t.message.toast('请输入6位验证码')
           return;
         }
-        if (util.isBlank(this.form.passWord)) {
-          this.$t.message.toast('密码不可为空')
+        if (util.isBlank(this.form.payPassword)) {
+          this.$t.message.toast('支付密码不可为空')
           return;
         }
-        if (!util.isPassword(this.form.passWord)) {
-          this.$t.message.toast('密码需长度大于6，且由数字和英文字符')
+        if (!util.isSmsCode(this.form.payPassword)) {
+          this.$t.message.toast('请输入6位支付密码')
           return;
         }
-        if (util.isBlank(this.form.rePassWord)) {
-          this.$t.message.toast('确认密码不可为空')
+        if (util.isBlank(this.form.rePayPassWord)) {
+          this.$t.message.toast('确认支付密码不可为空')
           return;
         }
-        if (this.form.passWord !== this.form.rePassWord) {
+        if (this.form.payPassword !== this.form.rePayPassWord) {
           this.$t.message.toast('两次密码不相同')
           return;
         }
@@ -242,17 +200,17 @@ import * as util from './../../util/util'
         let param = {
           "userName": this.form.userName,
           "smsCode": this.form.smsCode,
-          "passWord": this.form.passWord,
-          "rePassWord": this.form.rePassWord,
+          "payPassword": this.form.payPassword,
+          "rePayPassWord": this.form.rePayPassWord
         }
         this.$t.message.loading('正在找回')
-        this.$http.postRequest('/open/api/backpass/checkCode', param)
+        this.$http.postRequest('/kakabl/extenduser/backpaypass/checkCode', param)
             .then(res => {
               if (res.code === 200) {
                 this.$t.message.closeLoading()
                 this.$t.message.toast(res.msg)
                 setTimeout(() => {
-                  this.tn('/pages/login/login');
+                  this.tn('/pages/index/my');
                 }, 1000)
               } else {
                 this.$t.message.toast(res.msg)

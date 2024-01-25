@@ -55,16 +55,6 @@
       <tn-button @click="openModel" backgroundColor="#4865ba" padding="40rpx 0" width="60%" :fontSize="28"
                  fontColor="#FFFFFF" shape="round">确认数额</tn-button>
     </view>
-    <!-- 悬浮按钮-->
-<!--    <view class="tn-flex tn-footerfixed">-->
-<!--      <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center">-->
-<!--        <tn-button backgroundColor="#4865ba" padding="40rpx 0" width="60%" shadow fontBold @click="openModel">-->
-<!--          &lt;!&ndash; <text class="tn-icon-light tn-padding-right-xs tn-color-black"></text> &ndash;&gt;-->
-<!--          <text class="tn-color-white">确认转增</text>-->
-<!--          &lt;!&ndash; <text class="tn-icon-camera tn-padding-left-xs tn-color-black"></text> &ndash;&gt;-->
-<!--        </tn-button>-->
-<!--      </view>-->
-<!--    </view>-->
 
 
     <tn-modal :zIndex="100" v-model="showModeal" :custom="true" :showCloseBtn="true">

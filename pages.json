@@ -113,6 +113,13 @@
         "navigationBarTitleText": "忘记密码"
       }
     },
+	{
+	  "path": "pages/forget/forget_paypass",
+	  "style": {
+	    "navigationBarTitleText": "找回支付密码"
+	  }
+	},
+	
     {
       "path": "pages/share/share",
       "style": {

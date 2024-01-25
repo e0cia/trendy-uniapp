@@ -101,7 +101,7 @@
 
 <script>
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
-
+import * as util from './../../util/util'
 export default {
   name: 'TemplateSet',
   mixins: [template_page_mixin],
@@ -187,6 +187,11 @@ export default {
       this.show3 = false
     },
     update() {
+			this.$t.message.loading('正在更新信息')
+		if (util.isBlank(this.userInfo.extendUserInfo.name)){
+		  this.$t.message.toast('姓名不可为空')
+		  return
+		}
       let that =this
       console.log(this.userInfo)
       let param = {
@@ -194,6 +199,7 @@ export default {
       }
       this.$http.postRequest('/kakabl/extenduser/center/updateUserInfo', param)
           .then(res => {
+			    this.$t.message.closeLoading()
             if (res.code===200){
               that.getuserInfo()
               uni.showToast({
@@ -202,11 +208,11 @@ export default {
                 duration: 2000,
                 mask:true
               });
-              setTimeout(() => {
-                uni.navigateBack({
-                  delta: 1,//返回层数，2则上上页
-                })
-              }, 10)
+              // setTimeout(() => {
+              //   uni.navigateBack({
+              //     delta: 1,//返回层数，2则上上页
+              //   })
+              // }, 10)
             }else {
               this.$t.message.toast(res.msg)
             }

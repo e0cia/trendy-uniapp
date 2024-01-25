@@ -26,7 +26,7 @@
         身份证
         <tn-input :disabled="isReal"  placeholder="请输入您的身份证号" v-model="idCard"/>
       </view>
-      <view v-if="!isReal" @click="realNameFun()">
+      <view v-if="!isReal" @click="captionRealNameFun()">
         <view class="kaka-custom-style ">
           <span class="kaka-custom-text">实名认证</span>
         </view>
@@ -87,7 +87,32 @@ export default {
         url: e,
       })
     },
-    realNameFun(){
+	captionRealNameFun(){
+		if (util.isBlank(this.realName)){
+		  this.$t.message.toast('姓名不可为空')
+		  return
+		}
+		if (!util.isRealName(this.realName)){
+		  this.$t.message.toast('姓名不正确')
+		  return
+		}
+		if (util.isBlank(this.idCard)){
+		  this.$t.message.toast('身份证号不可为空')
+		  return
+		}
+		if (!util.isIdCard(this.idCard)){
+		  this.$t.message.toast('身份证号不正确')
+		  return
+		}
+		var captcha = new TencentCaptcha('192025558', this.realNameFun, {})
+		// 调用方法，显示验证码
+		captcha.show()
+	},
+    realNameFun(res){
+		if (res.ret !== 0) {
+		 this.$t.message.toast('验证失败');
+		  return;
+		}
       if (util.isBlank(this.realName)){
         this.$t.message.toast('姓名不可为空')
         return
@@ -106,7 +131,9 @@ export default {
       }
       let param = {
         fullName:this.realName,
-        idCardNumber:this.idCard
+        idCardNumber:this.idCard,
+		randstr:res.randstr,
+		ticket:res.ticket
       }
       this.$t.message.loading('实名认证中')
       this.$http.postRequest('/kakabl/extenduser/userIdcardAudit', param)

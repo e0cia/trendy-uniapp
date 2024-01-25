@@ -163,7 +163,6 @@ export default {
     }
   },
   mounted() {
-    this.getCurrntCardInfo();
     this.userInfo = uni.getStorageSync("userInfo");
   },
   onShow(){

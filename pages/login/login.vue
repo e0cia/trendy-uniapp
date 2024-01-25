@@ -67,7 +67,7 @@
               <view class="login__info__item__input__content login__info__item__input__content--verify-code">
                 <input v-model="form.smsCode" placeholder-class="input-placeholder" placeholder="请输入验证码"/>
               </view>
-              <view class="login__info__item__input__right-verify-code" @tap.stop="getCode">
+              <view class="login__info__item__input__right-verify-code" @tap.stop="captionGetCode">
                 <tn-button backgroundColor="#FFFFFF" fontColor="#000000" size="sm" padding="5rpx 10rpx" width="100%"
                            shape="round">{{ tips }}
                 </tn-button>
@@ -97,7 +97,7 @@
               <view class="login__info__item__input__content login__info__item__input__content--verify-code">
                 <input v-model="form.smsCode" placeholder-class="input-placeholder" placeholder="请输入验证码"/>
               </view>
-              <view class="login__info__item__input__right-verify-code" @tap.stop="getCode">
+              <view class="login__info__item__input__right-verify-code" @tap.stop="captionGetCode">
                 <tn-button backgroundColor="#FFFFFF" fontColor="#000000" size="sm" padding="5rpx 10rpx" width="100%"
                            shape="round">{{ tips }}
                 </tn-button>
@@ -255,7 +255,9 @@ export default {
         passWord: '',//密码
         rePassWord: '',//确认密码
         payPassword: '',//支付密码
-        rePayPassWord: ""//确认支付密码
+        rePayPassWord: "",//确认支付密码
+		randstr:"",
+		ticket:""
       },
       isSureFlag: false,
     }
@@ -284,8 +286,32 @@ export default {
       this.currentModeIndex = index
       this.showPassword = false
     },
+	captionGetCode(){
+		if (!this.$refs.code.canGetCode) {
+			   this.$t.message.toast(this.$refs.code.secNum + '秒后再重试')
+			   return;
+		}
+		// 当前选中的模式 （ 1、注册 2、登录）
+		if (util.isBlank(this.form.userName)) {
+		  this.$t.message.toast('手机号不可为空');
+		  return;
+		}
+		if (!util.isPhoneNumber(this.form.userName)) {
+		  this.$t.message.toast('请输入正确的手机号');
+		  return;
+		}
+		var captcha = new TencentCaptcha('192025558', this.getCode, {})
+		// 调用方法，显示验证码
+		captcha.show()
+	},
     // 获取验证码
-    getCode() {
+    getCode(res) {
+	  if (res.ret !== 0) {
+		 this.$t.message.toast('验证失败');
+		  return;
+	  }
+	    this.form.randstr = res.randstr
+	    this.form.ticket = res.ticket
       // 当前选中的模式 （ 1、注册 2、登录）
       if (util.isBlank(this.form.userName)) {
         this.$t.message.toast('手机号不可为空');
@@ -296,7 +322,9 @@ export default {
         return;
       }
       let param = {
-        userName: this.form.userName
+        userName: this.form.userName,
+      randstr:res.randstr,
+      ticket:res.ticket
       }
       //2、登录
       if (this.currentModeIndex === 2 && this.$refs.code.canGetCode) {

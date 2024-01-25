@@ -133,7 +133,7 @@
 
 <script>
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
-
+import * as util from './../../util/util'
 export default {
   name: 'TemplateSet',
   mixins: [template_page_mixin],
@@ -200,9 +200,23 @@ export default {
       this.showQQ = false
     },
     update() {
+		this.$t.message.loading('正在更新信息')
+		if (util.isBlank(this.kkstore.showName)){
+		  this.$t.message.toast('展示名称不可为空')
+		  return
+		}
+		if (util.isBlank(this.kkstore.showWx)){
+		  this.$t.message.toast('联系微信不可为空')
+		  return
+		}
+		if (util.isBlank(this.kkstore.showQq)){
+		  this.$t.message.toast('联系QQ不可为空')
+		  return
+		}
       let that = this
       this.$http.postRequest('/kakabl/vendor/updateInfo', this.kkstore)
           .then(res => {
+			  this.$t.message.closeLoading()
             if (res.code === 200) {
               uni.showToast({
                 title: '保存成功',
@@ -210,11 +224,11 @@ export default {
                 duration: 2000,
                 mask: true
               });
-              setTimeout(() => {
-                uni.navigateBack({
-                  delta: 1,//返回层数，2则上上页
-                })
-              }, 10)
+              // setTimeout(() => {
+              //   uni.navigateBack({
+              //     delta: 1,//返回层数，2则上上页
+              //   })
+              // }, 10)
             } else {
               this.$t.message.toast(res.msg)
             }

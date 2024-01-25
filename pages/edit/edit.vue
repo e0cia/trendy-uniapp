@@ -102,7 +102,7 @@
 
 <script>
 import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
-
+import * as util from './../../util/util'
 export default {
   name: 'TemplateEdit',
   mixins: [template_page_mixin],
@@ -188,21 +188,74 @@ export default {
           })
     },
     editAddr() {
+		this.$t.message.loading('正在更新信息')
+	   if (util.isBlank(this.from.contactName)){
+	     this.$t.message.toast('姓名不可为空')
+	     return
+	   }
+	   if (util.isBlank(this.from.contactPhone)){
+	     this.$t.message.toast('联系方式不可为空')
+	     return
+	   }
+	   if (util.isBlank(this.from.contactProvince)){
+	     this.$t.message.toast('省份不可为空')
+	     return
+	   }
+	   if (util.isBlank(this.from.contactCity)){
+	     this.$t.message.toast('城市不可为空')
+	     return
+	   }
+	   if (util.isBlank(this.from.contactArea)){
+	     this.$t.message.toast('地区不可为空')
+	     return
+	   }
+	   if (util.isBlank(this.from.contactAreaDetial)){
+	     this.$t.message.toast('详细地址不可为空')
+	     return
+	   }
+	   
       this.$http.postRequest('/kakabl/address/edit', this.from)
           .then(res => {
-            uni.showToast({
-              title: '保存成功',
-              icon: 'none',
-              duration: 2000
-            });
-            uni.navigateBack({
-              delta: 1,//返回层数，2则上上页
-            })
+			 this.$t.message.closeLoading()
+			   if (res.code===200){
+				   uni.showToast({
+				     title: '保存成功',
+				     icon: 'none',
+				     duration: 2000
+				   });
+			   }
           })
     },
     addAddr(){
+		this.$t.message.loading('正在更新信息')
+		if (util.isBlank(this.from.contactName)){
+		  this.$t.message.toast('姓名不可为空')
+		  return
+		}
+		if (util.isBlank(this.from.contactPhone)){
+		  this.$t.message.toast('联系方式不可为空')
+		  return
+		}
+		if (util.isBlank(this.from.contactProvince)){
+		  this.$t.message.toast('省份不可为空')
+		  return
+		}
+		if (util.isBlank(this.from.contactCity)){
+		  this.$t.message.toast('城市不可为空')
+		  return
+		}
+		if (util.isBlank(this.from.contactArea)){
+		  this.$t.message.toast('地区不可为空')
+		  return
+		}
+		if (util.isBlank(this.from.contactAreaDetial)){
+		  this.$t.message.toast('详细地址不可为空')
+		  return
+		}
+		
       this.$http.postRequest('/kakabl/address/add', this.from)
           .then(res => {
+			this.$t.message.closeLoading()
             if (res.code===200){
               uni.showToast({
                 title: '增加成功',
@@ -210,11 +263,11 @@ export default {
                 duration: 2000,
                 mask:true
               });
-              setTimeout(() => {
-                uni.navigateBack({
-                  delta: 1,//返回层数，2则上上页
-                })
-              }, 1000)
+              // setTimeout(() => {
+              //   uni.navigateBack({
+              //     delta: 1,//返回层数，2则上上页
+              //   })
+              // }, 1000)
 
             }
 

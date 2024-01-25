@@ -18,7 +18,10 @@
 				})
 			})
 
-
+			// // 引入图形验证js
+			// var script = document.createElement('script');
+			// script.src = "https://turing.captcha.qcloud.com/TCaptcha.js";
+			// document.head.appendChild(script);
     },
 		onShow: function() {
 			// console.log('App Show')

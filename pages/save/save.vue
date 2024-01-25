@@ -1,7 +1,7 @@
 <template>
   <view class="save-content">
     <!-- 顶部自定义导航 -->
-    <tn-nav-bar fixed customBack :bottomShadow="false" backgroundColor="#16171D">
+   <tn-nav-bar fixed customBack :bottomShadow="false"  backgroundColor="#16171D">
       <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
         <text class='icon tn-icon-left-arrow'></text>
       </view>
@@ -9,6 +9,9 @@
         <text class="tn-text-xl tn-color-white"></text>
       </view>
     </tn-nav-bar>
+	
+	
+	
     <view :style="{marginTop: vuex_custom_bar_height  +'px'}" class="top-bg0image"></view>
     <view>
       <view class="save-title">
@@ -23,7 +26,7 @@
             <view class="save-item-single-left-center">{{ item.cycleNum }}天收益最大为</view>
             <view class="save-item-single-left-bottom">
               <image src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/photo/p1.png"></image>
-              {{ item.cycleNum * item.rate }}
+              {{ item.needBead * item.rate }}
             </view>
           </view>
           <view class="save-item-single-right">
@@ -34,8 +37,8 @@
             </view>
 
             <view class="save-item-single-right-bottom" @click="goSea(item)">
-              <text v-if="adventureJionList[item.id]===0">扬帆起航</text>
-              <text v-else>继续远航（{{ adventureJionList[item.id] }}/5）</text>
+              <text v-if="adventureJionList[item.id]===0 ||!adventureJionList[item.id] ">扬帆起航</text>
+              <text v-else>继续远航（{{ adventureJionList[item.id] }}/{{item.remark}}）</text>
             </view>
             <!-- <view class="save-item-single-right-bottom">扬帆起航</view> -->
           </view>
@@ -81,7 +84,7 @@
           </view>
         </view>
         <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center">
-          <tn-button backgroundColor="#000000" padding="40rpx 0" width="100%" @click="xiadan()">
+          <tn-button backgroundColor="#000000" padding="40rpx 0" width="100%" @click="xiadan()" @cancel="clearCancle">
             <text class="tn-color-white">确 定</text>
           </tn-button>
         </view>
@@ -113,6 +116,9 @@ export default {
     this.userInfo = uni.getStorageSync('userInfo');
   },
   methods: {
+	  clearCancle(){
+		  this.payPassword =""
+	  },
     getuserInfo() {
       this.$http.postRequest('/kakabl/extenduser/center/userInfo', {})
           .then(res => {
@@ -137,7 +143,6 @@ export default {
         uni.hideLoading()
         return;
       }
-      console.log(this.currentJionItem)
       let param ={
         payPassWord:this.payPassword,
         outSeaId:this.currentJionItem.id
@@ -145,13 +150,14 @@ export default {
       this.$http.postRequest('/kakabl/joinAdventure/joinAdvan', param)
           .then(res => {
             uni.hideLoading()
-            this.getuserInfo()
             if (res.code === 200) {
               this.showBugModeal= false;
               this.showPayModeal=false;
               this.$t.message.toast("出海成功");
               this.payPassword='';
-              this.getuserInfo()
+              this.getuserInfo();
+			  this.getAdventureList();
+			  this.getAdventureJsoinList();;
             } else {
               this.$t.message.toast(res.msg)
             }
@@ -255,7 +261,7 @@ export default {
 }
 
 .save-content .save-item {
-  padding-bottom: 1.5625rem;
+  // padding-bottom: 1.5625rem;
 
   .save-item-single {
     width: 100%;

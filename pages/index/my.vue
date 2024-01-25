@@ -107,7 +107,7 @@
               </view>
             </view>
           </view>
-          <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../pay/pay')">
+          <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('../order/order')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
               >
@@ -118,7 +118,7 @@
               </view>
             </view>
           </view>
-          <view class="tn-padding-sm tn-margin-xs tn-radius" @click="tn('')">
+          <view class="tn-padding-sm tn-margin-xs tn-radius"   @click="tn('../order/order')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
               >
@@ -129,7 +129,7 @@
               </view>
             </view>
           </view>
-          <view class="tn-padding-sm tn-margin-xs tn-radius">
+          <view class="tn-padding-sm tn-margin-xs tn-radius"   @click="tn('../order/order')">
             <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
               <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center"
               >
@@ -140,8 +140,6 @@
               </view>
             </view>
           </view>
-
-
         </view>
       </view>
 
@@ -211,6 +209,10 @@
             </view>
           </button>
         </tn-list-cell>
+		
+		
+
+		
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
                       backgroundColor="#FFFFFF00">
@@ -238,19 +240,18 @@
         </tn-list-cell>
 
 
-<!--    <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
-                     backgroundColor="#FFFFFF00">
-          <button @click="tn('/pages/share/share')" class="tn-flex tn-flex-col-center tn-button--clear-style">
-            <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
-              <view class="tn-icon-empty-address"></view>
-            </view>
-            <view class="tn-flex tn-flex-row-between" style="width: 100%;">
-              <view class="tn-margin-left-sm tn-color-white">邀请</view>
-             <view class="tn-color-gray--dark tn-icon-right"></view>
-            </view>
-          </button>
-      </tn-list-cell> -->
-
+		<tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30"
+		              backgroundColor="#FFFFFF00">
+		  <button @click="tn('/pages/forget/forget_paypass')" class="tn-flex tn-flex-col-center tn-button--clear-style">
+		    <view class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-color-white">
+		      <view class="tn-icon-password"></view>
+		    </view>
+		    <view class="tn-flex tn-flex-row-between" style="width: 100%;">
+		      <view class="tn-margin-left-sm tn-color-white">支付密码</view>
+		      <view class="tn-color-gray--dark tn-icon-right"></view>
+		    </view>
+		  </button>
+		</tn-list-cell>
 
         <tn-list-cell :hover="true" :unlined="true" :radius="true" :fontSize="30" backgroundColor="#FFFFFF00">
           <button   @click="tn('/pages/aboutus/aboutus')"   class="tn-flex tn-flex-col-center tn-button--clear-style">

@@ -92,23 +92,9 @@ export default {
     }
   },
   mounted() {
-    this.getlmlist();
     this.getgoodslist();
   },
   methods: {
-    getlmlist() {
-      let than = this;
-      this.$http.postRequest('Release/LmList', {})
-          .then(res => {
-            let arr = res.data;
-            arr.forEach(function (item, index, array) {
-              than.scrollList.push({
-                id: item.id,
-                name: item.title,
-              })
-            })
-          })
-    },
     // tab选项卡切换
     tabChange(index) {
       this.current = index;
