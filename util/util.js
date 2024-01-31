@@ -90,28 +90,28 @@ const blidBoxType = (value) => {
 
     let blindBox = {}
     if (value===1){
-        blindBox.name = "火斯";
-        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg"
+        blindBox.name = "源氏";
+        blindBox.image = "https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/1.jpg"
         return blindBox;
     }else if (value===2){
-        blindBox.name = "侠斯";
-        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/2.jpg"
+        blindBox.name = "织田";
+        blindBox.image = "https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/2.jpg"
         return blindBox;
     }else if (value===3){
-        blindBox.name = "库斯";
-        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/3.jpg"
+        blindBox.name = "丰臣";
+        blindBox.image = "https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/3.jpg"
         return blindBox;
     }else if (value===4){
-        blindBox.name = "剑斯";
-        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/4.jpg"
+        blindBox.name = "北条";
+        blindBox.image = "https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/4.jpg"
         return blindBox;
     }else if (value===5){
-        blindBox.name = "魄斯";
-        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/5.jpg"
+        blindBox.name = "平氏";
+        blindBox.image = "https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/5.jpg"
         return blindBox;
     }else if (value===6){
-        blindBox.name = "飞斯";
-        blindBox.image = "https://kakabl.oss-cn-beijing.aliyuncs.com/kk/6.jpg"
+        blindBox.name = "武田";
+        blindBox.image = "https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/6.jpg"
         return blindBox;
     }
 };

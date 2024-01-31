@@ -163,8 +163,8 @@
         <p id="u8d55c28b" class="ne-p"><span class="ne-text">2、我们还设立了个人信息保护专职部门，如发现个人信息可能被泄露，您可以通过</span><span class="ne-text">卡卡部落</span><span class="ne-text">专属客服投诉举报；</span></p>
         <p id="uef324d68" class="ne-p"><span class="ne-text">3、</span><span class="ne-text">卡卡部落</span><span class="ne-text">专属客服联系方式：</span><a class="ne-link" href="mailto:kakabuluo001@163.com" target="_blank" rel="noopener" data-href="mailto:kakabuluo001@163.com"><span class="ne-text">kakabuluo01@163.com</span></a></p>
         <p id="uf510b251" class="ne-p"><span class="ne-text">附</span><span class="ne-text">1：相关定义</span></p>
-        <p id="uf2182a75" class="ne-p"><span class="ne-text">卡卡部落</span><span class="ne-text">：指</span><span class="ne-text">卡卡部落</span><span class="ne-text">网站（域名为</span><span class="ne-text">www.kakabuluo.com）</span><span class="ne-text">、</span><span class="ne-text">卡卡部落</span><span class="ne-text">客户端以及随技术发展出现的提供产品和服务的新形态。</span></p>
-        <p id="uae5167a2" class="ne-p"><span class="ne-text">卡卡部落</span><span class="ne-text">服务提供者：指</span><span class="ne-text">广西瀚乾信息科技有限公司</span><span class="ne-text">。</span></p>
+        <p id="uf2182a75" class="ne-p"><span class="ne-text">卡卡部落</span><span class="ne-text">：指</span><span class="ne-text">卡卡部落</span><span class="ne-text">网站（域名为</span><span class="ne-text">xunfan.art）</span><span class="ne-text">、</span><span class="ne-text">卡卡部落</span><span class="ne-text">客户端以及随技术发展出现的提供产品和服务的新形态。</span></p>
+        <p id="uae5167a2" class="ne-p"><span class="ne-text">卡卡部落</span><span class="ne-text">服务提供者：指</span>晋中九纤网络科技有限公司<span class="ne-text">山西省晋中市榆次区安宁街道广安街299号巨燕财富广场三号楼二层（晋中鑫起点创业空间服务有限公司B区290号）集群登记</span><span class="ne-text">。</span></p>
         <p id="uf78c2732" class="ne-p"><span class="ne-text">个人信息：指以电子或者其他方式记录的能够单独或者与其他信息结合识别特定自然人身份或者反映特定自然人活动情况的各种信息。例如姓名、电子邮件地址、电话号码、银行卡号、身份证号码、住址、通讯记录等信息，或我们可以正当地通过链接找到此类信息的其他数据。</span></p>
         <p id="u66e79263" class="ne-p"><span class="ne-text">个人敏感信息：包括身份证件号码、手机号码、个人生物识别信息、支付宝账号、账户信息、行踪轨迹、交易信息、</span><span class="ne-text">14岁以下（含）儿童的个人信息等。</span></p>
         <p id="u1ca12bfa" class="ne-p"><span class="ne-text">个人信息删除：指在实现日常业务功能所涉及的系统中去除个人信息的行为，使其保持不可被检索、访问的状态。</span></p>
@@ -256,7 +256,6 @@ export default {
   mixins: [template_page_mixin],
   data() {
     return {
-      url: 'https://www.yuque.com/yuanxun-api/ae2vbh/privacypolicy'
     };
   }
 };

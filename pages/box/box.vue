@@ -337,7 +337,7 @@
             <view class="card-contents card-front">
               <view class="card-depth">
                 <view v-if="isCanOpen" class="card-img"
-                      style="background-image:url('https://kakabl.oss-cn-beijing.aliyuncs.com/kk/blindBox.png');width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
+                      style="background-image:url('https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/blindBox.png');width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
                 </view>
                 <view class="tn-margin-top tn-text-lg">{{openTitle}}</view>
 
@@ -346,43 +346,14 @@
 
 
             <view class="card-contents card-back">
-              <!-- 平面效果，我觉得这个简单点比较好看-->
+              <!-- 平面效果，我觉得这个简单点比较好看   /6.jpg-->
               <view class="card-depth">
                 <view class="card-img"
-                  style="background-image:url('https://kakabl.oss-cn-beijing.aliyuncs.com/kk/5.jpg');width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
+                      :style="'background-image:url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/story/'+blidBoxTypeNumber+'.jpg)'"
+                  style="width: 400rpx;height: 400rpx;background-size: cover;overflow: hidden;">
                 </view>
                 <view class="tn-margin-top tn-text-lg">恭喜获得：{{blindBoxNmae}}</view>
               </view>
-
-              <!-- 立体效果 -->
-<!--          <view class="card-depth">-->
-<!--                <view class='cube'>-->
-<!--                  <view class="cube__container">-->
-<!--                    <view class="cube__container__body">-->
-<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;front"-->
-<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg);">-->
-<!--                      </view>-->
-<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;back"-->
-<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/2.jpg);">-->
-<!--                      </view>-->
-<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;right"-->
-<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/3.jpg);">-->
-<!--                      </view>-->
-<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;left"-->
-<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/4.jpg);">-->
-<!--                      </view>-->
-<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;top"-->
-<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg);">-->
-<!--                      </view>-->
-<!--                      <view class="cube__container__body__item cube__container__body__item&#45;&#45;bottom"-->
-<!--                        style="background-image: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/1.jpg);">-->
-<!--                      </view>-->
-<!--                    </view>-->
-<!--                  </view>-->
-<!--                </view>-->
-<!--                <view class="tn-margin-top-xl tn-padding-top-xl tn-text-lg">图鸟·不许凶我</view>-->
-<!--              </view>-->
-
 
             </view>
           </view>
@@ -405,7 +376,8 @@ import * as util from './../../util/util'
       return {
         blindBoxNmae:'',
         isCanOpen:false,
-        openTitle:'开启中...'
+        openTitle:'开启中...',
+        blidBoxTypeNumber:''
       }
     },
     onLoad(options){
@@ -419,6 +391,7 @@ import * as util from './../../util/util'
         this.$http.postRequest('/kakabl/inventory/openCard', {})
             .then(res => {
               if (res.code === 200) {
+                this.blidBoxTypeNumber=res.data
                 this.blindBoxNmae =  util.blidBoxType(res.data).name;
                 this.isCanOpen = true
               } else {

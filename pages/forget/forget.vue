@@ -96,6 +96,9 @@
       :seconds="120"
       @change="codeChange">
     </tn-verification-code>
+	<!-- #ifdef APP-PLUS -->
+		<web-view v-if="isShowWebView" src="/hybrid/html/caption.html"  @message="getCode" ></web-view>
+	<!-- #endif -->
   </view>
 </template>
 
@@ -107,6 +110,7 @@ import * as util from './../../util/util'
     mixins: [template_page_mixin],
     data() {
       return {
+		  isShowWebView:false,
         // 当前选中的模式
         currentModeIndex: 1,
         // 模式选中滑块
@@ -162,12 +166,25 @@ import * as util from './../../util/util'
 	  		  this.$t.message.toast('请输入正确的手机号');
 	  		  return;
 	  		}
-	  		var captcha = new TencentCaptcha('192025558', this.getCode, {})
-	  		// 调用方法，显示验证码
-	  		captcha.show()
+		/*#ifdef APP-PLUS*/
+		this.isShowWebView = true
+		  /*#endif*/
+		/*#ifdef H5*/
+		var captcha = new TencentCaptcha('190940249', this.getCode, {})
+		// 调用方法，显示验证码
+		captcha.show()
+		/*#endif*/
 	  	},
       // 获取验证码
-      getCode(res) {
+      getCode(resv) {
+		  
+		  let res = resv;
+		   /*#ifdef APP-PLUS*/
+		   res = resv.detail.data[0].res;
+		  this.isShowWebView = false
+		    /*#endif*/
+		  
+		  
 		  if (res.ret !== 0) {
 			 this.$t.message.toast('验证失败');
 			  return;
@@ -535,7 +552,7 @@ import * as util from './../../util/util'
     height: 100vh;
     position: relative;
     background-size: 100%;
-    background: url(https://demoh5.sxqichuangkeji.com/static/login_bg.png) no-repeat;
+    background: url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/login/login_bg.png) no-repeat;
   }
   .login__wrapper {
     position: absolute;

@@ -15,8 +15,8 @@
         <!--      第一行-->
         <view class="bead-title tn-flex tn-flex-col-center">
           <image
-              style="width: 50px;height: 50px;"
-              :src="'/static/image/userCenter/haizhu.png'"
+              style="width: 30px;height: 30px;"
+              :src="'/static/image/bead/bead.png'"
           ></image>
           <view class="tn-margin-left">
             <text style="color: #F1C68E;" class="tn-text-bold tn-text-xl">我的海珠</text>
@@ -62,8 +62,8 @@
                           style="font-size: 20px;margin-right: 5px">{{ item.remark }}
                     </view>
                     <image
-                        style="width: 16px;height: 16px;"
-                        :src="'/static/image/userCenter/haizhu.png'"
+                        style="width: 13px;height: 13px;"
+                        :src="'/static/image/bead/bead.png'"
                     ></image>
                   </view>
                 </view>

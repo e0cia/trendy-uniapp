@@ -15,7 +15,7 @@
         <view class="kk-team-card" :style="{paddingTop: vuex_custom_bar_height +30 + 'px'}">
           <div Style="display: flex">
             <text class="left-text">团队共计（人）：
-              <text class="left-text-number">{{ teamData.directRecommendation + teamData.indirectRecommendation }}
+              <text class="left-text-number">{{ teamData.directRecommendation  }}
               </text>
             </text>
           </div>
@@ -41,15 +41,6 @@
                   <view class="tn-text-xxl tn-color-white">{{ teamData.directRecommendation }}</view>
                   <view class="tn-margin-top-xs tn-color-gray tn-text-df tn-text-center tn-text-xs rs">直接人数(人)
                   </view>
-
-                </view>
-              </view>
-              <view class="tn-flex-1 tn-padding-sm tn-margin-xs">
-                <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
-                  <view class="tn-text-xxl tn-color-white">{{ teamData.indirectRecommendation }}</view>
-                  <view class="tn-margin-top-xs tn-color-gray tn-text-df tn-text-center tn-text-xs rs">推荐人数(人)
-                  </view>
-
                 </view>
               </view>
               <view class="tn-flex-1 tn-padding-sm tn-margin-xs">
@@ -70,17 +61,6 @@
                   <text class="tn-color-white tn-margin-left-xs tn-text-md">{{
                       teamData.validDirectRecommendation
                     }}
-                  </text>
-                </view>
-              </view>
-              <view class="tn-flex-1 tn-padding-sm tn-margin-xs">
-                <view class="tn-margin-top-xs tn-color-gray tn-text-df tn-text-center tn-text-xs rs">|
-                </view>
-              </view>
-              <view class="tn-flex-5 tn-padding-sm tn-margin-xs">
-                <view class="tn-margin-top-xs tn-color-gray tn-text-df tn-text-center tn-text-xs rs">团队有效粉丝
-                  <text class="tn-color-white tn-margin-left-xs tn-text-md">
-                    {{ teamData.validDirectRecommendation + teamData.validiIndirectRecommendation }}
                   </text>
                 </view>
               </view>
@@ -132,7 +112,7 @@
                       <view
                           class="intive-detial-content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-center">
                         <view class="intive-detial-content-image">
-                          <image class="image-sty" :src="'/static/image/userCenter/haizhu.png'"
+                          <image class="image-sty" :src="'/static/image/bead/bead.png'"
                           ></image>
                         </view>
                         <view class="intive-detial-content-title">
@@ -181,9 +161,11 @@ export default {
     return {
       fixedList: [{
         name: '直接人数'
-      }, {
-        name: '推广人数'
-      }],
+      }
+	  // , {
+   //      name: '推广人数'
+   //    },
+	  ],
       tabsIndex: 0,
       swiperIndex: 0,
       teamData: {

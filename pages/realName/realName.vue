@@ -37,7 +37,9 @@
         </view>
       </view>
     </view>
-
+	<!-- #ifdef APP-PLUS -->
+		<web-view v-if="isShowWebView" src="/hybrid/html/caption.html"  @message="realNameFun" ></web-view>
+	<!-- #endif -->
   </view>
 
 </template>
@@ -50,6 +52,7 @@ export default {
   mixins: [template_page_mixin],
   data() {
     return {
+	  isShowWebView:false,
       realName: '',
       idCard: '',
       isReal:false,
@@ -104,11 +107,22 @@ export default {
 		  this.$t.message.toast('身份证号不正确')
 		  return
 		}
-		var captcha = new TencentCaptcha('192025558', this.realNameFun, {})
+		/*#ifdef APP-PLUS*/
+		this.isShowWebView = true
+		  /*#endif*/
+		/*#ifdef H5*/
+		var captcha = new TencentCaptcha('190940249', this.realNameFun, {})
 		// 调用方法，显示验证码
 		captcha.show()
+		/*#endif*/
 	},
-    realNameFun(res){
+    realNameFun(resv){
+		let res = resv;
+		 /*#ifdef APP-PLUS*/
+		 res = resv.detail.data[0].res;
+		this.isShowWebView = false
+		  /*#endif*/
+		
 		if (res.ret !== 0) {
 		 this.$t.message.toast('验证失败');
 		  return;

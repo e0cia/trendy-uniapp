@@ -18,10 +18,13 @@
 				})
 			})
 
-			// // 引入图形验证js
-			// var script = document.createElement('script');
-			// script.src = "https://turing.captcha.qcloud.com/TCaptcha.js";
-			// document.head.appendChild(script);
+            /*#ifdef H5*/
+			// 引入图形验证js
+			var script = document.createElement('script');
+			script.src = "https://turing.captcha.qcloud.com/TCaptcha.js";
+			document.head.appendChild(script);			
+            /*#endif*/
+
     },
 		onShow: function() {
 			// console.log('App Show')

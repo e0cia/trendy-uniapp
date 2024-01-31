@@ -1,5 +1,5 @@
 <template>
-	<view class="pages-games tn-safe-area-inset-bottom">
+	<view  :style="{'height':vheight}" class="pages-games tn-safe-area-inset-bottom">
 		 <view class="space">
 		<view class="pages-games-title">
 			【海底探险】倒计时
@@ -16,22 +16,22 @@
 			</view> -->
 	<view class="pages-games-box">
 		<view @click="noFunction" class="item-list">
-			<image class="image" src="@/static/image/box/box1.png" ></image>
+			<image class="image" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box1.png" ></image>
 		</view>
 		<view  @click="noFunction" class="item-list">
-			<image class="image" src="@/static/image/box/box2.png"  ></image>
+			<image class="image" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box2.png"  ></image>
 		</view>
 		<view  @click="noFunction" class="item-list">
-			<image class="image" src="@/static/image/box/box3.png" ></image>
+			<image class="image" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box3.png" ></image>
 		</view>
 		<view  @click="tn('/pages/save/save')" class="item-list">
-			<image class="image" src="@/static/image/box/box4.png" ></image>
+			<image class="image" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box4.png" ></image>
 		</view>
 		<view  @click="noFunction" class="item-list">
-			<image class="image" src="@/static/image/box/box5.png"  ></image>
+			<image class="image" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box5.png"  ></image>
 		</view>
 		<view  @click="noFunction" class="item-list">
-			<image class="image" src="@/static/image/box/box6.png" ></image>
+			<image class="image" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box6.png" ></image>
 		</view>
 	</view>
 				
@@ -46,9 +46,20 @@
 		name: 'PageC',
 		data() {
 			return {
-			imageurl:require('@/static/image/box/box-image.jpg')
+				vheight:''
 			}
 		},
+		 onReady() {
+		        // 计算屏幕剩余高度  填补剩余高度
+		        let _this = this;
+		        uni.getSystemInfo({
+		            success(res) {
+		                _this.vheight= res.windowHeight+"px";
+		               
+		            }
+		        });
+			
+		    },
 		mounted() {
 		},
 		methods: {
@@ -68,11 +79,8 @@
 <style lang="scss" scoped>
 	
 	.pages-games{
-		background: url(@/static/image/box/box-image.jpg) center center / 100% 100% no-repeat;
-		// height: 53.65625rem;
-		
-		
-		
+		background: url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/box/box-image.jpg) center center / 100% 100% no-repeat;
+	
 		color: #FFF;
 		.space{
 			.pages-games-title{

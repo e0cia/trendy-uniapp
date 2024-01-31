@@ -45,8 +45,8 @@
         <view class="button-number tn-flex  tn-flex-col-center tn-shadow-blur">
 
           <image
-              style="width: 50px;height: 50px;margin-left: 20px"
-              :src="'/static/image/userCenter/haizhu.png'"
+              style="width: 30px;height: 30px;margin-left: 20px"
+              :src="'/static/image/bead/bead.png'"
           ></image>
 
           <view class="tn-margin-left">
@@ -85,7 +85,7 @@
       <view  @click="tn('/pages/share/share')" class="tn-flex tn-flex-wrap" style="margin-top: 10px">
         <view style="width: 100%;">
           <view  class="image-haibao tn-shadow-blur"
-                style="background: url(https://kakabl.oss-cn-beijing.aliyuncs.com/kk/intivite.png) no-repeat center / contain; width: 100%; height: 100%;">
+                style="background: url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/share/intivite.png) no-repeat center / contain; width: 100%; height: 100%;">
             <view class="image-position"></view>
           </view>
         </view>

@@ -13,8 +13,8 @@
 				style="background: linear-gradient(-120deg, #3E445A, #31374A, #2B3042, #262B3C);">
 
 				<view class="button-number tn-flex  tn-flex-col-center tn-shadow-blur" style="color: #F1C68E;">
-					<image style="width: 50px;height: 50px;margin-left: 20px"
-						:src="'/static/image/userCenter/haizhu.png'"></image>
+					<image style="width: 30px;height: 30px;margin-left: 20px"
+						:src="'/static/image/bead/bead.png'"></image>
 					<view class="tn-text-bold tn-text-xl">我的卡配额：</view>
 
 					<view style="font-size: 28px" class="tn-text-bold tn-margin-lg">{{

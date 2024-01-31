@@ -12,11 +12,17 @@
     <view :style="{paddingTop: vuex_custom_bar_height + 20 + 'px'}">
       <view class="top-image">
           <view>
-            <image style="width: 80px;height: 80px;"
-                   :src="'/static/image/userCenter/haizhu.png'"></image>
+            <image style="width: 80px;height: 80px;border-radius: 20px;"
+                   :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/logo/logo.jpg'"></image>
           </view>
           <view>
-            卡卡部落<text class="top-image-version">（V{{currentVersion}}）</text>
+            卡卡部落<text class="top-image-version">
+				<!-- #ifdef APP-PLUS -->
+				（V{{currentVersion}}）
+				<!-- #endif -->
+				
+				
+				</text>
           </view>
       </view>
       <!-- 下面的导航栏 -->
@@ -55,12 +61,12 @@
 
     <view class="bottom-content">
       <view class="tn-flex tn-flex-col-center cen">
-        <view class="tn-margin-left-sm tn-flex-1 tn-text-sm">广西瀚乾信息科技有限公司</view>
+        <view class="tn-margin-left-sm tn-flex-1 tn-text-sm">晋中九纤网络科技有限公司</view>
         <view class="tn-margin-left-sm  tn-text-sm ">版权所有</view>
       </view>
     </view>
 	<!-- #ifdef APP-PLUS -->
-    <wrap-version-update ref="versionRef" id="506542629056581" :auto="false"  	@check="habdleCheck" @finish="lastVersion"></wrap-version-update>
+    <wrap-version-update ref="versionRef" id="508886484004933" :auto="false"  	@check="habdleCheck" @finish="lastVersion"></wrap-version-update>
 	<!-- #endif -->
   </view>
 

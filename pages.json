@@ -44,13 +44,13 @@
     {
       "path": "pages/box/box",
       "style": {
-        "navigationBarTitleText": "模型效果"
+        "navigationBarTitleText": "开启盲盒"
       }
     },
     {
       "path": "pages/order/order",
       "style": {
-        "navigationBarTitleText": "发货订单"
+        "navigationBarTitleText": "订单详情"
       }
     },
     {
@@ -68,7 +68,7 @@
     {
       "path": "pages/series/series",
       "style": {
-        "navigationBarTitleText": "手办系列"
+        "navigationBarTitleText": "开启详情"
       }
     },
     {
@@ -84,21 +84,9 @@
       }
     },
     {
-      "path": "pages/member/member",
-      "style": {
-        "navigationBarTitleText": "会员权益"
-      }
-    },
-    {
       "path": "pages/delivery/delivery",
       "style": {
         "navigationBarTitleText": "快递物流"
-      }
-    },
-    {
-      "path": "pages/help/help",
-      "style": {
-        "navigationBarTitleText": "常见问题"
       }
     },
     {
@@ -129,7 +117,7 @@
     {
       "path": "pages/pay/pay",
       "style": {
-        "navigationBarTitleText": "我的U币"
+        "navigationBarTitleText": "花柱赠送"
       }
     },
     {
@@ -203,10 +191,16 @@
       "style": {
         "navigationBarTitleText": "卡商信息"
       }
+    }, 
+	{
+      "path": "pages/guide/guide",
+      "style": {
+        "navigationBarTitleText": "玩法攻略",
+		"navigationStyle": "default",
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#000000"
+      }
     }
-	
-	
-	
   ],
   "globalStyle": {
     "navigationStyle": "custom",

@@ -1,9 +1,6 @@
 // 请求接口
-// const commoneUrl = "https://gongshen.yuanmajie.top/";
 const commoneUrl = "https://api.xunfan.art";
  // const commoneUrl = "http://127.0.0.1:8081";
-// new 域名https://pan.circlai.com/#s/-ET-mtgw
- 
 //get请求封装
 function getRequest(url, data) {
 	var promise = new Promise((resolve, reject) => {

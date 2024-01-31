@@ -14,8 +14,8 @@
 
         <view class="button-number tn-flex  tn-flex-col-center tn-shadow-blur" style="color: #F1C68E;">
           <image
-              style="width: 50px;height: 50px;margin-left: 20px"
-              :src="'/static/image/userCenter/haizhu.png'"
+              style="width: 30px;height: 30px;margin-left: 20px"
+              :src="'/static/image/bead/bead.png'"
           ></image>
           <view class="tn-text-bold tn-text-xl">海珠总量</view>
 
@@ -66,7 +66,8 @@
     <tn-modal :zIndex="100" v-model="showModeal" :custom="true" :showCloseBtn="true">
       <view class="custom-modal-content">
         <view class="">
-          <view class="tn-text-lg tn-text-bold tn-text-center tn-padding">支付密码</view>
+          <view class="tn-text-lg tn-text-bold tn-text-center tn-padding">转赠（{{catchMoney(trandeNumber)}}海珠）</view>
+		   <view class="tn-text-center">服务费：{{(trandeNumber*0.05).toFixed(2)}}(最低：0.05)</view>
           <view class="tn-bg-gray--light"
                 style="border-radius: 10rpx;padding: 20rpx 30rpx;margin: 50rpx 20rpx 60rpx 20rpx;">
             <input type="number" placeholder="请输入支付密码" v-model="payPassword"
@@ -107,6 +108,10 @@ export default {
     this.userInfo = uni.getStorageSync("userInfo")
   },
   methods: {
+	  catchMoney(e){
+		  
+		  return e;
+	  },
     getuserInfo() {
       this.$http.postRequest('/kakabl/extenduser/center/userInfo', {})
           .then(res => {

@@ -19,55 +19,32 @@
 
       <view class="top-backgroup">
         <view class="top-backgroup-up">
-          <img width="100%" src="https://kakabl.oss-cn-beijing.aliyuncs.com/kk/index-bg.png" draggable="false">
+          <img width="100%" src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/index/index-bg.png" draggable="false">
 		</view>
         <view class="kk-bg-button tn-flex tn-flex-wrap tn-padding-xs">
 <!--          <image class="image-button"-->
 <!--                 src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/play-rule.png"-->
 <!--          ></image>-->
 
-          <view  style="width: 100%;"  @click="tn('/pages/share/share')" class="tn-flex tn-flex-wrap tn-padding-xs">
+          <view  style="width: 100%;"  @click="tn('/pages/guide/guide')" class="tn-flex tn-flex-wrap tn-padding-xs">
             <view class="kk-bg-button-rule" style="width: 100%;">
-				<image src="https://kakabl.oss-cn-beijing.aliyuncs.com/kk/player.png"></image>
+				<image src="https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/index/player.png"></image>
              
             </view>
           </view>
         </view>
       </view>
 
-      <view class="kk_home_swiper">
-
-        <!--        <view class="kk-bg-top">-->
-        <!--          <image class="image-bg"-->
-        <!--                 src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/bg-image.png"-->
-        <!--          ></image>-->
-        <!--        </view>-->
-
-
-        <!--        <view class="kaka_buy_top">-->
-        <!--          <view class="kaka_buy_name">卡卡部落卡</view>-->
-        <!--          <view class="kaka_buy_price">￥147.0/张</view>-->
-        <!--          <view class="kaka_buy_gif_left">1.1海珠 / 天</view>-->
-        <!--          <view class="kaka_buy_gif_right">会员权益 ×1</view>-->
-        <!--        </view>-->
-
-      </view>
-      <!--      <view class="kaka_buy_button">-->
-      <!--        <view class="buluo_button">-->
-      <!--          海珠兑换-->
-      <!--        </view>-->
-      <!--      </view>-->
-
       <view class="menu">
-        <view @click="tn('../product/product?id=1')" class="menu_left">
+        <view @click="tnSwitch('/pages/index/sea')" class="menu_left">
         </view>
         <view class="menu_center">
         </view>
         <view class="menu_right">
           <image  @click="tn('../product/productList')" 
-                 :src="'../../static/image/index/right_home_top.png'"></image>
+                 :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/index/right_home_top.png'"></image>
           <image @click="tn('../product/productList')"
-                 :src="'../../static/image/index/right_home_bottom.png'"></image>
+                 :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/index/right_home_bottom.png'"></image>
         </view>
       </view>
       <view class="indication">
@@ -144,7 +121,7 @@
     <view class='tn-tabbar-height'></view>
     <view class="bg-tabbar-shadow"></view>
 	<!-- #ifdef APP-PLUS -->
-    <wrap-version-update id="506542629056581"  	@check="habdleCheck"></wrap-version-update>
+    <wrap-version-update  id="508886484004933"  	@check="habdleCheck"></wrap-version-update>
 	<!-- #endif -->
 	
   </view>
@@ -158,11 +135,6 @@ export default {
       cardCur: 0,
       list: {},
       swiperList: [],
-      carouselList: [
-        {"imageCard": "https://kakabuluo.oss-cn-beijing.aliyuncs.com/one.jpg"},
-        {"imageCard": "https://kakabuluo.oss-cn-beijing.aliyuncs.com/two.jpg"},
-        {"imageCard": "https://kakabuluo.oss-cn-beijing.aliyuncs.com/three.jpg"}
-      ],
       current: 0,
       scrollList: [{
         name: '卡卡精选'
@@ -221,6 +193,11 @@ export default {
         url: e,
       });
     },
+	tnSwitch(e) {
+	  uni.switchTab({
+	    url: e,
+	  });
+	},
     stopTouchMove() {
       return false;
     }
@@ -402,7 +379,7 @@ export default {
 .menu_left {
   flex: 1;
   height: 212px;
-  background: url(../../static/image/index/left_home.png) no-repeat;
+  background: url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/index/left_home.png) no-repeat;
   background-size: 100% 100%;
   position: relative;
 }
@@ -441,53 +418,7 @@ export default {
   position: relative;
 }
 
-.kaka_buy_top {
-  width: 331px;
-  height: 65px;
-  background: url(https://demoh5.sxqichuangkeji.com/static/mainland/i37.png) no-repeat;
-  background-size: 100% 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 165px);
-}
 
-
-.kaka_buy_top .kaka_buy_name, .kaka_buy_top .kaka_buy_price {
-  color: #fff;
-  font-family: Alimama ShuHeiTi;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -.165px;
-}
-
-
-.kaka_buy_top .kaka_buy_gif_left,
-.kaka_buy_top .kaka_buy_gif_right {
-  width: 104px;
-  height: 36px;
-  background: url(https://demoh5.sxqichuangkeji.com/static/mainland/i47.png) no-repeat;
-  background-size: 100% 100%;
-  position: absolute;
-  top: -36px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  line-height: 28px;
-  font-size: 12px;
-  font-weight: 500;
-  z-index: 10;
-}
-
-.kaka_buy_top .kaka_buy_gif_left {
-  left: 11px;
-}
-
-.kaka_buy_top .kaka_buy_gif_right {
-  right: 0;
-}
 
 .kaka_buy_button {
   width: 100%;

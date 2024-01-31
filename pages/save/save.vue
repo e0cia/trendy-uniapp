@@ -25,14 +25,14 @@
             <view class="save-item-single-left-top">{{ item.itemName }}</view>
             <view class="save-item-single-left-center">{{ item.cycleNum }}天收益最大为</view>
             <view class="save-item-single-left-bottom">
-              <image src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/photo/p1.png"></image>
+              <image src="/static/image/bead/bead.png"></image>
               {{ item.needBead * item.rate }}
             </view>
           </view>
           <view class="save-item-single-right">
             <view class="save-item-single-right-top">消耗</view>
             <view class="save-item-single-right-center">
-              <image src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/photo/p1.png"></image>
+              <image src="/static/image/bead/bead.png"></image>
               {{ item.needBead }}
             </view>
 
@@ -56,7 +56,7 @@
         <view class="pop-need">
           <view class="pop-need1">需要消耗海珠</view>
           <view class="pop-need2">
-            <image src="https://kakabuluo.oss-cn-beijing.aliyuncs.com/photo/p1.png"></image>
+            <image src="/static/image/bead/bead.png"></image>
             {{ currentJionItem.needBead }}
           </view>
         </view>
@@ -449,7 +449,7 @@ export default {
 }
 
 .top-bg0image {
-  background: url(@/static/image/adven/tanxian-group.png) center center / 18.5312rem no-repeat;
+  background: url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/adven/tanxian-group.png) center center / 18.5312rem no-repeat;
   min-height: 180px;
 }
 

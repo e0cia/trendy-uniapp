@@ -1,7 +1,7 @@
 {
     "name" : "卡卡部落",
     "appid" : "__UNI__0A7C260",
-    "description" : "潮玩艺术",
+    "description" : "部落大战，与你一起",
     "versionName" : "1.0.1",
     "versionCode" : "100",
     "transformPx" : false,
@@ -74,6 +74,15 @@
                         "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
+            },
+            "splashscreen" : {
+                "androidStyle" : "default",
+                "android" : {
+                    "hdpi" : "static/image/share/poster.png",
+                    "xhdpi" : "static/image/share/poster.png",
+                    "xxhdpi" : "static/image/share/poster.png"
+                },
+                "useOriginalMsgbox" : false
             }
         }
     },

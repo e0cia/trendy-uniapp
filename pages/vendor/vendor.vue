@@ -1,5 +1,5 @@
 <template>
-  <view class="tn-safe-area-inset-bottom">
+  <view class="template-vendor tn-safe-area-inset-bottom">
     <!-- 顶部自定义导航 -->
     <tn-nav-bar fixed alpha customBack>
       <view slot="back" class='tn-custom-nav-bar__back' @click="goBack">
@@ -21,19 +21,19 @@
             </view>
             <view class="cwx">
               <image
-                  style="background-image: url(../static/image/contanct/wx.png); background-size: 100% 100%;"></image>
+                  style="background-image: url(/static/image/contanct/wx.png); background-size: 100% 100%;"></image>
               <text class="cwx-text">{{item.showWx}}</text>
               <image
 			  @click="copyContant(item.showWx)"
-                  style="width:14px;height: 14px;background-image: url(../static/image/contanct/copy.png); background-size: 100% 100%;"></image>
+                  style="width:14px;height: 14px;background-image: url(/static/image/contanct/copy.png); background-size: 100% 100%;"></image>
             </view>
             <view class="cqq">
               <image
-                  style="background-image: url(../static/image/contanct/qq.png); background-size: 100% 100%;"></image>
+                  style="background-image: url(/static/image/contanct/qq.png); background-size: 100% 100%;"></image>
               <text class="cqq-text">{{item.showQq}}</text>
               <image
 			    @click="copyContant(item.showQq)"
-                  style="width:14px;height: 14px;background-image: url(../static/image/contanct/copy.png); background-size: 100% 100%;"></image>
+                  style="width:14px;height: 14px;background-image: url(/static/image/contanct/copy.png); background-size: 100% 100%;"></image>
             </view>
           </view>
         </view>
@@ -112,10 +112,6 @@ export default {
   }
 }
 
-body, page {
-  background: #f9f9f9 !important;
-  font-weight: 200px;
-}
 
 .vendor-content {
   padding: 3.4375rem 0.9375rem 0.9375rem;
@@ -199,5 +195,9 @@ body, page {
       }
     }
   }
+}
+.template-vendor,.page{
+	height: 100vh;
+  background: #f9f9f9 !important;
 }
 </style>

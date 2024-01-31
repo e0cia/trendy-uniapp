@@ -7,6 +7,8 @@ export default {
         '/pages/index/index',
         '/pages/login/login',
         '/pages/forget/forget',
+		'/pages/policy/userAgreement',
+		'/pages/policy/privacyPolicy',
         {'pattern': RegExp(/register/)},
 
     ],

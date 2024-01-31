@@ -202,7 +202,7 @@
           <view class="agreen">
             <view @click="isSure()" class="flex-center radio-box">
               <view v-if="!isSureFlag" class="false"></view>
-              <image v-else class="sure" :src="'https://demoh5.sxqichuangkeji.com/static/public/i11.png'"></image>
+              <image v-else class="sure" :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/login/i11.png'"></image>
             </view>
             <view class="desc">
               <text class="text1">我已阅读并同意</text>
@@ -224,6 +224,9 @@
         :seconds="120"
         @change="codeChange">
     </tn-verification-code>
+	 <!-- #ifdef APP-PLUS -->
+	<web-view v-if="isShowWebView" src="/hybrid/html/caption.html"  @message="getCode" ></web-view>
+   <!-- #endif -->
   </view>
 </template>
 
@@ -236,6 +239,7 @@ export default {
   mixins: [template_page_mixin],
   data() {
     return {
+		isShowWebView:false,
       // 当前选中的模式 （0、账号密码登录 1、注册 2、登录）
       currentModeIndex: 0,
       // 模式选中滑块
@@ -300,12 +304,25 @@ export default {
 		  this.$t.message.toast('请输入正确的手机号');
 		  return;
 		}
-		var captcha = new TencentCaptcha('192025558', this.getCode, {})
+		/*#ifdef APP-PLUS*/
+		this.isShowWebView = true
+		  /*#endif*/
+		/*#ifdef H5*/
+		var captcha = new TencentCaptcha('190940249', this.getCode, {})
 		// 调用方法，显示验证码
 		captcha.show()
+		/*#endif*/
+
 	},
     // 获取验证码
-    getCode(res) {
+    getCode(resv) {
+		let res = resv;
+		 /*#ifdef APP-PLUS*/
+		 res = resv.detail.data[0].res;
+		this.isShowWebView = false
+		  /*#endif*/
+		
+		
 	  if (res.ret !== 0) {
 		 this.$t.message.toast('验证失败');
 		  return;
@@ -826,7 +843,7 @@ export default {
   height: 100vh;
   position: relative;
   background-size: 100%;
-  background: url(https://demoh5.sxqichuangkeji.com/static/login_bg.png) no-repeat;
+  background: url(https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/login/login_bg.png) no-repeat;
 }
 
 .kk-register-xieyi {

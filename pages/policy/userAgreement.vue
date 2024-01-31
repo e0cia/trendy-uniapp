@@ -27,7 +27,7 @@
         <p id="u708b8890" class="ne-p"><span class="ne-text">第一条 本应用平台服务</span></p>
 
         <ol class="ne-ol">
-          <li id="u7fbc4d00" data-lake-index-type="0"><span class="ne-text"> 本协议是由广西瀚乾信息科技有限公司的“卡帕部落”（简称“本应用”或者“我们”）与用户（或称为“您”）就您使用本应用产品和服务所做的权利义务的约定。 </span></li>
+          <li id="u7fbc4d00" data-lake-index-type="0"><span class="ne-text"> 本协议是由晋中九纤网络科技有限公司的“卡卡部落”（简称“本应用”或者“我们”）与用户（或称为“您”）就您使用本应用产品和服务所做的权利义务的约定。 </span></li>
           <li id="u413a25e6" data-lake-index-type="0"><span class="ne-text"> 除在APP中明确表明为“自营平台项目”（或类似表述）本应用仅作为用户提供淘宝（即由浙江淘宝网络有限公司经营的域名为taobao.com的网络零售网站平台）、天猫（即由浙江天猫网络有限公司经营的域名为tmall.com的网络零售网站平台）等购物平台（“外部电商平台”）中的商家提供产品及产品信息的展示平台。 </span></li>
           <li id="u50d071db" data-lake-index-type="0"><span class="ne-text"> 本应用平台为用户提供以下平台服务： </span></li>
         </ol>
@@ -167,7 +167,7 @@ export default {
   mixins: [template_page_mixin],
   data() {
     return {
-      url: 'https://www.yuque.com/yuanxun-api/ae2vbh/useragreement'
+     
     };
   }
 };

@@ -72,13 +72,13 @@
     <!-- 右边悬浮按钮   -->
     <view   class="float-right round position-bottom">
       <view  class="fix-right-item"  @click="tn('../rankingList/rankingList')">
-        <image class="image" :src="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/order.png'"></image>
+        <image class="image" :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/tribte/order.png'"></image>
       </view>
-      <view class="fix-right-item">
-        <image class="image" :src="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/book.png'"></image>
+      <view class="fix-right-item"  @click="tn('/pages/guide/guide')">
+        <image class="image" :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/tribte/book.png'"></image>
       </view>
       <view class="fix-right-item"  @click="haizhuGet()">
-        <image class="image" :src="'https://kakabl.oss-cn-beijing.aliyuncs.com/kk/bak.png'"></image>
+        <image class="image" :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/tribte/bak.png'"></image>
       </view>
     </view>
 
@@ -169,6 +169,11 @@ export default {
     this.getCurrntCardInfo();
   },
   methods: {
+	  tnSwitch(e) {
+	    uni.switchTab({
+	      url: e,
+	    });
+	  },
     getCurrntCardInfo() {
       this.$http.postRequest('/kakabl/inventory/getCardInfo', {})
           .then(res => {
