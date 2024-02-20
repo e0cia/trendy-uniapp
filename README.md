@@ -1,4 +1,4 @@
-![输入图片说明](static/7.jpg)![输入图片说明](static/6.jpg)![输入图片说明](static/5.jpg)![输入图片说明](static/4.jpg)![输入图片说明](static/3.jpg)![输入图片说明](static/2.jpg)
+
 
 <div align="center">
 
@@ -164,40 +164,19 @@ Redis
 
 ---
 
-###  📖 支持直流交流（云快充1.6/1.5）
+###  📖 后台管理演示
 
-![输入图片说明](image/硬件/硬件1.jpg)
-![输入图片说明](image/硬件/硬件2.jpg)
-![输入图片说明](image/硬件/硬件3.png)
+![输入图片说明](static/1.png)
+![输入图片说明](static/2.png)
+![输入图片说明](static/3.png)
 ---
 
 
-###  📻 感谢参与开发者
-#### 感谢大神们提交代码（排名不分先后）
-文哥、小兵、亮亮、喜峰、周强、单单
-
-欢迎<a href="https://gitee.com/chouleng/cdzkjjh/issues" target="_blank">反馈问题</a>
-
-欢迎<a href="https://gitee.com/chouleng/cdzkjjh/issues" target="_blank">提交代码</a>
 
 ---
 ###  📸 特别鸣谢
-排名不分先后，感谢这些软件的开发者：java、springcloud、vue、mysql、redis、uniapp、echarts、时序数据库、netty、mq、硬件通讯协议 等，如有遗漏请联系我！
+排名不分先后，感谢这些软件的开发者：java、springboot、vue、mysql、redis、uniapp、echarts、时序数据库、若依、mq、硬件通讯协议 等，如有遗漏请联系我！
 
----
-###  🎬 核心开发团队
-产品：周立
-
-技术：文哥、小兵、亮亮、喜峰、周强、单单、于强、明哥、小杨
-
-UI：ZLY、ZMD
-
-测试：冬天、蜗牛、小强
-
-硬件：亮、峰哥
-
-
----
 ###  📺 使用须知
 1、允许用于个人学习、毕业设计、教学案例、公益事业、商业使用；
 
@@ -210,16 +189,6 @@ UI：ZLY、ZMD
 ###  💾 版权信息
 
 本项目包含的第三方源码和二进制文件之版权信息另行标注。
-
-版权所有Copyright © 2017-2023 by JINGLI (http://wenhui.nxptdn.com)
-
-All rights reserved。
-
-
-
+所有的图片版权均为原作者所有，禁止倒卖源码，发现必维权
 
 ---
-
-[返回顶部 :fa-arrow-circle-up: ](https://gitee.com/chouleng/cdzkjjh)
-
-![输入图片说明](static/9.jpg)![输入图片说明](static/10.jpg)![输入图片说明](static/11.jpg)![输入图片说明](static/12.jpg)![输入图片说明](static/13.jpg)
