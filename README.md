@@ -2,13 +2,13 @@
 
 <div align="center">
 
-##   充电桩开源物联网系统JAVA版(文慧的科技江湖)  
+##  仿盘卡帕部落，链游，喵喵星球MIT全开源源码
 
 </div>
 
 <div align="center" >
-    <a href="http://wenhui.nxptdn.com">
-        <img src="https://www.circlai.com/" />
+    <a href="https://www.circlai.com/">
+        <img src="https://img.shields.io/badge/Licence-MIT-green.svg?style=flat" />
     </a>
     <a href="https://www.circlai.com/">
         <img src="https://img.shields.io/badge/Edition-5.2-blue.svg" />
@@ -20,16 +20,6 @@
 
 #### 
 
-<div align="center">
-
-[官网](http://wenhui.nxptdn.com/) |
-[四轮在线体验](http://charge-four.nxptdn.com/) |
-[二轮在线体验](http://charge.nxptdn.com/) |
-[帮助文档](http://wenhui.nxptdn.com/page/link) |
-
-[comment]: <> ([宽屏预览]&#40;https://gitee.com/chouleng/cdzkjjh/blob/master/README.md&#41;)
-
-</div>
 <div align="center" >
 <a href="https://gitee.com/chouleng/cdzkjjh/blob/master/README.md">宽屏预览</a>
 </div>
