@@ -15,7 +15,7 @@
           你好!
         </view>
         <view class="tn-margin tn-color-gray--dark tn-text-lg" style="font-weight: 700;font-size: 45rpx;">
-          欢迎登录卡卡部落
+          欢迎登录潮玩链游
         </view>
 
         <!-- 输入框内容-->
@@ -308,7 +308,7 @@ export default {
 		this.isShowWebView = true
 		  /*#endif*/
 		/*#ifdef H5*/
-		var captcha = new TencentCaptcha('190940249', this.getCode, {})
+		var captcha = new TencentCaptcha('197777777', this.getCode, {})
 		// 调用方法，显示验证码
 		captcha.show()
 		/*#endif*/

@@ -16,7 +16,7 @@
                    :src="'https://kakabl-1.oss-cn-beijing.aliyuncs.com/image/logo/logo.jpg'"></image>
           </view>
           <view>
-            卡卡部落<text class="top-image-version">
+            潮玩链游<text class="top-image-version">
 				<!-- #ifdef APP-PLUS -->
 				（V{{currentVersion}}）
 				<!-- #endif -->

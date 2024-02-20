@@ -14,7 +14,7 @@
         <view  class="desc">
           <span class="desc-text">KK TRIBE</span>
           <span class="desc-text-split">||</span>
-          <span class="desc-text">卡卡部落</span>
+          <span class="desc-text">潮玩链游</span>
         </view>
       </view>
 

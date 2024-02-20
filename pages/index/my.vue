@@ -283,7 +283,7 @@
 
     <view class="tn-text-center tn-margin-top-xl tn-padding-bottom-xl">
       <view @click="navTuniaoUI" style="opacity: 0.5;">
-        <text class="tn-color-blue--dark tn-padding-xs">卡卡部落</text>
+        <text class="tn-color-blue--dark tn-padding-xs">潮玩链游</text>
         <text class="tn-color-gray">提供技术支持</text>
       </view>
     </view>

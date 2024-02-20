@@ -9,11 +9,11 @@
       </view>
     </tn-nav-bar>
     <view :style="{paddingTop: vuex_custom_bar_height  + 'px'}" class="share-content">
-      <!--      备用https://api.nbhao.org/v1/qrcode/make?text=https://h5.xunfan.art/%23/pages/login/login&el=H&fc=steelblue&bc=white&s=500-->
+      <!--      备用https://api.nbhao.org/v1/qrcode/make?text=https://h5.xxx.com/%23/pages/login/login&el=H&fc=steelblue&bc=white&s=500-->
       <poster @success="posterSuccess"
               :imgSrc="'../../static/image/share/poster.png'"
-              :QrSrc="'https://api.qrserver.com/v1/create-qr-code/?size=391x391&data=https://h5.xunfan.art/%23/pages/login/login?inviteCode='+userInfo.inviteCode"
-              :Title="'卡卡部落'" :PriceTxt="'卡卡部落'" :ViewDetails="'激活码:'+userInfo.inviteCode"
+              :QrSrc="'https://api.qrserver.com/v1/create-qr-code/?size=391x391&data=https://h5.xxx.com/%23/pages/login/login?inviteCode='+userInfo.inviteCode"
+              :Title="'潮玩链游'" :PriceTxt="'潮玩链游'" :ViewDetails="'激活码:'+userInfo.inviteCode"
               :LineType="true"></poster>
     </view>
 

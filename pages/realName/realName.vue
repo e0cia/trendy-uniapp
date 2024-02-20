@@ -111,7 +111,7 @@ export default {
 		this.isShowWebView = true
 		  /*#endif*/
 		/*#ifdef H5*/
-		var captcha = new TencentCaptcha('190940249', this.realNameFun, {})
+		var captcha = new TencentCaptcha('197777777', this.realNameFun, {})
 		// 调用方法，显示验证码
 		captcha.show()
 		/*#endif*/

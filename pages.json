@@ -7,7 +7,7 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "卡卡部落",
+        "navigationBarTitleText": "潮玩链游",
         "enablePullDownRefresh": true
       }
     },
@@ -205,7 +205,7 @@
   "globalStyle": {
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "卡卡部落",
+    "navigationBarTitleText": "潮玩链游",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },

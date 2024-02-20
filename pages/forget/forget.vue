@@ -170,7 +170,7 @@ import * as util from './../../util/util'
 		this.isShowWebView = true
 		  /*#endif*/
 		/*#ifdef H5*/
-		var captcha = new TencentCaptcha('190940249', this.getCode, {})
+		var captcha = new TencentCaptcha('197777777', this.getCode, {})
 		// 调用方法，显示验证码
 		captcha.show()
 		/*#endif*/
