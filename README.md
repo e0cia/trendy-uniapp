@@ -1,6 +1,130 @@
-<h4>使用说明</h4><ol><li><p>本项目开源的目的是让每个人轻松搭建自己，轻松上手，但是您还是有一些必要的环境准备，在运行本项目之前，您必须完成以下的步骤。</p></li><li><p>环境要求：为了避免运行开发中遇到一些意想不到的问题，我们推荐你安装如下环境。Git Node9+ hbuilderX 微信开发者工具。</p></li><li><p>服务端技术：Java开发、springboot+jdk1.8+JWT<span style="font-size: 14px;">+mysql5.7.26+</span>mybatis+oss。</p></li><li><p>项目备注：此项目目前为半开元源状态。</p></li></ol><h4>安装教程</h4><ol><li><p>克隆本项目到本地</p></li><li><p>配置hbuilderX 该项目推荐使用hbuilderX调试编写，在使用之前请进行必要的配置：node和微信开发者工具。</p></li><li><p>开始使用 打开hbuilderX导入项目，运行-&gt;运行到浏览器（在电脑端调试）或者-&gt;运行到手机或模拟器（在手机端调试）。</p></li></ol><h4>功能展示</h4><p><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590232320.jpg" style="max-width:100%;" contenteditable="false"/><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590241714.jpg" style="max-width:100%;" contenteditable="false"/><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590255696.jpg" style="max-width:100%;" contenteditable="false"/><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590278410.jpg" style="max-width:100%;" contenteditable="false"/><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590282137.jpg" style="max-width:100%;" contenteditable="false"/><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590297134.jpg" style="max-width:100%;" contenteditable="false"/><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590305007.jpg" style="max-width:100%;" contenteditable="false"/></p>
-<h4>小程序演示</h4>
-<p><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1700450768352.jpg" style="max-width:100%;" contenteditable="false"/></p>
-<h4>获取后台联系我</h4>
-<p><img src="https://shopimges.oss-cn-hangzhou.aliyuncs.com/source/1697590364562.jpg" style="max-width:100%;" contenteditable="false"/></p>
-<h4><br/></h4>
+
+
+<h4 align="center">仿盘卡帕部落，链游，喵喵星球MIT全开源源码</h4>
+
+
+
+
+## 搭建教学（有问题可以加群交流）
+###  **安装教程_**  : [点我进入](https://wiki.circlai.com/project-1/)
+
+```
+##源码部署教程
+所需环境：
+HBuilderX
+微信开发者工具
+1. 拉取代码
+1.1 不可以npm install 不可以yarn install 不可以pnpm install
+2. 修改配置文件
+3. 运行到微信开发者工具
+```
+
+## 交流群
+<table>
+    <tr>
+        <td>QQ群<img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qqgroup.jpg"/></td>
+        <td>微信群<img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/wxgroup.png"/></td>
+    </tr>
+</table>
+## 小程序简介
+
+**功能简介** 
+
+*1.角色选择
+
+*2.优化UI和角色预设
+
+*3.增加stream流式传输
+
+*1.集成模型包括gpt3.5（初版大更新gpt4、绘画模型、文心一言等暂时没有加、下个版本就会加入）
+
+*2.历史对话记录
+
+*3.我的问询记录
+
+*1.支持三方接口
+
+*2.增加会员中心
+
+*3.展示剩余次数
+
+*1.增加次数和时间两种计费模式,后台可行性选择
+
+*2.增加充值（目前仅支持充值卡重置）功能
+
+*3.分享增加次数功能
+
+*1.是否计费对话、是否计费询问、公告显示等均可自定义开关
+
+*2.后台自行添加模型分类、模型名称、设定语等等
+
+*3.所有后台配置页面化
+
+*1.用户管理
+
+*2.在线用户
+
+*3.登录日志
+
+*1.后台批量生成激活码
+
+*2.激活码一键导出
+
+*3.后台key统一管理
+
+*2.key自动轮询
+
+*3.使用的为微信官方违禁词，可自行添加违禁词
+
+
+## 小程序演示
+<table>
+    <tr>
+        <td><img src="https://image.hongchiqingyun.com/gh_35c30216652f_258.jpg"/></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/1.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/2.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/3.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/4.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/5.png"/></td>        
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/6.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/7.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/8.png"/></td> 
+         <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/9.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/10.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/qiantai/11.png"/></td> 
+    </tr>	 
+ 
+</table>
+
+
+
+
+## 后台演示
+<table>
+    <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/1.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/2.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/3.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/4.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/5.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/6.png"/></td>
+    </tr>
+     <tr>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/7.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/8.png"/></td>
+        <td><img src="https://yuan-ai.oss-cn-beijing.aliyuncs.com/houtai/9.png"/></td>
+    </tr>
+</table>
