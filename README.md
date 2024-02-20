@@ -1,4 +1,4 @@
-
+![输入图片说明](static/7.jpg)![输入图片说明](static/6.jpg)![输入图片说明](static/5.jpg)![输入图片说明](static/4.jpg)![输入图片说明](static/3.jpg)![输入图片说明](static/2.jpg)
 
 <div align="center">
 
@@ -139,7 +139,6 @@ Redis
 
 ###  📱 系统演示
 
-![输入图片说明](image/二维码以及小程序二维码1.jpg)
 
 四轮管理后台： http://charge-four.nxptdn.com/
 
@@ -148,29 +147,20 @@ Redis
 
 ---
 
-###  🔐 安装教程(如何安装部署)
-
-想要快速安装，教程来助攻！<a href="http://wenhui.nxptdn.com" target="_blank">请参考每个工程都有READEME.md文档（详细部署文档）  查看安装教程！</a>
-
----
-
-###  📲 核心功能
-
-![输入图片说明](image/核心功能2.png)
-
-![输入图片说明](image/核心功能1.jpg)
-
-![输入图片说明](image/核心功能.png)
-
-
-
----
-
 ###  📖 UI界面展示
-
-![输入图片说明](image/UI界面/PC1.png)
-![输入图片说明](image/UI界面/PC2.png)
-![输入图片说明](image/UI界面/MB1.jpg)
+![输入图片说明](static/111.jpg)
+![输入图片说明](static/1.jpg)
+![输入图片说明](static/2.jpg)
+![输入图片说明](static/3.jpg)
+![输入图片说明](static/4.jpg)
+![输入图片说明](static/5.jpg)
+![输入图片说明](static/6.jpg)
+![输入图片说明](static/7.jpg)
+![输入图片说明](static/9.jpg)
+![输入图片说明](static/10.jpg)
+![输入图片说明](static/11.jpg)
+![输入图片说明](static/12.jpg)
+![输入图片说明](static/13.jpg)
 
 ---
 
@@ -232,3 +222,4 @@ All rights reserved。
 
 [返回顶部 :fa-arrow-circle-up: ](https://gitee.com/chouleng/cdzkjjh)
 
+![输入图片说明](static/9.jpg)![输入图片说明](static/10.jpg)![输入图片说明](static/11.jpg)![输入图片说明](static/12.jpg)![输入图片说明](static/13.jpg)
