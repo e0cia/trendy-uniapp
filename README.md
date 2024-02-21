@@ -103,7 +103,7 @@
 ### 📱后端源码 +QQ:466460950
 ### 📱后端源码 +QQ:466460950
 联系QQ二维码：
-![输入图片说明](static/qq.png)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/qq.png)
 ---
 
 ### 📱  系统亮点
@@ -156,27 +156,27 @@ h5/app：https://gitee.com/e0cia/trendy-uniapp
 ---
 
 ###  📖 UI界面展示
-![输入图片说明](static/111.jpg)
-![输入图片说明](static/1.jpg)
-![输入图片说明](static/2.jpg)
-![输入图片说明](static/3.jpg)
-![输入图片说明](static/4.jpg)
-![输入图片说明](static/5.jpg)
-![输入图片说明](static/6.jpg)
-![输入图片说明](static/7.jpg)
-![输入图片说明](static/9.jpg)
-![输入图片说明](static/10.jpg)
-![输入图片说明](static/11.jpg)
-![输入图片说明](static/12.jpg)
-![输入图片说明](static/13.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/111.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/1.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/2.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/3.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/4.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/5.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/6.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/7.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/9.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/10.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/11.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/12.jpg)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/13.jpg)
 
 ---
 
 ###  📖 后台管理演示
 
-![输入图片说明](static/1.png)
-![输入图片说明](static/2.png)
-![输入图片说明](static/3.png)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/1.png)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/2.png)
+![输入图片说明](https://gitee.com/e0cia/trendy-uniapp/raw/master/static/3.png)
 ---
 
 
