@@ -148,6 +148,9 @@ APP演示（未打包,基本和H5差不多。有在线更新功能）
 账号：17777777777 密码：abc112233
 2、管理后台演示地址：http://8.146.209.214:81/
 账号：admin 密码：abc112233
+3、源码地址
+h5/app：https://gitee.com/e0cia/trendy-uniapp
+后台管理：https://gitee.com/e0cia/trendy-uniapp-management-end
 ```
 
 ---
